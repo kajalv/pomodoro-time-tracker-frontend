@@ -1,0 +1,631 @@
+swagger: "2.0"
+info:
+  description: "Pomodoro Time Tracker RESTful API definition by Web3 team"
+  version: "1.0.3"
+  title: "Pomodoro Time Tracker"
+host: "localhost:5000"
+basePath: "/v1"
+tags:
+- name: "admin"
+  description: "Operations authorized to administrators"
+- name: "users"
+  description: "Everything about users"
+- name: "projects"
+  description: "Everything about projects"
+- name: "sessions"
+  description: "Everything about sessions"
+schemes:
+- "https"
+- "http"
+paths:
+  /admin/users:
+    post:
+      tags:
+      - "admin"
+      summary: "Create a new user"
+      operationId: "createUser"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "user"
+        description: "User object that needs to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/Users"
+      responses:
+        201:
+          description: "Successfully added new user"
+        400:
+          description: "Bad request"
+  /admin/users/{userId}:
+    delete:
+      tags:
+      - "admin"
+      summary: "Delete user by ID"
+      description: "Deletes a single user"
+      operationId: "deleteUserById"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "path"
+        name: "userId"
+        description: "ID of user to delete"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successful operation"
+        400:
+          description: "Bad request"
+        404:
+          description: "User not found"
+    put:
+      tags:
+      - "admin"
+      summary: "Update user by ID"
+      description: "Updates a single user"
+      operationId: "updateUserById"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "path"
+        name: "userId"
+        description: "ID of user to update"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Updated user object with firstname and lastname"
+        required: true
+        schema:
+          $ref: "#/definitions/Users"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Users"
+        400:
+          description: "Bad request"
+        404:
+          description: "User not found"
+  /admin/login:
+    post:
+      tags:
+      - "admin"
+      summary: "Authenticate administrator"
+      operationId: "loginAdmin"
+      consumes: 
+      - "application/json"
+      - "application/xml"
+      produces: 
+      - "application/xml"
+      - "application/json"
+      parameters: 
+      - in: "body"
+        name: "password"
+        description: "Admin password"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        201:
+          description: "Successfully logged in admin"
+        400:
+          description: "Bad request or invalid credentials"
+  /users:
+    get:
+      tags:
+      - "users"
+      summary: "Get the list of users"
+      description: "Get the list of users"
+      operationId: "getUsers"
+      produces:
+      - "application/json"
+      - "application/xml"
+      responses:
+        200:
+          description: "Successfully got the list of users"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Users"
+        400:
+          description: "Bad request"
+  /users/{userId}:
+    get:
+      tags:
+      - "users"
+      summary: "Get user by ID"
+      description: "Returns a single user"
+      operationId: "getUserById"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "path"
+        name: "userId"
+        description: "ID of user to return"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Users"
+        400:
+          description: "Bad request"
+        404:
+          description: "User not found"
+  /users/login:
+    post:
+      tags:
+      - "users"
+      summary: "Authenticate the user"
+      operationId: "loginUser"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "path"
+        name: "userId"
+        description: "ID of user to login"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Email address of user as an authentication"
+        required: true
+        schema:
+          type: object
+          required:
+          - "email"
+          properties:
+            email:
+              type: string
+              example: "example@email.com"
+      responses:
+        201:
+          description: "Successfully logged in user"
+        400:
+          description: "Bad request or invalid credentials"
+  /users/{userId}/projects:
+    post:
+      tags:
+      - "projects"
+      summary: "Add a new project for a user"
+      operationId: "addProject"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "path"
+        name: "userId"
+        description: "ID of user"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Project object that needs to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/Projects"
+      responses:
+        201:
+          description: "Successfully added new project"
+        400:
+          description: "Bad request"
+        404:
+          description: "User not found"
+    get:
+      tags:
+      - "projects"
+      summary: "Get the list of projects for a user"
+      description: "Get the list of projects for a user"
+      operationId: "getProjectsForUser"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "path"
+        name: "userId"
+        description: "ID of user"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successfully got the list of projects for the user"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Projects"
+        400:
+          description: "Bad request"
+        404:
+          description: "User not found"
+  /users/{userId}/projects/{projectId}:
+    get:
+      tags:
+      - "projects"
+      summary: "Get project by ID"
+      description: "Returns a single project belonging to a particular user"
+      operationId: "getProjectById"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "path"
+        name: "userId"
+        description: "ID of user to return"
+        required: true
+        type: "string"
+      - in: "path"
+        name: "projectId"
+        description: "ID of project to return"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Projects"
+        400:
+          description: "Bad request"
+        404:
+          description: "User or project not found"
+    delete:
+      tags:
+      - "projects"
+      summary: "Delete project by ID"
+      description: "Deletes a single project belonging to a particular user"
+      operationId: "deleteProjectById"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "path"
+        name: "userId"
+        description: "ID of user to delete"
+        required: true
+        type: "string"
+      - in: "path"
+        name: "projectId"
+        description: "ID of project to delete"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successful operation"
+        400:
+          description: "Bad request"
+        404:
+          description: "User or project not found"
+    put:
+      tags:
+      - "projects"
+      summary: "Update project by ID"
+      description: "Updates a single project belonging to a particular user"
+      operationId: "updateProjectById"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "path"
+        name: "userId"
+        description: "ID of user to update"
+        required: true
+        type: "string"
+      - in: "path"
+        name: "projectId"
+        description: "ID of project to update"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Updated project object"
+        required: true
+        schema:
+          $ref: "#/definitions/Projects"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Projects"
+        400:
+          description: "Bad request"
+        404:
+          description: "User or project not found"
+  /users/{userId}/projects/{projectId}/report:
+    get:
+      tags:
+      - "projects"
+      summary: "Generate the summary for a project"
+      operationId: "getProjectReport"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "path"
+        name: "userId"
+        description: "ID of user"
+        required: true
+        type: "string"
+      - in: "path"
+        name: "projectId"
+        description: "ID of project for report"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Timeframe of the report"
+        required: true
+        schema:
+          type: "object"
+          required:
+          - "startTime"
+          - "endTime"
+          properties:
+            startTime:
+              type: "string"
+              format: "date-time"
+            endTime:
+              type: "string"
+              format: "date-time"
+            
+        
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Report"
+        400:
+          description: "Bad request"
+        404:
+          description: "User or project not found"
+  /users/{userId}/sessions:
+    post:
+      tags:
+      - "sessions"
+      summary: "Add a new session for a user"
+      operationId: "addSession"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "path"
+        name: "userId"
+        description: "ID of user"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Session object that needs to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/Sessions"
+      responses:
+        201:
+          description: "Successfully added new session"
+        400:
+          description: "Bad request"
+        404:
+          description: "User not found"
+    get:
+      tags:
+      - "sessions"
+      summary: "Get the list of sessions for a user"
+      description: "Get the list of sessions for a user"
+      operationId: "getSessionsForUser"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "path"
+        name: "userId"
+        description: "ID of user"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successfully got the list of sessions for the user"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Sessions"
+        400:
+          description: "Bad request"
+        404:
+          description: "User not found"
+  /users/{userId}/session/{sessionId}:
+    get:
+      tags:
+      - "sessions"
+      summary: "Get session by ID"
+      description: "Returns a single session belonging to a particular user"
+      operationId: "getSessionById"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "path"
+        name: "userId"
+        description: "ID of user to return"
+        required: true
+        type: "string"
+      - in: "path"
+        name: "sessionId"
+        description: "ID of session to return"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Sessions"
+        400:
+          description: "Bad request"
+        404:
+          description: "User or session not found"
+    delete:
+      tags:
+      - "sessions"
+      summary: "Delete session by ID"
+      description: "Deletes a single session belonging to a particular user"
+      operationId: "deleteSessionById"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "path"
+        name: "userId"
+        description: "ID of user to delete"
+        required: true
+        type: "string"
+      - in: "path"
+        name: "sessionId"
+        description: "ID of session to delete"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successful operation"
+        400:
+          description: "Bad request"
+        404:
+          description: "User or session not found"
+    put:
+      tags:
+      - "sessions"
+      summary: "Update session by ID"
+      description: "Updates a single session belonging to a particular user"
+      operationId: "updateSessionById"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "path"
+        name: "userId"
+        description: "ID of user to update"
+        required: true
+        type: "string"
+      - in: "path"
+        name: "sessionId"
+        description: "ID of session to update"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Updated session object"
+        required: true
+        schema:
+          $ref: "#/definitions/Sessions"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Sessions"
+        400:
+          description: "Bad request"
+        404:
+          description: "User or session not found"
+definitions:
+  Users:
+    type: "object"
+    required:
+    - "userId"
+    - "firstName"
+    - "lastName"
+    - "email"
+    properties:
+      userId:
+        type: "string"
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      email:
+        type: "string"
+    xml:
+      name: "Users"
+  Projects:
+    type: "object"
+    required:
+    - "projectId"
+    - "projectName"
+    - "userId"
+    properties:
+      projectId:
+        type: "string"
+      projectName:
+        type: "string"
+      userId:
+        type: "string"
+        description: "The user to whom this project belongs"
+    xml:
+      name: "Projects"
+  Sessions:
+    type: "object"
+    required:
+    - "sessionId"
+    - "startTime"
+    - "endTime"
+    properties:
+      sessionId:
+        type: "string"
+      projectId:
+        type: "string"
+        description: "The project to which this session belongs"
+      startTime:
+        type: "string"
+        format: "date-time"
+      endTime:
+        type: "string"
+        format: "date-time"
+    xml:
+      name: "Sessions"
+  Report:
+    type: "object"
+    required:
+    - "projectId"
+    - "numPomodoros"
+    - "startTime"
+    - "endTime"
+    properties:
+      projectId:
+        type: "string"
+        description: "Project in the report"
+      numPomodoros:
+        type: "integer"
+        description: "Number of pomodoros completed in the timeframe"
+      startTime:
+        type: "string"
+        format: "date-time"
+      endTime:
+        type: "string"
+        format: "date-time"
+    xml:
+      name: "Report"
