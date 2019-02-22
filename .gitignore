@@ -1,0 +1,4 @@
+PTTBackendTests/.gradle/*
+PTTBackendTests/.idea/*
+PTTBackendTests/build/*
+*.iml
