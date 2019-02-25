@@ -640,7 +640,7 @@ public class PTTBackendTests {
             response.close();
 
 
-            CloseableHttpResponse response = createProject("0", "MyFirstProject");
+            response = createProject("0", "MyFirstProject");
             // EntityUtils.consume(response.getEntity());
             id = getIdFromResponse(response);
             expectedJson += "[{\"id\":\"" + id + "\",\"projectname\":\"MyFirstProject\",\"userId\":\"0\"}";
@@ -660,8 +660,7 @@ public class PTTBackendTests {
 
             response = getAllProjects("0");
 
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            status = response.getStatusLine().getStatusCode();
             String strResponse;
             if (status == 200) {
                 entity = response.getEntity();
@@ -689,7 +688,6 @@ public class PTTBackendTests {
     public void getAllProjectsTest_2() throws Exception {
         httpclient = HttpClients.createDefault();
         deleteUsers();
-        String id = null;
         String expectedJson = "";
 
         try {
@@ -708,8 +706,7 @@ public class PTTBackendTests {
             expectedJson = "[]";
             response = getAllProjects("0");
 
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            status = response.getStatusLine().getStatusCode();
             String strResponse;
             if (status == 200) {
                 entity = response.getEntity();
@@ -737,8 +734,6 @@ public class PTTBackendTests {
     public void getAllProjectsTest_3() throws Exception {
         httpclient = HttpClients.createDefault();
         deleteUsers();
-        String id = null;
-        String expectedJson = "";
 
         try {
             CloseableHttpResponse response;
@@ -746,8 +741,6 @@ public class PTTBackendTests {
             response = getAllProjects("0");
 
             int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
-            String strResponse;
             if (status == 404) {
                 System.out.println("*** String response (" + status + ") ***");
             } else {
@@ -769,8 +762,6 @@ public class PTTBackendTests {
     public void getAllProjectsTest_4() throws Exception {
         httpclient = HttpClients.createDefault();
         deleteUsers();
-        String id = null;
-        String expectedJson = "";
 
         try {
             CloseableHttpResponse response;
@@ -778,8 +769,6 @@ public class PTTBackendTests {
             response = getAllProjects("aaa");
 
             int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
-            String strResponse;
             if (status == 400) {
                 System.out.println("*** String response (" + status + ") ***");
             } else {
@@ -801,8 +790,6 @@ public class PTTBackendTests {
     public void getAllProjectsTest_5() throws Exception {
         httpclient = HttpClients.createDefault();
         deleteUsers();
-        String id = null;
-        String expectedJson = "";
 
         try {
             CloseableHttpResponse response;
@@ -810,8 +797,6 @@ public class PTTBackendTests {
             response = getAllProjects("-1");
 
             int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
-            String strResponse;
             if (status == 400) {
                 System.out.println("*** String response (" + status + ") ***");
             } else {
@@ -848,9 +833,8 @@ public class PTTBackendTests {
             response.close();
 
 
-            CloseableHttpResponse response = createProject("0", "MyFirstProject");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = createProject("0", "MyFirstProject");
+            status = response.getStatusLine().getStatusCode();
             if (status == 201) {
                 entity = response.getEntity();
             } else {
@@ -895,9 +879,8 @@ public class PTTBackendTests {
             response.close();
 
 
-            CloseableHttpResponse response = createProject("1", "MyFirstProject");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = createProject("1", "MyFirstProject");
+            status = response.getStatusLine().getStatusCode();
             if (status == 404) {
                 System.out.println("*** String response (" + status + ") ***");
             } else {
@@ -933,9 +916,8 @@ public class PTTBackendTests {
             response.close();
 
 
-            CloseableHttpResponse response = createProject("aaa", "MyFirstProject");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = createProject("aaa", "MyFirstProject");
+            status = response.getStatusLine().getStatusCode();
             if (status == 400) {
                 System.out.println("*** String response (" + status + ") ***");
             } else {
@@ -953,7 +935,7 @@ public class PTTBackendTests {
      * Create project without a project name
      * expect return 400
      */
-    public void createProjectTest_2() throws Exception {
+    public void createProjectTest_4() throws Exception {
         httpclient = HttpClients.createDefault();
         deleteUsers();
 
@@ -971,9 +953,8 @@ public class PTTBackendTests {
             response.close();
 
 
-            CloseableHttpResponse response = createProject("0", "");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = createProject("0", "");
+            status = response.getStatusLine().getStatusCode();
             if (status == 400) {
                 System.out.println("*** String response (" + status + ") ***");
             } else {
@@ -1011,7 +992,7 @@ public class PTTBackendTests {
             response.close();
 
 
-            CloseableHttpResponse response = createProject("0", "MyFirstProject");
+            response = createProject("0", "MyFirstProject");
             // EntityUtils.consume(response.getEntity());
             id = getIdFromResponse(response);
             expectedJson += "{\"id\":\"" + id + "\",\"projectname\":\"MyFirstProject\",\"userId\":\"0\"}";
@@ -1019,8 +1000,8 @@ public class PTTBackendTests {
 
             response = getProject("0", "0");
 
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            status = response.getStatusLine().getStatusCode();
+            
             String strResponse;
             if (status == 200) {
                 entity = response.getEntity();
@@ -1048,8 +1029,6 @@ public class PTTBackendTests {
     public void getProjectTest_2() throws Exception {
         httpclient = HttpClients.createDefault();
         deleteUsers();
-        String id = null;
-        String expectedJson = "";
 
         try {
             CloseableHttpResponse response = createUser("John", "Doe", "user1@ptt.org");
@@ -1066,9 +1045,8 @@ public class PTTBackendTests {
 
             response = getProject("1", "0");
 
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
-            String strResponse;
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 404) {
                 System.out.println("*** String response (" + status + ") ***");
             } else {
@@ -1089,8 +1067,6 @@ public class PTTBackendTests {
     public void getProjectTest_3() throws Exception {
         httpclient = HttpClients.createDefault();
         deleteUsers();
-        String id = null;
-        String expectedJson = "";
 
         try {
             CloseableHttpResponse response = createUser("John", "Doe", "user1@ptt.org");
@@ -1107,9 +1083,8 @@ public class PTTBackendTests {
 
             response = getProject("0", "0");
 
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
-            String strResponse;
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 404) {
                 System.out.println("*** String response (" + status + ") ***");
             } else {
@@ -1130,8 +1105,6 @@ public class PTTBackendTests {
     public void getProjectTest_4() throws Exception {
         httpclient = HttpClients.createDefault();
         deleteUsers();
-        String id = null;
-        String expectedJson = "";
 
         try {
             CloseableHttpResponse response = createUser("John", "Doe", "user1@ptt.org");
@@ -1148,9 +1121,8 @@ public class PTTBackendTests {
 
             response = getProject("aaa", "0");
 
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
-            String strResponse;
+            status = response.getStatusLine().getStatusCode();
+
             if (status == 400) {
                 System.out.println("*** String response (" + status + ") ***");
             } else {
@@ -1171,8 +1143,6 @@ public class PTTBackendTests {
     public void getProjectTest_5() throws Exception {
         httpclient = HttpClients.createDefault();
         deleteUsers();
-        String id = null;
-        String expectedJson = "";
 
         try {
             CloseableHttpResponse response = createUser("John", "Doe", "user1@ptt.org");
@@ -1189,9 +1159,8 @@ public class PTTBackendTests {
 
             response = getProject("0", "aaa");
 
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
-            String strResponse;
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 400) {
                 System.out.println("*** String response (" + status + ") ***");
             } else {
@@ -1226,9 +1195,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = createProject("0", "MyFirstProject");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = createProject("0", "MyFirstProject");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 201) {
                 entity = response.getEntity();
             } else {
@@ -1237,9 +1206,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = udpateProject("0", "0", "Update_MyFirstProject");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = updateProject("0", "0", "Update_MyFirstProject");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 200) {
                 entity = response.getEntity();
             } else {
@@ -1282,9 +1251,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = createProject("0", "MyFirstProject");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = createProject("0", "MyFirstProject");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 201) {
                 entity = response.getEntity();
             } else {
@@ -1293,9 +1262,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = udpateProject("1", "0", "Update_MyFirstProject");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = updateProject("1", "0", "Update_MyFirstProject");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 404) {
                 System.out.println("*** String response (" + status + ") ***");
             } else {
@@ -1330,9 +1299,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = createProject("0", "MyFirstProject");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = createProject("0", "MyFirstProject");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 201) {
                 entity = response.getEntity();
             } else {
@@ -1341,9 +1310,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = udpateProject("0", "1", "Update_MyFirstProject");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = updateProject("0", "1", "Update_MyFirstProject");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 404) {
                 System.out.println("*** String response (" + status + ") ***");
             } else {
@@ -1378,9 +1347,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = createProject("0", "MyFirstProject");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = createProject("0", "MyFirstProject");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 201) {
                 entity = response.getEntity();
             } else {
@@ -1389,9 +1358,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = udpateProject("aaa", "0", "Update_MyFirstProject");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = updateProject("aaa", "0", "Update_MyFirstProject");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 400) {
                 System.out.println("*** String response (" + status + ") ***");
             } else {
@@ -1426,9 +1395,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = createProject("0", "MyFirstProject");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = createProject("0", "MyFirstProject");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 201) {
                 entity = response.getEntity();
             } else {
@@ -1437,9 +1406,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = udpateProject("0", "aaa", "Update_MyFirstProject");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = updateProject("0", "aaa", "Update_MyFirstProject");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 400) {
                 System.out.println("*** String response (" + status + ") ***");
             } else {
@@ -1474,9 +1443,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = createProject("0", "MyFirstProject");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = createProject("0", "MyFirstProject");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 201) {
                 entity = response.getEntity();
             } else {
@@ -1485,9 +1454,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = deleteProject("0", "0");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = deleteProject("0", "0");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 200) {
                 entity = response.getEntity();
             } else {
@@ -1530,9 +1499,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = createProject("0", "MyFirstProject");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = createProject("0", "MyFirstProject");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 201) {
                 entity = response.getEntity();
             } else {
@@ -1541,9 +1510,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = deleteProject("1", "0");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = deleteProject("1", "0");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 404) {
                 System.out.println("*** String response (" + status + ") ***");
             } else {
@@ -1578,9 +1547,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = createProject("0", "MyFirstProject");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = createProject("0", "MyFirstProject");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 201) {
                 entity = response.getEntity();
             } else {
@@ -1589,9 +1558,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = deleteProject("0", "1");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = deleteProject("0", "1");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 404) {
                 System.out.println("*** String response (" + status + ") ***");
             } else {
@@ -1626,9 +1595,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = createProject("0", "MyFirstProject");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = createProject("0", "MyFirstProject");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 201) {
                 entity = response.getEntity();
             } else {
@@ -1637,9 +1606,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = deleteProject("aaa", "0");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = deleteProject("aaa", "0");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 400) {
                 System.out.println("*** String response (" + status + ") ***");
             } else {
@@ -1674,9 +1643,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = createProject("0", "MyFirstProject");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = createProject("0", "MyFirstProject");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 201) {
                 entity = response.getEntity();
             } else {
@@ -1685,9 +1654,9 @@ public class PTTBackendTests {
             // EntityUtils.consume(response.getEntity());
             response.close();
 
-            CloseableHttpResponse response = deleteProject("0", "aaa");
-            int status = response.getStatusLine().getStatusCode();
-            HttpEntity entity;
+            response = deleteProject("0", "aaa");
+            status = response.getStatusLine().getStatusCode();
+            
             if (status == 400) {
                 System.out.println("*** String response (" + status + ") ***");
             } else {
@@ -1874,7 +1843,7 @@ public class PTTBackendTests {
         return response;
     }
     
-    private CloseableHttpResponse deleteProject(String userId, String proejctId) throws IOException {
+    private CloseableHttpResponse deleteProject(String userId, String projectId) throws IOException {
         HttpDelete httpDelete = new HttpDelete(baseUrl + "/ptt/users/" + userId + "/projects/" + projectId);
         httpDelete.addHeader("accept", "application/json");
     
