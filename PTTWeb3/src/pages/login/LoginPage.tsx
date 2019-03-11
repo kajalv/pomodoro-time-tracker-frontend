@@ -1,6 +1,6 @@
 import React from 'react';
 import { Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox, Backdrop } from '@material-ui/core';
-import { Face, Fingerprint } from '@material-ui/icons'
+import { Face, Fingerprint } from '@material-ui/icons';
 
 
 const styles = (theme: any) => ({

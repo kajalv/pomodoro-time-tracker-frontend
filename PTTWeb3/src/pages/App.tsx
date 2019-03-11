@@ -4,35 +4,20 @@ import './App.css';
 import Button from '../components/Button';
 import '../constants/index';
 import { APP_NAME } from '../constants/index';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Login from './login/LoginPage';
+import Home from './Home/HomePage';
 
 class App extends Component {
 
-  handleClick = () => {
-    console.log("click event");
-  }
-
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          <Button 
-            onClickFunction = {this.handleClick}
-            buttonText = {APP_NAME}
-          />
-        </header>
-      </div>
+      <Router>
+        <div>
+          <Route exact path="/" component={Home} />
+          <Route path="/login" component={Login} />
+        </div>
+      </Router>
     );
   }
 }
