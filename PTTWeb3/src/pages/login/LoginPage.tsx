@@ -1,7 +1,7 @@
 import React from 'react';
 import { Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox, Backdrop } from '@material-ui/core';
 import { Face, Fingerprint } from '@material-ui/icons';
-
+import {Link} from 'react-router-dom';
 
 const styles = (theme: any) => ({
   margin: {
@@ -39,7 +39,9 @@ class LoginPage extends React.Component {
                 </Grid>
               </Grid>
               <Grid container justify="center" style={{ marginTop: '20px' }}>
-                <Button variant="outlined" color="primary" style={{ textTransform: "none" }} id="userButton">Login as User</Button>
+                <Link to='/userpage' style={{ textDecoration: 'none' }}>
+                  <Button variant="outlined" color="primary" style={{ textTransform: "none" }} id="userButton">Login as User</Button>
+                </Link>
               </Grid>
             </div>
           </Paper>
@@ -54,7 +56,9 @@ class LoginPage extends React.Component {
                 </Grid>
               </Grid>
               <Grid container justify="center" style={{ marginTop: '20px' }}>
-                <Button variant="outlined" color="primary" style={{ textTransform: "none" }} id="adminButton">Login as Admin</Button>
+                <Link to='/adminpage' style={{ textDecoration: 'none' }}>
+                  <Button variant="outlined" color="primary" style={{ textTransform: "none" }} id="adminButton">Login as Admin</Button>
+                </Link>
               </Grid>
             </div>
           </Paper>
