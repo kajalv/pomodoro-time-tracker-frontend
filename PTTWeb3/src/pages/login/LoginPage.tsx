@@ -1,7 +1,7 @@
 import React from 'react';
 import { Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox, Backdrop } from '@material-ui/core';
 import { Face, Fingerprint } from '@material-ui/icons';
-import {Link} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 const styles = (theme: any) => ({
   margin: {
@@ -12,7 +12,31 @@ const styles = (theme: any) => ({
   }
 });
 
-class LoginPage extends React.Component {
+interface LoginState {
+  userLoggedIn: boolean,
+  adminLoggedIn: boolean
+}
+
+class LoginPage extends React.Component<any, LoginState> {
+  state: LoginState;
+
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      userLoggedIn: false,
+      adminLoggedIn: false,
+    }
+  }
+
+
+  handleUserLogin = async () => {
+    this.setState({ adminLoggedIn: true });
+  }
+
+  handleAdminLogin = async () => {
+    this.setState({ userLoggedIn: true });
+  }
+
   render() {
     var classes = {
       login: "login",
@@ -23,8 +47,12 @@ class LoginPage extends React.Component {
       titleDesc: "titleDesc"
     }
 
-    return (
-
+    if (this.state.adminLoggedIn) {
+      return (<Redirect push to='/adminpage' />);
+    } else if (this.state.userLoggedIn) {
+      return (<Redirect push to='/userpage' />);
+    } else {
+      return (
         <div className={classes.loginContainer}>
           <h1 id={classes.titleHeader}>Pomodoro Time Tracker</h1>
           <p id={classes.titleDesc}>Welcome to the Pomodoro Time Tracker application! Login as a user or administrator below.</p>
@@ -39,9 +67,7 @@ class LoginPage extends React.Component {
                 </Grid>
               </Grid>
               <Grid container justify="center" style={{ marginTop: '20px' }}>
-                <Link to='/userpage' style={{ textDecoration: 'none' }}>
-                  <Button variant="outlined" color="primary" style={{ textTransform: "none" }} id="userButton">Login as User</Button>
-                </Link>
+                <Button onClick={this.handleUserLogin} variant="outlined" color="primary" style={{ textTransform: "none" }} id="userButton">Login as User</Button>
               </Grid>
             </div>
           </Paper>
@@ -56,15 +82,13 @@ class LoginPage extends React.Component {
                 </Grid>
               </Grid>
               <Grid container justify="center" style={{ marginTop: '20px' }}>
-                <Link to='/adminpage' style={{ textDecoration: 'none' }}>
-                  <Button variant="outlined" color="primary" style={{ textTransform: "none" }} id="adminButton">Login as Admin</Button>
-                </Link>
+                <Button onClick={this.handleAdminLogin} variant="outlined" color="primary" style={{ textTransform: "none" }} id="adminButton">Login as Admin</Button>
               </Grid>
             </div>
           </Paper>
         </div>
-
-    );
+      );
+    }
   }
 }
 
