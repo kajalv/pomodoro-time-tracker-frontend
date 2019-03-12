@@ -5,10 +5,10 @@ import Button from '../components/Button';
 import '../constants/index';
 import { APP_NAME } from '../constants/index';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Login from './Login/LoginPage';
-import Home from './Home/HomePage';
-import UserPage from './userdashboard/UserPage';
-import AdminPage from './admindashboard/AdminPage';
+import Login from './page_login/LoginPage';
+import Home from './page_home/HomePage';
+import UserPage from './dashboard_user/UserPage';
+import AdminPage from './dashboard_admin/AdminPage';
 
 class App extends Component {
 
