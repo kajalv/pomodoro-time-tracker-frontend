@@ -14,7 +14,8 @@ const styles = (theme: any) => ({
 
 interface LoginState {
   userLoggedIn: boolean,
-  adminLoggedIn: boolean
+  adminLoggedIn: boolean,
+  user: number
 }
 
 class LoginPage extends React.Component<any, LoginState> {
@@ -25,16 +26,20 @@ class LoginPage extends React.Component<any, LoginState> {
     this.state = {
       userLoggedIn: false,
       adminLoggedIn: false,
+      user: 0,
     }
   }
 
 
   handleUserLogin = async () => {
-    this.setState({ adminLoggedIn: true });
+    this.setState({ 
+      userLoggedIn: true,
+      user: 1
+    });
   }
 
   handleAdminLogin = async () => {
-    this.setState({ userLoggedIn: true });
+    this.setState({ adminLoggedIn: true });
   }
 
   render() {
@@ -47,10 +52,12 @@ class LoginPage extends React.Component<any, LoginState> {
       titleDesc: "titleDesc"
     }
 
+    console.log(this.state);
+
     if (this.state.adminLoggedIn) {
       return (<Redirect push to='/adminpage' />);
     } else if (this.state.userLoggedIn) {
-      return (<Redirect push to='/userpage' />);
+      return (<Redirect push to={'/user/'+this.state.user} />);
     } else {
       return (
         <div className={classes.loginContainer}>
