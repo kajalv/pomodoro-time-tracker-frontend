@@ -18,6 +18,22 @@ code {
 
 /* CSS classes for UI */
 
+#adminid, #username {
+  color: gray;
+}
+
+.loginContainer .login .inputContainerGrid label {
+  color: gray;
+}
+
+.loginContainer .login .inputContainerGrid div:hover {
+  border-bottom: 0x solid gray;
+}
+
+.loginContainer .login .inputContainerGrid div::after {
+  border-bottom: 2px solid gray;
+}
+
 .loginContainer, .projects-page {
 	padding: 20px;
 }
@@ -35,24 +51,31 @@ code {
 	color: tomato;
 }
 
-.header-nav {
+div.header-nav {
   text-transform: uppercase;
   text-align: center;
   font-weight: bold;
   border-bottom: 2px solid tomato;
   color: tomato;
   padding-bottom: 10px;
-  margin: 0px !important;
-  width: 100% !important;
+  margin: 0px;
+  width: 100%;
 }
 
-.project-details {
+div.project-item {
+  text-align: center;
+  margin: 0px;
+  width: 100%;
+}
+
+li.project-details {
   border-bottom: 1px solid black;
+  padding: 5px 0px;
 }
 
 .project-details > div {
   font-size: 10pt;
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 ul.project-list {
@@ -65,15 +88,10 @@ ul.project-list {
 }
 
 #userButton, #adminButton {
-	border: 1px solid rgba(0, 0, 0, 0.2);
 	color: rgba(0, 0, 0, 0.5);
 }
 
-.button-edit, .button-delete {
-  border: 1px solid rgba(0, 0, 0, 0.2) !important;
-}
-
-.button-edit span, .button-delete span {
+.button-edit span, .button-delete span, .button-create span {
 	color: rgba(0, 0, 0, 0.5);
 }
 
@@ -81,4 +99,8 @@ ul.project-list {
   position: fixed;
   top: 50%;
   left: 50%;
+}
+
+button.button-create {
+  margin-top: 10px;
 }

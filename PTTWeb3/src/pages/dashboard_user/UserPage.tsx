@@ -4,6 +4,7 @@ import {ClipLoader} from 'react-spinners';
 import {User} from '../../types/UserInterface';
 import {Project} from '../../types/ProjectInterface';
 import {List, ListItem, Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox, Backdrop} from '@material-ui/core';
+import Dialog from '@material-ui/core/Dialog';
 
 // match the id paremeter from the path.
 interface MatchParam {
@@ -66,9 +67,15 @@ class UserPage extends React.Component<UserPageProps> {
     console.log("edit project");
   };
 
-  handleProjectDelete = async () => {
-    console.log("delete project");
+  handleProjectDelete(i:number) {
+    if (window.confirm('This project has time logged to it. Are you sure you wish to delete it?')) {
+      // TODO: Delete project
+    }
   };
+
+  handleCreateProject() {
+    alert("todo: create project")
+  }
 
   render() {
 
@@ -79,11 +86,13 @@ class UserPage extends React.Component<UserPageProps> {
       projDetails: 'project-details',
       editButton: 'button-edit',
       deleteButton: 'button-delete',
+      createButton: 'button-create',
       projectsPage: 'projects-page',
       projectList: 'project-list',
       spinnerDiv: 'spinner-div',
       titleHeader: "titleHeader",
       titleDesc: "titleDesc",
+      projitem: 'project-item',
       fas: 'fas',
       faedit: 'fa-edit'
     } );
@@ -93,6 +102,9 @@ class UserPage extends React.Component<UserPageProps> {
       <div className={classes.projectsPage}>
         <h1 id={classes.titleHeader}>User: {this.state.user.userName}</h1>
         <p id={classes.titleDesc}>The list of projects that you've created is available below.</p>
+        <Button className={classes.createButton} variant="contained" style={{ textTransform: "none" }} onClick={this.handleCreateProject}>
+          Create a New Project
+        </Button>
         <Paper style={{ maxWidth: 800, marginTop: 30 }}>
         <List className={classes.projectList}>
           <Grid container spacing={8} alignItems="flex-end" className={classes.headernav}>
@@ -112,7 +124,7 @@ class UserPage extends React.Component<UserPageProps> {
 
           {this.state.user.projects.map((currentProject, i) =>
             <ListItem className={classes.projDetails}>
-              <Grid container spacing={8} alignItems="flex-end">
+              <Grid container spacing={8} alignItems="flex-end" className={classes.projitem} style={{flexGrow: 1, justifyContent:'center', alignItems:'center'}}>
                 <Grid item md={true} sm={true} xs={true}>
                   {currentProject.projectId}
                 </Grid>
@@ -122,17 +134,10 @@ class UserPage extends React.Component<UserPageProps> {
                 <Grid item md={true} sm={true} xs={true}>
                   {currentProject.sessionCount}
                 </Grid>
-                <Grid container md={true} sm={true} xs={true}>
-                  <Grid item md={true} sm={true} xs={true}>
-                    <Button className={classes.editButton} onClick={this.handleProjectEdit} variant="outlined" color="primary" style={{ textTransform: "none" }}>
-                      Edit
-                    </Button>
-                  </Grid>
-                  <Grid item md={true} sm={true} xs={true}>
-                    <Button className={classes.deleteButton} onClick={this.handleProjectDelete} variant="outlined" color="primary" style={{ textTransform: "none" }}>
-                      Delete
-                    </Button>
-                  </Grid>
+                <Grid item md={true} sm={true} xs={true}>
+                  <Button id={"delete" + i} className={classes.deleteButton} onClick={() => this.handleProjectDelete(i)} variant="contained" style={{ textTransform: "none" }}>
+                    Delete
+                  </Button>
                 </Grid>
               </Grid>
             </ListItem> )}

@@ -58,7 +58,8 @@ class LoginPage extends React.Component<any, LoginState> {
       homePage: "homePage",
       margin: "margin",
       titleHeader: "titleHeader",
-      titleDesc: "titleDesc"
+      titleDesc: "titleDesc",
+      inputContainerGrid: "inputContainerGrid"
     }
 
     console.log(this.state);
@@ -78,12 +79,12 @@ class LoginPage extends React.Component<any, LoginState> {
                 <Grid item>
                   <Face />
                 </Grid>
-                <Grid item md={true} sm={true} xs={true}>
+                <Grid item md={true} sm={true} xs={true} className={classes.inputContainerGrid}>
                   <TextField id="username" label="User Name" type="email" fullWidth autoFocus required />
                 </Grid>
               </Grid>
               <Grid container justify="center" style={{ marginTop: '20px' }}>
-                <Button onClick={this.handleUserLogin} variant="outlined" color="primary" style={{ textTransform: "none" }} id="userButton">Login as User</Button>
+                <Button onClick={this.handleUserLogin} variant="contained" style={{ textTransform: "none" }} id="userButton">Login as User</Button>
               </Grid>
             </div>
           </Paper>
@@ -93,12 +94,12 @@ class LoginPage extends React.Component<any, LoginState> {
                 <Grid item>
                   <Fingerprint />
                 </Grid>
-                <Grid item md={true} sm={true} xs={true}>
+                <Grid item md={true} sm={true} xs={true} className={classes.inputContainerGrid}>
                   <TextField id="adminid" label="Admin ID" type="email" fullWidth autoFocus required />
                 </Grid>
               </Grid>
               <Grid container justify="center" style={{ marginTop: '20px' }}>
-                <Button onClick={this.handleAdminLogin} variant="outlined" color="primary" style={{ textTransform: "none" }} id="adminButton">Login as Admin</Button>
+                <Button onClick={this.handleAdminLogin} variant="contained" style={{ textTransform: "none" }} id="adminButton">Login as Admin</Button>
               </Grid>
             </div>
           </Paper>
