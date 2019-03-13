@@ -104,3 +104,19 @@ ul.project-list {
 button.button-create {
   margin-top: 10px;
 }
+
+div.homePage {
+  text-align: center;
+}
+
+.homePage img {
+  width: 558px;
+  overflow: hidden;
+  margin: 0;
+  margin: 0 0 -100px 0;
+}
+
+.loginLink {
+  padding: 5px 10px;
+  color: black;
+}
