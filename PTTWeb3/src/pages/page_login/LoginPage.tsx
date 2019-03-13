@@ -84,7 +84,7 @@ class LoginPage extends React.Component<any, LoginState> {
                 </Grid>
               </Grid>
               <Grid container justify="center" style={{ marginTop: '20px' }}>
-                <Button onClick={this.handleUserLogin} variant="contained" style={{ textTransform: "none" }} id="userButton">Login as User</Button>
+                <Button onClick={this.handleUserLogin.bind(this)} variant="contained" style={{ textTransform: "none" }} id="userButton">Login as User</Button>
               </Grid>
             </div>
           </Paper>
@@ -99,7 +99,7 @@ class LoginPage extends React.Component<any, LoginState> {
                 </Grid>
               </Grid>
               <Grid container justify="center" style={{ marginTop: '20px' }}>
-                <Button onClick={this.handleAdminLogin} variant="contained" style={{ textTransform: "none" }} id="adminButton">Login as Admin</Button>
+                <Button onClick={this.handleAdminLogin.bind(this)} variant="contained" style={{ textTransform: "none" }} id="adminButton">Login as Admin</Button>
               </Grid>
             </div>
           </Paper>

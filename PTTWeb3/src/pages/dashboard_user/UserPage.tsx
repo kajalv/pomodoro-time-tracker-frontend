@@ -123,7 +123,7 @@ class UserPage extends React.Component<UserPageProps> {
               </Grid>
 
               {this.state.projects.map((currentProject, i) =>
-                <ListItem key={i} className={classes.projDetails}>
+                <ListItem key={currentProject.id} className={classes.projDetails}>
                   <Grid container spacing={8} alignItems="flex-end" className={classes.projitem} style={{ flexGrow: 1, justifyContent: 'center', alignItems: 'center' }}>
                     <Grid item md={true} sm={true} xs={true}>
                       {currentProject.id}
@@ -135,7 +135,7 @@ class UserPage extends React.Component<UserPageProps> {
                       {currentProject.sessionCount}
                     </Grid>
                     <Grid item md={true} sm={true} xs={true}>
-                      <Button id={"delete" + i} className={classes.deleteButton} onClick={() => this.handleProjectDelete(i)} variant="contained" style={{ textTransform: "none" }}>
+                      <Button id={"delete" + currentProject.id} className={classes.deleteButton} onClick={() => this.handleProjectDelete(currentProject.id)} variant="contained" style={{ textTransform: "none" }}>
                         Delete
                   </Button>
                     </Grid>
