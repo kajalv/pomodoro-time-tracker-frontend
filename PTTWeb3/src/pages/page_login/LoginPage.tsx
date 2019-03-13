@@ -15,7 +15,8 @@ const styles = (theme: any) => ({
 interface LoginState {
   userLoggedIn: boolean,
   adminLoggedIn: boolean,
-  user: number
+  userName: string,
+  userId: number
 }
 
 class LoginPage extends React.Component<any, LoginState> {
@@ -26,15 +27,23 @@ class LoginPage extends React.Component<any, LoginState> {
     this.state = {
       userLoggedIn: false,
       adminLoggedIn: false,
-      user: 0,
+      userName: "",
+      userId: 0,
     }
   }
 
 
   handleUserLogin = async () => {
+    var enteredValue = (document.getElementById('username') as HTMLInputElement)
+
+    var enteredName = enteredValue.value
+    // TODO: get the user ID from the backend
+    var foundId = enteredValue.value.length
+
     this.setState({ 
       userLoggedIn: true,
-      user: 1
+      userName: enteredName,
+      userId: foundId
     });
   }
 
@@ -57,7 +66,7 @@ class LoginPage extends React.Component<any, LoginState> {
     if (this.state.adminLoggedIn) {
       return (<Redirect push to='/adminpage' />);
     } else if (this.state.userLoggedIn) {
-      return (<Redirect push to={'/user/'+this.state.user} />);
+      return (<Redirect push to={'/user/'+this.state.userId} />);
     } else {
       return (
         <div className={classes.loginContainer}>
@@ -70,7 +79,7 @@ class LoginPage extends React.Component<any, LoginState> {
                   <Face />
                 </Grid>
                 <Grid item md={true} sm={true} xs={true}>
-                  <TextField id="username" label="User ID" type="email" fullWidth autoFocus required />
+                  <TextField id="username" label="User Name" type="email" fullWidth autoFocus required />
                 </Grid>
               </Grid>
               <Grid container justify="center" style={{ marginTop: '20px' }}>

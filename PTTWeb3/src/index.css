@@ -35,11 +35,37 @@ code {
 	color: tomato;
 }
 
+.header-nav {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid tomato;
+  color: tomato;
+  padding-bottom: 10px;
+}
+
+.project-details {
+  border-bottom: 1px solid black;
+}
+
+.project-details > div {
+  font-size: 10pt;
+  padding: 10px 0;
+}
+
 .margin {
 	margin: 10px;
 }
 
 #userButton, #adminButton {
 	border: 1px solid rgba(0, 0, 0, 0.2);
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.button-edit, .button-delete {
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+.button-edit span, .button-delete span {
 	color: rgba(0, 0, 0, 0.5);
 }
