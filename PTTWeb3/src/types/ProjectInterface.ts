@@ -1,5 +1,6 @@
-export interface Project {
-  projectId: number,
+export default interface Project {
+  id: number,
   projectName: string,
-  sessionCount: number
+  sessionCount: number,
+  userId: number
 }

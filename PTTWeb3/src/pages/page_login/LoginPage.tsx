@@ -33,7 +33,7 @@ class LoginPage extends React.Component<any, LoginState> {
   }
 
 
-  handleUserLogin = async () => {
+  handleUserLogin() {
     var enteredValue = (document.getElementById('username') as HTMLInputElement)
 
     var enteredName = enteredValue.value
@@ -47,7 +47,7 @@ class LoginPage extends React.Component<any, LoginState> {
     });
   }
 
-  handleAdminLogin = async () => {
+  handleAdminLogin() {
     this.setState({ adminLoggedIn: true });
   }
 

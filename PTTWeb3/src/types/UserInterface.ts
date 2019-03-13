@@ -1,7 +1,6 @@
-import { Project } from './ProjectInterface';
-
-export interface User {
+export default interface User {
   userId: number,
-  userName: string,
-  projects: Project[]
+  firstName: string,
+  lastName: string,
+  email: string,
 }

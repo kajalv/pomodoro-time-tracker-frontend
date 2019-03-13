@@ -1,0 +1,50 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "firstName": "first0",
+      "lastName": "last0",
+      "email": "user0@ptt.org"
+    },
+    {
+      "id": 1,
+      "firstName": "first1",
+      "lastName": "last1",
+      "email": "user1@ptt.org"
+    },
+    {
+      "id": 2,
+      "firstName": "first2",
+      "lastName": "last2",
+      "email": "user2@ptt.org"
+    },
+    {
+      "id": 3,
+      "firstName": "first3",
+      "lastName": "last3",
+      "email": "user3@ptt.org"
+    }
+  ],
+  "projects": [
+    {
+      "id": 0,
+      "projectName": "projectname0",
+      "userId": 0
+    },
+    {
+      "id": 1,
+      "projectName": "projectname1",
+      "userId": 0
+    },
+    {
+      "id": 2,
+      "projectName": "projectname2",
+      "userId": 0
+    },
+    {
+      "projectName": "newProject",
+      "userId": 0,
+      "id": 9
+    }
+  ]
+}
