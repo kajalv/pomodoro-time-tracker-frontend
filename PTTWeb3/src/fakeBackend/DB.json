@@ -23,6 +23,12 @@
       "firstName": "first3",
       "lastName": "last3",
       "email": "user3@ptt.org"
+    },
+    {
+      "id": 4,
+      "firstName": "dummy",
+      "lastName": "name",
+      "email": "a"
     }
   ],
   "projects": [
@@ -40,6 +46,16 @@
       "id": 2,
       "projectName": "projectname2",
       "userId": 0
+    },
+    {
+      "id": 3,
+      "projectName": "dummyproj0",
+      "userId": 4
+    },
+    {
+      "id": 4,
+      "projectName": "dummyproj1",
+      "userId": 4
     }
   ]
 }

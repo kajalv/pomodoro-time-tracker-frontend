@@ -2,6 +2,8 @@ import React from 'react';
 import { Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox, Backdrop } from '@material-ui/core';
 import { Face, Fingerprint } from '@material-ui/icons';
 import { Redirect } from 'react-router-dom';
+import { FetchAllUsers, FetchUserById } from '../../RESTful-APIs';
+import User from '../../types/UserInterface';
 
 const styles = (theme: any) => ({
   margin: {
@@ -15,7 +17,9 @@ const styles = (theme: any) => ({
 interface LoginState {
   userLoggedIn: boolean,
   adminLoggedIn: boolean,
-  userName: string,
+  userEnteredInvalid: boolean,
+  adminEnteredInvalid: boolean,
+  userEmail: string,
   userId: number
 }
 
@@ -27,24 +31,49 @@ class LoginPage extends React.Component<any, LoginState> {
     this.state = {
       userLoggedIn: false,
       adminLoggedIn: false,
-      userName: "",
+      userEnteredInvalid: false,
+      adminEnteredInvalid: false,
+      userEmail: "",
       userId: 0,
     }
   }
 
 
   handleUserLogin() {
-    var enteredValue = (document.getElementById('username') as HTMLInputElement)
+    var enteredValue = (document.getElementById('useremail') as HTMLInputElement)
 
-    var enteredName = enteredValue.value
-    // TODO: get the user ID from the backend
-    var foundId = enteredValue.value.length
+    var enteredEmail = enteredValue.value
+    var userEmailFound = false
+    var foundUser = {} as User;
+    // TODO: get the user corresponding to this email ID from the backend
+    FetchAllUsers()
+      .then((users: User[]) => {
 
-    this.setState({ 
-      userLoggedIn: true,
-      userName: enteredName,
-      userId: foundId
-    });
+        users.forEach(element => {
+          if (element.email == enteredEmail) {
+            userEmailFound = true
+            foundUser = element
+          }
+        });
+
+        if (userEmailFound) {
+          FetchUserById(foundUser.id)
+            .then((user: User) => {
+              this.setState({ 
+                userLoggedIn: true,
+                userEmail: enteredEmail,
+                userEnteredInvalid: false, // in case it was set to true earlier, just unset
+                userId: user.id
+              });
+            });
+        } else {
+          // TODO: do something to show that the user does not exist
+          this.setState({
+            userEnteredInvalid: true
+          });
+        }
+      });
+
   }
 
   handleAdminLogin() {
@@ -59,7 +88,8 @@ class LoginPage extends React.Component<any, LoginState> {
       margin: "margin",
       titleHeader: "titleHeader",
       titleDesc: "titleDesc",
-      inputContainerGrid: "inputContainerGrid"
+      inputContainerGrid: "inputContainerGrid",
+      invalidLabel: "invalidLabel"
     }
 
     console.log(this.state);
@@ -80,9 +110,12 @@ class LoginPage extends React.Component<any, LoginState> {
                   <Face />
                 </Grid>
                 <Grid item md={true} sm={true} xs={true} className={classes.inputContainerGrid}>
-                  <TextField id="username" label="User Name" type="email" fullWidth autoFocus required />
+                  <TextField id="useremail" label="User Email" type="email" fullWidth autoFocus required />
                 </Grid>
               </Grid>
+              {this.state.userEnteredInvalid && <Grid item md={true} sm={true} xs={true} className={classes.invalidLabel}>
+                Invalid email entered!
+              </Grid>}
               <Grid container justify="center" style={{ marginTop: '20px' }}>
                 <Button onClick={this.handleUserLogin.bind(this)} variant="contained" style={{ textTransform: "none" }} id="userButton">Login as User</Button>
               </Grid>
@@ -98,6 +131,9 @@ class LoginPage extends React.Component<any, LoginState> {
                   <TextField id="adminid" label="Admin ID" type="email" fullWidth autoFocus required />
                 </Grid>
               </Grid>
+              {this.state.adminEnteredInvalid && <Grid item md={true} sm={true} xs={true} className={classes.invalidLabel}>
+                Invalid credentials!
+              </Grid>}
               <Grid container justify="center" style={{ marginTop: '20px' }}>
                 <Button onClick={this.handleAdminLogin.bind(this)} variant="contained" style={{ textTransform: "none" }} id="adminButton">Login as Admin</Button>
               </Grid>

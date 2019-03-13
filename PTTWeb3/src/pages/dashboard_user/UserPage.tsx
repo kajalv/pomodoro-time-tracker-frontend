@@ -32,7 +32,7 @@ class UserPage extends React.Component<UserPageProps> {
     super(props);
     this.state = {
       userId: parseInt(props.match.params.id, 10),
-      user: { userId: 0, firstName: "", lastName: "", email: "" } as User,
+      user: { id: 0, firstName: "", lastName: "", email: "" } as User,
       projects: [] as Project[],
       dataLoaded: false
     }

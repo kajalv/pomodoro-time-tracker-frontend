@@ -120,3 +120,8 @@ div.homePage {
   padding: 5px 10px;
   color: black;
 }
+
+div.invalidLabel {
+  font-size: 12px;
+  margin-top: 10px;
+}
