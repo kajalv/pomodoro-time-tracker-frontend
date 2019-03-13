@@ -1,5 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
+import {ClipLoader} from 'react-spinners';
 import {User} from '../../types/UserInterface';
 import {Project} from '../../types/ProjectInterface';
 import {List, ListItem, Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox, Backdrop} from '@material-ui/core';
@@ -16,7 +17,8 @@ interface UserPageProps extends RouteComponentProps<MatchParam> {
 // store user data.
 interface UserPageState {
   userId: number,
-  user: User
+  user: User,
+  dataLoaded: boolean
 }
 
 class UserPage extends React.Component<UserPageProps> {
@@ -28,6 +30,7 @@ class UserPage extends React.Component<UserPageProps> {
     this.state = {
       userId: parseInt(props.match.params.id, 10),
       user: {userId: 0, userName: "", projects: []} as User,
+      dataLoaded: false
     }
   }
 
@@ -53,7 +56,8 @@ class UserPage extends React.Component<UserPageProps> {
       }
 
       this.setState({
-        user: userData
+        user: userData,
+        dataLoaded: true
       })
     }, 2000);
   }
@@ -75,15 +79,23 @@ class UserPage extends React.Component<UserPageProps> {
       projDetails: 'project-details',
       editButton: 'button-edit',
       deleteButton: 'button-delete',
+      projectsPage: 'projects-page',
+      projectList: 'project-list',
+      spinnerDiv: 'spinner-div',
+      titleHeader: "titleHeader",
+      titleDesc: "titleDesc",
       fas: 'fas',
       faedit: 'fa-edit'
     } );
 
     return (
-      <div>
-        <h2> User Page: {this.state.user.userName}</h2>
-        <List>
-          <Grid container spacing={8} alignItems="flex-end" style={{ maxWidth: 800 }} className={classes.headernav}>
+      this.state.dataLoaded ?
+      <div className={classes.projectsPage}>
+        <h1 id={classes.titleHeader}>User: {this.state.user.userName}</h1>
+        <p id={classes.titleDesc}>The list of projects that you've created is available below.</p>
+        <Paper style={{ maxWidth: 800, marginTop: 30 }}>
+        <List className={classes.projectList}>
+          <Grid container spacing={8} alignItems="flex-end" className={classes.headernav}>
             <Grid item md={true} sm={true} xs={true}>
               <div>Project ID</div>
             </Grid>
@@ -99,7 +111,7 @@ class UserPage extends React.Component<UserPageProps> {
           </Grid>
 
           {this.state.user.projects.map((currentProject, i) =>
-            <ListItem className={classes.projDetails} style={{ maxWidth: 800 }}>
+            <ListItem className={classes.projDetails}>
               <Grid container spacing={8} alignItems="flex-end">
                 <Grid item md={true} sm={true} xs={true}>
                   {currentProject.projectId}
@@ -125,6 +137,11 @@ class UserPage extends React.Component<UserPageProps> {
               </Grid>
             </ListItem> )}
         </List>
+        </Paper>
+      </div> :
+      <div id ="center" className={classes.spinnerDiv}>
+        <ClipLoader>
+        </ClipLoader>
       </div>
     );
   }

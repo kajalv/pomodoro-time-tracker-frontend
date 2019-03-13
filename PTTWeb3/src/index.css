@@ -18,7 +18,7 @@ code {
 
 /* CSS classes for UI */
 
-.loginContainer {
+.loginContainer, .projects-page {
 	padding: 20px;
 }
 
@@ -42,6 +42,8 @@ code {
   border-bottom: 2px solid tomato;
   color: tomato;
   padding-bottom: 10px;
+  margin: 0px !important;
+  width: 100% !important;
 }
 
 .project-details {
@@ -51,6 +53,11 @@ code {
 .project-details > div {
   font-size: 10pt;
   padding: 10px 0;
+}
+
+ul.project-list {
+  padding-top: 10px;
+  padding-bottom: 0px;
 }
 
 .margin {
@@ -68,4 +75,10 @@ code {
 
 .button-edit span, .button-delete span {
 	color: rgba(0, 0, 0, 0.5);
+}
+
+.spinner-div {
+  position: fixed;
+  top: 50%;
+  left: 50%;
 }
