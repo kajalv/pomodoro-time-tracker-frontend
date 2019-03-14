@@ -25,6 +25,7 @@ interface UserPageState {
   dataLoaded: boolean,
   createModalIsOpen: boolean,
   deleteConfModalIsOpen: boolean,
+  projectToDelete: number
 }
 
 const modalStyle = {
@@ -53,13 +54,19 @@ class UserPage extends React.Component<UserPageProps> {
       projects: [] as Project[],
       dataLoaded: false,
       createModalIsOpen: false,
-      deleteConfModalIsOpen: false
+      deleteConfModalIsOpen: false,
+      projectToDelete: -1
     }
 
     this.handleCreateProject = this.handleCreateProject.bind(this);
     this.afterOpenCreateModal = this.afterOpenCreateModal.bind(this);
     this.closeCreateModal = this.closeCreateModal.bind(this);
     this.closeModalAndCreateProj = this.closeModalAndCreateProj.bind(this);
+
+    this.handleProjectDelete = this.handleProjectDelete.bind(this);
+    this.afterOpenDeleteModal = this.afterOpenDeleteModal.bind(this);
+    this.closeDeleteModal = this.closeDeleteModal.bind(this);
+    this.closeModalAndDeleteProj = this.closeModalAndDeleteProj.bind(this);
   }
 
   // this function will be called right before render function. 
@@ -86,13 +93,34 @@ class UserPage extends React.Component<UserPageProps> {
   };
 
   handleProjectDelete(projectId: number) {
-    DeleteProjectById(this.state.userId, projectId)
-      .then((project: Project) => {
-        // if(project.id == projectId){
-          this.setState({projects: this.state.projects.filter(project => project.id != projectId)});
-        // }
-      })
+    this.setState({
+      deleteConfModalIsOpen: true,
+      projectToDelete: projectId
+    });
   };
+
+  afterOpenDeleteModal() {
+  }
+
+  closeModalAndDeleteProj() {
+    var deleteId = this.state.projectToDelete;
+
+    DeleteProjectById(this.state.userId, deleteId)
+      .then((project: Project) => {
+        this.setState({projects: this.state.projects.filter(project => project.id != deleteId)});
+      })
+
+    this.setState({
+      deleteConfModalIsOpen: false,
+      projectToDelete: -1
+    })
+  }
+
+  closeDeleteModal() {
+    this.setState({
+      deleteConfModalIsOpen: false
+    });
+  }
 
   handleCreateProject() {
     this.setState({
@@ -105,8 +133,6 @@ class UserPage extends React.Component<UserPageProps> {
   }
 
   closeModalAndCreateProj() {
-    console.log('TODO: create project');
-
     var projectname = ((document.getElementById('newprojname') as HTMLInputElement).value)
 
     if (projectname) {
@@ -213,6 +239,21 @@ class UserPage extends React.Component<UserPageProps> {
                     </Grid>
                   </Grid>
                 </ListItem>)}
+
+                <Modal
+                  isOpen={this.state.deleteConfModalIsOpen}
+                  onAfterOpen={this.afterOpenDeleteModal}
+                  onRequestClose={this.closeDeleteModal}
+                  style={modalStyle}
+                  contentLabel="Delete Project"
+                >
+                  <h2 className={classes.modalTitle}>Delete Project</h2>
+                  <div className={classes.modalDesc}>Are you sure you want to delete this project?</div>
+                  <div className={classes.modalActionContainer}>
+                    <Button className={classes.modalAction} onClick={this.closeModalAndDeleteProj.bind(this)} variant="text" style={{ textTransform: "none" }} id="okbuttondelete">OK</Button>
+                    <Button className={classes.modalAction} onClick={this.closeDeleteModal.bind(this)} variant="text" style={{ textTransform: "none" }} id="cancelbuttondelete">Cancel</Button>
+                  </div>
+                </Modal>
             </List>
           </Paper>
         </div> :
