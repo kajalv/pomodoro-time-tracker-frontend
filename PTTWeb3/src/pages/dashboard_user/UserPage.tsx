@@ -2,8 +2,7 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router';
 import Modal from 'react-modal';
 import { ClipLoader } from 'react-spinners';
-import User from '../../types/UserInterface';
-import Project from '../../types/ProjectInterface';
+import { User, Project } from '../../models';
 import { List, ListItem, Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox, Backdrop } from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
 import { FetchProjectsByUserId, FetchUserById, DeleteProjectById, CreateNewProject } from '../../RESTful-APIs';
@@ -29,13 +28,13 @@ interface UserPageState {
 }
 
 const modalStyle = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
   }
 };
 
@@ -107,7 +106,7 @@ class UserPage extends React.Component<UserPageProps> {
 
     DeleteProjectById(this.state.userId, deleteId)
       .then((project: Project) => {
-        this.setState({projects: this.state.projects.filter(project => project.id != deleteId)});
+        this.setState({ projects: this.state.projects.filter(project => project.id != deleteId) });
       })
 
     this.setState({
@@ -137,9 +136,9 @@ class UserPage extends React.Component<UserPageProps> {
 
     if (projectname) {
       CreateNewProject(this.state.userId, projectname as string)
-      .then((project: Project) => {
-        this.setState({projects: this.state.projects.concat(project)});
-      })
+        .then((project: Project) => {
+          this.setState({ projects: this.state.projects.concat(project) });
+        })
     } else {
       // nothing entered, just close
     }
@@ -202,7 +201,7 @@ class UserPage extends React.Component<UserPageProps> {
               <Button className={classes.modalAction} onClick={this.closeModalAndCreateProj.bind(this)} variant="text" style={{ textTransform: "none" }} id="okbuttoncreate">OK</Button>
               <Button className={classes.modalAction} onClick={this.closeCreateModal.bind(this)} variant="text" style={{ textTransform: "none" }} id="cancelbuttoncreate">Cancel</Button>
             </div>
-            </Modal>
+          </Modal>
           <Paper style={{ maxWidth: 800, marginTop: 30 }}>
             <List className={classes.projectList}>
               <Grid container spacing={8} alignItems="flex-end" className={classes.headernav}>
@@ -240,20 +239,20 @@ class UserPage extends React.Component<UserPageProps> {
                   </Grid>
                 </ListItem>)}
 
-                <Modal
-                  isOpen={this.state.deleteConfModalIsOpen}
-                  onAfterOpen={this.afterOpenDeleteModal}
-                  onRequestClose={this.closeDeleteModal}
-                  style={modalStyle}
-                  contentLabel="Delete Project"
-                >
-                  <h2 className={classes.modalTitle}>Delete Project</h2>
-                  <div className={classes.modalDesc}>Are you sure you want to delete this project?</div>
-                  <div className={classes.modalActionContainer}>
-                    <Button className={classes.modalAction} onClick={this.closeModalAndDeleteProj.bind(this)} variant="text" style={{ textTransform: "none" }} id="okbuttondelete">OK</Button>
-                    <Button className={classes.modalAction} onClick={this.closeDeleteModal.bind(this)} variant="text" style={{ textTransform: "none" }} id="cancelbuttondelete">Cancel</Button>
-                  </div>
-                </Modal>
+              <Modal
+                isOpen={this.state.deleteConfModalIsOpen}
+                onAfterOpen={this.afterOpenDeleteModal}
+                onRequestClose={this.closeDeleteModal}
+                style={modalStyle}
+                contentLabel="Delete Project"
+              >
+                <h2 className={classes.modalTitle}>Delete Project</h2>
+                <div className={classes.modalDesc}>Are you sure you want to delete this project?</div>
+                <div className={classes.modalActionContainer}>
+                  <Button className={classes.modalAction} onClick={this.closeModalAndDeleteProj.bind(this)} variant="text" style={{ textTransform: "none" }} id="okbuttondelete">OK</Button>
+                  <Button className={classes.modalAction} onClick={this.closeDeleteModal.bind(this)} variant="text" style={{ textTransform: "none" }} id="cancelbuttondelete">Cancel</Button>
+                </div>
+              </Modal>
             </List>
           </Paper>
         </div> :

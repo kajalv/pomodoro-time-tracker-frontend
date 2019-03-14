@@ -1,4 +1,4 @@
-import Project from '../types/ProjectInterface';
+import { Project } from '../models/ProjectInterface';
 import { httpClient, errorHandler } from './index';
 
 export function FetchProjectsByUserId(userId: number): Promise<Project[]> {
@@ -17,7 +17,7 @@ export function DeleteProjectById(userId: number, projectId: number): Promise<Pr
     .catch(errorHandler)
 }
 
-export function CreateNewProject(userId: number, projectName: string): Promise<Project>{
+export function CreateNewProject(userId: number, projectName: string): Promise<Project> {
   return httpClient.post(`/users/${userId}/projects`, {
     projectName: projectName,
     userId: userId

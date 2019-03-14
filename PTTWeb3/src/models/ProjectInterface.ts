@@ -1,4 +1,4 @@
-export default interface Project {
+export interface Project {
   id: number,
   projectName: string,
   sessionCount: number,

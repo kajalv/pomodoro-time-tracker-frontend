@@ -1,4 +1,4 @@
-import User from '../types/UserInterface';
+import { User } from '../models/UserInterface';
 import { httpClient, errorHandler } from './index';
 
 export function FetchUserById(userId: number): Promise<User> {

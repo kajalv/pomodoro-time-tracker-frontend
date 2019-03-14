@@ -3,7 +3,7 @@ import { Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox,
 import { Face, Fingerprint } from '@material-ui/icons';
 import { Redirect } from 'react-router-dom';
 import { FetchAllUsers, FetchUserById } from '../../RESTful-APIs';
-import User from '../../types/UserInterface';
+import { User } from '../../models/UserInterface';
 
 const styles = (theme: any) => ({
   margin: {
@@ -59,7 +59,7 @@ class LoginPage extends React.Component<any, LoginState> {
         if (userEmailFound) {
           FetchUserById(foundUser.id)
             .then((user: User) => {
-              this.setState({ 
+              this.setState({
                 userLoggedIn: true,
                 userEmail: enteredEmail,
                 userEnteredInvalid: false, // in case it was set to true earlier, just unset
@@ -97,7 +97,7 @@ class LoginPage extends React.Component<any, LoginState> {
     if (this.state.adminLoggedIn) {
       return (<Redirect push to='/adminpage' />);
     } else if (this.state.userLoggedIn) {
-      return (<Redirect push to={'/user/'+this.state.userId} />);
+      return (<Redirect push to={'/user/' + this.state.userId} />);
     } else {
       return (
         <div className={classes.loginContainer}>
