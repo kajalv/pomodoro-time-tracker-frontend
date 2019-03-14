@@ -125,3 +125,44 @@ div.invalidLabel {
   font-size: 12px;
   margin-top: 10px;
 }
+
+/* Modals */
+
+h2.modal-title {
+  color: tomato;
+}
+
+div.modal-desc {
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+input.modal-input {
+  color: tomato;
+}
+
+div.modal-action-container {
+  text-align: right;
+}
+
+button.modal-action {
+  color: gray;
+  margin: 20px 0px 20px 10px;
+}
+
+div.modal-input {
+  background-color: white;
+	color: tomato;
+}
+
+div.modal-input label {
+  color: gray !important;
+}
+
+div.modal-input div:hover {
+  border-bottom: 0x solid gray;
+}
+
+div.modal-input div::after {
+  border-bottom: 2px solid gray;
+}

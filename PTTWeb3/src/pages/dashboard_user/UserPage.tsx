@@ -1,5 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
+import Modal from 'react-modal';
 import { ClipLoader } from 'react-spinners';
 import User from '../../types/UserInterface';
 import Project from '../../types/ProjectInterface';
@@ -21,8 +22,24 @@ interface UserPageState {
   userId: number,
   user: User,
   projects: Project[],
-  dataLoaded: boolean
+  dataLoaded: boolean,
+  createModalIsOpen: boolean,
+  deleteConfModalIsOpen: boolean,
 }
+
+const modalStyle = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
+
+// Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
+Modal.setAppElement('#root')
 
 class UserPage extends React.Component<UserPageProps> {
 
@@ -34,8 +51,15 @@ class UserPage extends React.Component<UserPageProps> {
       userId: parseInt(props.match.params.id, 10),
       user: { id: 0, firstName: "", lastName: "", email: "" } as User,
       projects: [] as Project[],
-      dataLoaded: false
+      dataLoaded: false,
+      createModalIsOpen: false,
+      deleteConfModalIsOpen: false
     }
+
+    this.handleCreateProject = this.handleCreateProject.bind(this);
+    this.afterOpenCreateModal = this.afterOpenCreateModal.bind(this);
+    this.closeCreateModal = this.closeCreateModal.bind(this);
+    this.closeModalAndCreateProj = this.closeModalAndCreateProj.bind(this);
   }
 
   // this function will be called right before render function. 
@@ -71,10 +95,38 @@ class UserPage extends React.Component<UserPageProps> {
   };
 
   handleCreateProject() {
-    CreateNewProject(this.state.userId, "newProject")
+    this.setState({
+      createModalIsOpen: true
+    });
+  }
+
+  afterOpenCreateModal() {
+    // references are now sync'd and can be accessed.
+  }
+
+  closeModalAndCreateProj() {
+    console.log('TODO: create project');
+
+    var projectname = ((document.getElementById('newprojname') as HTMLInputElement).value)
+
+    if (projectname) {
+      CreateNewProject(this.state.userId, projectname as string)
       .then((project: Project) => {
         this.setState({projects: this.state.projects.concat(project)});
       })
+    } else {
+      // nothing entered, just close
+    }
+
+    this.setState({
+      createModalIsOpen: false
+    });
+  }
+
+  closeCreateModal() {
+    this.setState({
+      createModalIsOpen: false
+    });
   }
 
   render() {
@@ -93,6 +145,11 @@ class UserPage extends React.Component<UserPageProps> {
       titleHeader: "titleHeader",
       titleDesc: "titleDesc",
       projitem: 'project-item',
+      modalTitle: 'modal-title',
+      modalDesc: 'modal-desc',
+      modalInput: 'modal-input',
+      modalAction: 'modal-action',
+      modalActionContainer: 'modal-action-container',
       fas: 'fas',
       faedit: 'fa-edit'
     });
@@ -104,7 +161,22 @@ class UserPage extends React.Component<UserPageProps> {
           <p id={classes.titleDesc}>The list of projects that you've created is available below.</p>
           <Button className={classes.createButton} variant="contained" style={{ textTransform: "none" }} onClick={this.handleCreateProject.bind(this)}>
             Create a New Project
-        </Button>
+          </Button>
+          <Modal
+            isOpen={this.state.createModalIsOpen}
+            onAfterOpen={this.afterOpenCreateModal}
+            onRequestClose={this.closeCreateModal}
+            style={modalStyle}
+            contentLabel="Create New Project"
+          >
+            <h2 className={classes.modalTitle}>Create a New Project</h2>
+            <div className={classes.modalDesc}>Enter the name of the project below:</div>
+            <TextField className={classes.modalInput} id="newprojname" label="Project Name" type="email" fullWidth autoFocus required />
+            <div className={classes.modalActionContainer}>
+              <Button className={classes.modalAction} onClick={this.closeModalAndCreateProj.bind(this)} variant="text" style={{ textTransform: "none" }} id="okbuttoncreate">OK</Button>
+              <Button className={classes.modalAction} onClick={this.closeCreateModal.bind(this)} variant="text" style={{ textTransform: "none" }} id="cancelbuttoncreate">Cancel</Button>
+            </div>
+            </Modal>
           <Paper style={{ maxWidth: 800, marginTop: 30 }}>
             <List className={classes.projectList}>
               <Grid container spacing={8} alignItems="flex-end" className={classes.headernav}>
