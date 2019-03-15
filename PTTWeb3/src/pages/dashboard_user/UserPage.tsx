@@ -5,7 +5,7 @@ import { ClipLoader } from 'react-spinners';
 import { User, Project } from '../../models';
 import { List, ListItem, Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox, Backdrop } from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
-import { FetchProjectsByUserId, FetchUserById, DeleteProjectById, CreateNewProject } from '../../RESTful-APIs';
+import { FetchProjectsByUserId, FetchUserById, DeleteProjectById, CreateNewProject, UpdateUserById } from '../../RESTful-APIs';
 
 // match the id paremeter from the path.
 interface MatchParam {
@@ -24,6 +24,7 @@ interface UserPageState {
   dataLoaded: boolean,
   createModalIsOpen: boolean,
   deleteConfModalIsOpen: boolean,
+  updateInfoModalIsOpen: boolean,
   projectToDelete: number
 }
 
@@ -41,7 +42,7 @@ const modalStyle = {
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement('#root')
 
-class UserPage extends React.Component<UserPageProps> {
+class UserPage extends React.Component<UserPageProps, UserPageState> {
 
   state: UserPageState
   _isMounted: boolean
@@ -55,6 +56,7 @@ class UserPage extends React.Component<UserPageProps> {
       dataLoaded: false,
       createModalIsOpen: false,
       deleteConfModalIsOpen: false,
+      updateInfoModalIsOpen: false,
       projectToDelete: -1
     }
     this._isMounted = false;
@@ -94,11 +96,11 @@ class UserPage extends React.Component<UserPageProps> {
       .catch();
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this._isMounted = true;
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this._isMounted = false;
   }
 
@@ -169,6 +171,45 @@ class UserPage extends React.Component<UserPageProps> {
     });
   }
 
+  handleUpdateUserInfo() {
+    this.setState({
+      updateInfoModalIsOpen: true
+    })
+  }
+
+  afterUpdateInfoModalOpen() {
+  }
+
+  closeModalAndUpdateUserInfo() {
+    let firstname = ((document.getElementById('newfirstname') as HTMLInputElement).value)
+    let lastname = ((document.getElementById('newlastname') as HTMLInputElement).value)
+
+    if (!firstname) {
+      window.alert("first name cannot be empty!");
+      return;
+    }
+
+    if (!lastname) {
+      window.alert("last name cannot be empty!");
+    }
+
+    this.state.user.firstName = firstname;
+    this.state.user.lastName = lastname;
+    UpdateUserById(this.state.userId, firstname, lastname, this.state.user.email)
+      .then((user: User) => {
+        this.setState({
+          user: this.state.user,
+          updateInfoModalIsOpen: false
+        });
+      });
+  }
+
+  closeUpdateInfoModal() {
+    this.setState({
+      updateInfoModalIsOpen: false
+    });
+  }
+
   render() {
 
     console.log(this.state);
@@ -179,6 +220,7 @@ class UserPage extends React.Component<UserPageProps> {
       editButton: 'button-edit',
       deleteButton: 'button-delete',
       createButton: 'button-create',
+      updateInfoButton: 'button-updateinfo',
       projectsPage: 'projects-page',
       projectList: 'project-list',
       spinnerDiv: 'spinner-div',
@@ -195,10 +237,13 @@ class UserPage extends React.Component<UserPageProps> {
     return (
       this.state.dataLoaded ?
         <div className={classes.projectsPage}>
-          <h1 id={classes.titleHeader}>User: {this.state.user.firstName + " " + this.state.user.lastName}</h1>
+          <h1 id={classes.titleHeader}>User: {`${this.state.user.firstName} ${this.state.user.lastName}`}</h1>
           <p id={classes.titleDesc}>The list of projects that you've created is available below.</p>
-          <Button className={classes.createButton} variant="contained" style={{ textTransform: "none" }} onClick={this.handleCreateProject.bind(this)}>
+          <Button className={classes.createButton} variant="contained" style={{ textTransform: "none", marginRight: "10px" }} onClick={this.handleCreateProject.bind(this)}>
             Create a New Project
+          </Button>
+          <Button className={classes.createButton} variant="contained" style={{ textTransform: "none", marginRight: "10px" }} onClick={this.handleUpdateUserInfo.bind(this)}>
+            Update User Infomation
           </Button>
           <Modal
             isOpen={this.state.createModalIsOpen}
@@ -213,6 +258,22 @@ class UserPage extends React.Component<UserPageProps> {
             <div className={classes.modalActionContainer}>
               <Button className={classes.modalAction} onClick={this.closeModalAndCreateProj.bind(this)} variant="text" style={{ textTransform: "none" }} id="okbuttoncreate">OK</Button>
               <Button className={classes.modalAction} onClick={this.closeCreateModal.bind(this)} variant="text" style={{ textTransform: "none" }} id="cancelbuttoncreate">Cancel</Button>
+            </div>
+          </Modal>
+          <Modal
+            isOpen={this.state.updateInfoModalIsOpen}
+            onAfterOpen={this.afterUpdateInfoModalOpen}
+            onRequestClose={this.closeUpdateInfoModal}
+            style={modalStyle}
+            contentLabel="Create New Project"
+          >
+            <h2 className={classes.modalTitle}>Create a New Project</h2>
+            <div className={classes.modalDesc}>Enter the name of the project below:</div>
+            <TextField className={classes.modalInput} id="newfirstname" label="Fisrt Name" type="email" fullWidth autoFocus required />
+            <TextField className={classes.modalInput} id="newlastname" label="Last Name" type="email" fullWidth autoFocus required />
+            <div className={classes.modalActionContainer}>
+              <Button className={classes.modalAction} onClick={this.closeModalAndUpdateUserInfo.bind(this)} variant="text" style={{ textTransform: "none" }} id="okbuttonupdate">OK</Button>
+              <Button className={classes.modalAction} onClick={this.closeUpdateInfoModal.bind(this)} variant="text" style={{ textTransform: "none" }} id="cancelbuttonupdate">Cancel</Button>
             </div>
           </Modal>
           <Paper style={{ maxWidth: 800, marginTop: 30 }}>

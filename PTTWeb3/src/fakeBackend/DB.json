@@ -7,10 +7,10 @@
       "email": "user0@ptt.org"
     },
     {
-      "id": 1,
-      "firstName": "first1",
-      "lastName": "last1",
-      "email": "user1@ptt.org"
+      "firstName": "George",
+      "lastName": "Burdell",
+      "email": "user1@ptt.org",
+      "id": 1
     },
     {
       "firstName": "hjfg",
