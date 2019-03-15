@@ -44,6 +44,7 @@ Modal.setAppElement('#root')
 class UserPage extends React.Component<UserPageProps> {
 
   state: UserPageState
+  _isMounted: boolean
 
   constructor(props: UserPageProps) {
     super(props);
@@ -56,6 +57,7 @@ class UserPage extends React.Component<UserPageProps> {
       deleteConfModalIsOpen: false,
       projectToDelete: -1
     }
+    this._isMounted = false;
 
     this.handleCreateProject = this.handleCreateProject.bind(this);
     this.afterOpenCreateModal = this.afterOpenCreateModal.bind(this);
@@ -75,16 +77,29 @@ class UserPage extends React.Component<UserPageProps> {
       .then((user: User) => {
         console.log("fetch user by id");
         console.log(user);
-        this.setState({ user });
+        this._isMounted && this.setState({ user });
+      })
+      .catch(_ => {
+        window.alert("User does not exist. Redirecting back to login page.");
+        this.props.history.replace("/login");
       });
     FetchProjectsByUserId(this.state.userId)
       .then((projects: Project[]) => {
         console.log("fetch projects by userId");
-        this.setState({
+        this._isMounted && this.setState({
           projects: projects,
           dataLoaded: true,
         })
-      });
+      })
+      .catch();
+  }
+
+  componentDidMount(){
+    this._isMounted = true;
+  }
+
+  componentWillUnmount(){
+    this._isMounted = false;
   }
 
   handleProjectEdit() {

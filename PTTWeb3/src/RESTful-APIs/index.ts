@@ -25,4 +25,5 @@ export const errorHandler = (error: AxiosError) => {
     console.log('Error', error.message);
   }
   console.log(error.config);
+  throw error;
 }

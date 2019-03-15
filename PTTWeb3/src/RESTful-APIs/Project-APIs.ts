@@ -6,7 +6,7 @@ export function FetchProjectsByUserId(userId: number): Promise<Project[]> {
     .then(response => {
       return response.data;
     })
-    .catch(errorHandler);
+    // .catch(errorHandler);
 }
 
 export function DeleteProjectById(userId: number, projectId: number): Promise<Project> {
