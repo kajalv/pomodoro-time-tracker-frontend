@@ -269,7 +269,7 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
           >
             <h2 className={classes.modalTitle}>Create a New Project</h2>
             <div className={classes.modalDesc}>Enter the name of the project below:</div>
-            <TextField className={classes.modalInput} id="newfirstname" label="Fisrt Name" type="email" fullWidth autoFocus required />
+            <TextField className={classes.modalInput} id="newfirstname" label="First Name" type="email" fullWidth autoFocus required />
             <TextField className={classes.modalInput} id="newlastname" label="Last Name" type="email" fullWidth autoFocus required />
             <div className={classes.modalActionContainer}>
               <Button className={classes.modalAction} onClick={this.closeModalAndUpdateUserInfo.bind(this)} variant="text" style={{ textTransform: "none" }} id="okbuttonupdate">OK</Button>
