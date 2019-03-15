@@ -67,7 +67,6 @@ class LoginPage extends React.Component<any, LoginState> {
               });
             });
         } else {
-          // TODO: do something to show that the user does not exist
           this.setState({
             userEnteredInvalid: true
           });
@@ -77,7 +76,21 @@ class LoginPage extends React.Component<any, LoginState> {
   }
 
   handleAdminLogin() {
-    this.setState({ adminLoggedIn: true });
+    var enteredValue = (document.getElementById('adminid') as HTMLInputElement)
+    var enteredAdminId = enteredValue.value
+
+    if (enteredAdminId == "admin") {
+
+      this.setState({
+        adminLoggedIn: true,
+        adminEnteredInvalid: false, // in case it was set to true earlier, just unset
+      });
+
+    } else {
+      this.setState({
+        adminEnteredInvalid: true
+      });
+    }
   }
 
   render() {

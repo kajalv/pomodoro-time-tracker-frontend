@@ -174,9 +174,7 @@ class UserPage extends React.Component<UserPageProps> {
       modalDesc: 'modal-desc',
       modalInput: 'modal-input',
       modalAction: 'modal-action',
-      modalActionContainer: 'modal-action-container',
-      fas: 'fas',
-      faedit: 'fa-edit'
+      modalActionContainer: 'modal-action-container'
     });
 
     return (
