@@ -185,12 +185,13 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
     let lastname = ((document.getElementById('newlastname') as HTMLInputElement).value)
 
     if (!firstname) {
-      window.alert("first name cannot be empty!");
+      window.alert("First name cannot be empty!");
       return;
     }
 
     if (!lastname) {
-      window.alert("last name cannot be empty!");
+      window.alert("Last name cannot be empty!");
+      return;
     }
 
     this.state.user.firstName = firstname;
@@ -265,10 +266,10 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
             onAfterOpen={this.afterUpdateInfoModalOpen}
             onRequestClose={this.closeUpdateInfoModal}
             style={modalStyle}
-            contentLabel="Create New Project"
+            contentLabel="Update User Information"
           >
-            <h2 className={classes.modalTitle}>Create a New Project</h2>
-            <div className={classes.modalDesc}>Enter the name of the project below:</div>
+            <h2 className={classes.modalTitle}>Update User Information</h2>
+            <div className={classes.modalDesc}>Enter your updated details below:</div>
             <TextField className={classes.modalInput} id="newfirstname" label="First Name" type="email" fullWidth autoFocus required />
             <TextField className={classes.modalInput} id="newlastname" label="Last Name" type="email" fullWidth autoFocus required />
             <div className={classes.modalActionContainer}>
