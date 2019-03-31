@@ -1,4 +1,17 @@
 {
-  "users": [],
+  "users": [
+    {
+      "firstName": "Yuhong",
+      "lastName": "Wang",
+      "email": "ywang3550@gatech.edu",
+      "id": 1
+    },
+    {
+      "firstName": "Yang",
+      "lastName": "Hu",
+      "email": "yhu388@gatech.edu",
+      "id": 2
+    }
+  ],
   "projects": []
 }

@@ -215,7 +215,12 @@ class AdminPage extends React.Component {
       <div className={classes.projectsPage}>
           <h1 id={classes.titleHeader}>Administrator Dashboard</h1>
           <p id={classes.titleDesc}>The list of users in the system is available below.</p>
-          <Button className={classes.createButton} variant="contained" style={{ textTransform: "none" }} onClick={this.handleCreateUser.bind(this)}>
+          <Button className={classes.createButton}
+                  variant="contained"
+                  style={{ textTransform: "none" }}
+                  onClick={this.handleCreateUser.bind(this)}
+                  id="CreateNewUser"
+          >
             Create a New User
           </Button>
           <Modal
@@ -271,13 +276,13 @@ class AdminPage extends React.Component {
               {this.state.userList.map((currentUser, i) =>
                 <ListItem key={currentUser.id} className={classes.projDetails}>
                   <Grid container spacing={8} alignItems="flex-end" className={classes.projitem} style={{ flexGrow: 1, justifyContent: 'center', alignItems: 'center' }}>
-                    <Grid item md={true} sm={true} xs={true}>
+                    <Grid item md={true} sm={true} xs={true} id="user_id">
                       {currentUser.id}
                     </Grid>
-                    <Grid item md={true} sm={true} xs={true}>
+                    <Grid item md={true} sm={true} xs={true} id="user_name">
                       {currentUser.firstName} {currentUser.lastName}
                     </Grid>
-                    <Grid item md={true} sm={true} xs={true}>
+                    <Grid item md={true} sm={true} xs={true} id="user_email">
                       {currentUser.email}
                     </Grid>
                     <Grid item md={true} sm={true} xs={true}>
