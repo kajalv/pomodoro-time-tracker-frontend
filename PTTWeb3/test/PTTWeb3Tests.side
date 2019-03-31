@@ -14,23 +14,30 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "b70dda97-9a51-4157-8c35-8a41b0a9d4e0",
+      "id": "1a195bc5-f0b4-4d61-92a8-3f2e22d102c0",
       "comment": "",
-      "command": "setWindowSize",
-      "target": "1680x1027",
+      "command": "assertElementPresent",
+      "target": "xpath=//div[@class=\"homePage\"]/a/div/button",
       "targets": [],
       "value": ""
     }, {
       "id": "01884b45-3aa2-4fad-891e-e5b0d7b5824e",
       "comment": "",
       "command": "click",
-      "target": "css=.MuiButton-label-2",
+      "target": "xpath=//div[@class=\"homePage\"]/a/div/button",
       "targets": [
         ["css=.MuiButton-label-2", "css:finder"],
         ["xpath=//div[@id='root']/div/div/a/div/button/span", "xpath:idRelative"],
         ["xpath=//span", "xpath:position"],
         ["xpath=//span[contains(.,'Get Started!')]", "xpath:innerText"]
       ],
+      "value": ""
+    }, {
+      "id": "8b288d26-b12b-4f78-8a99-28fe743c46bd",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=adminButton",
+      "targets": [],
       "value": ""
     }, {
       "id": "0df97a7b-ee5f-415e-ae71-5d53834bc19e",
@@ -59,159 +66,15 @@
         ["xpath=//button[contains(.,'Login as Admin')]", "xpath:innerText"]
       ],
       "value": ""
-    }]
-  }, {
-    "id": "5715d2c1-35a4-4f94-b549-2f16db7366e9",
-    "name": "CreateUserTest",
-    "commands": [{
-      "id": "b1df3ecf-b349-4cc5-a2a2-e422252a2241",
+    }, {
+      "id": "8dac62b1-81f0-4e9f-bad0-014379a1b238",
       "comment": "",
-      "command": "open",
-      "target": "/adminpage",
+      "command": "assertText",
+      "target": "id=titleHeader",
       "targets": [],
-      "value": ""
+      "value": "Administrator Dashboard"
     }, {
-      "id": "4cb0c19b-7997-48b3-b592-59f6df4edf00",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1680x1027",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "91181a86-b034-418d-a4a4-ecbc719c3c81",
-      "comment": "",
-      "command": "click",
-      "target": "css=.button-create > .MuiButton-label-2",
-      "targets": [
-        ["css=.button-create > .MuiButton-label-2", "css:finder"],
-        ["xpath=//div[@id='root']/div/div/button/span", "xpath:idRelative"],
-        ["xpath=//span", "xpath:position"],
-        ["xpath=//span[contains(.,'Create a New User')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "f9025680-3f24-4869-bea1-dc739682eb93",
-      "comment": "",
-      "command": "click",
-      "target": "id=newuserfirstname",
-      "targets": [
-        ["id=newuserfirstname", "id"],
-        ["css=#newuserfirstname", "css:finder"],
-        ["xpath=//input[@id='newuserfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "79c92f55-54e8-447b-b1b3-3a6d9cd45ff6",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserfirstname",
-      "targets": [
-        ["id=newuserfirstname", "id"],
-        ["css=#newuserfirstname", "css:finder"],
-        ["xpath=//input[@id='newuserfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "testfirstname"
-    }, {
-      "id": "31102cf5-d5eb-40b4-a086-d76d4c6b157f",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserlastname",
-      "targets": [
-        ["id=newuserlastname", "id"],
-        ["css=#newuserlastname", "css:finder"],
-        ["xpath=//input[@id='newuserlastname']", "xpath:attributes"],
-        ["xpath=//div[3]/div/input", "xpath:position"]
-      ],
-      "value": "testlastname"
-    }, {
-      "id": "53634a14-def0-4cc2-9c51-f612750c1de9",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuseremail",
-      "targets": [
-        ["id=newuseremail", "id"],
-        ["css=#newuseremail", "css:finder"],
-        ["xpath=//input[@id='newuseremail']", "xpath:attributes"],
-        ["xpath=//div[4]/div/input", "xpath:position"]
-      ],
-      "value": "test@ptt.org"
-    }, {
-      "id": "d62072a8-6697-4f4a-834f-5acbbc42b598",
-      "comment": "",
-      "command": "mouseOver",
-      "target": "css=#okbuttoncreate > .MuiButton-label-2",
-      "targets": [
-        ["css=#okbuttoncreate > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttoncreate']/span", "xpath:idRelative"],
-        ["xpath=//div[5]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "56e2b80b-43b3-44f2-902b-20707c226949",
-      "comment": "",
-      "command": "click",
-      "target": "css=#okbuttoncreate > .MuiButton-label-2",
-      "targets": [
-        ["css=#okbuttoncreate > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttoncreate']/span", "xpath:idRelative"],
-        ["xpath=//div[5]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "baa391a7-b295-41ee-869f-380f5782b368",
-      "comment": "",
-      "command": "close",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }]
-  }, {
-    "id": "fa002633-38ec-4283-baca-5a7e3a2dfaf7",
-    "name": "DeleteUserTest",
-    "commands": [{
-      "id": "57f9f219-6b09-4d4f-9ac2-1454cb41d5a7",
-      "comment": "",
-      "command": "open",
-      "target": "/adminpage",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "b1506026-190a-4ce9-b499-6d9d4178e784",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1680x1027",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "0892669c-1292-40ee-994d-7c96eb616ad7",
-      "comment": "",
-      "command": "click",
-      "target": "css=#delete1 > .MuiButton-label-2",
-      "targets": [
-        ["css=#delete1 > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='delete1']/span", "xpath:idRelative"],
-        ["xpath=//button[2]/span", "xpath:position"],
-        ["xpath=//span[contains(.,'Delete')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "e2b6889c-57f3-4c37-98e7-13d464636e31",
-      "comment": "",
-      "command": "click",
-      "target": "css=#okbuttondelete > .MuiButton-label-2",
-      "targets": [
-        ["css=#okbuttondelete > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttondelete']/span", "xpath:idRelative"],
-        ["xpath=//div[2]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "ce5fd1c8-d227-41a1-bf2f-a86aa6ff27a9",
+      "id": "d7508418-0f38-4689-8428-647dfa5ec6f2",
       "comment": "",
       "command": "close",
       "target": "",
@@ -220,7 +83,7 @@
     }]
   }, {
     "id": "0c3f8740-62fc-4631-b2ee-37e641aa7ddb",
-    "name": "EditUserTest",
+    "name": "AdminCreateUserTest",
     "commands": [{
       "id": "2105256c-d782-47ad-81d3-5d425408997f",
       "comment": "",
@@ -447,7 +310,7 @@
     }, {
       "id": "1546241e-2315-43cf-be33-17f4a2af6037",
       "comment": "",
-      "command": "assertElementPresent",
+      "command": "//assertElementPresent",
       "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
       "targets": [],
       "value": "1"
@@ -465,13 +328,6 @@
       "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_email\"]",
       "targets": [],
       "value": "ywang3550@gatech.edu"
-    }, {
-      "id": "c91ccc86-2e37-452b-8fee-2406b5491250",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
-      "targets": [],
-      "value": "2"
     }, {
       "id": "d8288c65-d2be-43a8-9b07-68f6edb74a6f",
       "comment": "",
@@ -518,7 +374,7 @@
       "id": "a98f509f-e303-4c7a-a628-b067e3212a19",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "css=.MuiButtonBase-root-27",
+      "target": "xpath=//div[@class=\"homePage\"]/a/div/button",
       "targets": [
         ["css=.MuiButtonBase-root-27", "css:finder"],
         ["xpath=//button[@type='button']", "xpath:attributes"],
@@ -531,7 +387,7 @@
       "id": "a7c7f25a-1f3c-4e73-af80-e2f83a153262",
       "comment": "",
       "command": "click",
-      "target": "css=.MuiButtonBase-root-27",
+      "target": "xpath=//div[@class=\"homePage\"]/a/div/button",
       "targets": [
         ["css=.MuiButtonBase-root-27", "css:finder"],
         ["xpath=//button[@type='button']", "xpath:attributes"],
@@ -566,6 +422,492 @@
       "targets": [],
       "value": ""
     }]
+  }, {
+    "id": "9828eda5-7272-48a7-8ffb-17a6cd96ec01",
+    "name": "AdminDeleteUserTest",
+    "commands": [{
+      "id": "7ca04fde-10d9-448b-bcea-6f9221379489",
+      "comment": "",
+      "command": "open",
+      "target": "/adminpage",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "aca9cc38-c520-4eab-801d-af5e0228af4c",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "a48ca651-272b-475e-be92-0ca7cf5de2bf",
+      "comment": "",
+      "command": "echo",
+      "target": "${count}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "de16275c-4154-4a80-8639-c858e3fa53b3",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=CreateNewUser",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d467b110-5ab8-46f8-bfd6-64f0918efdbe",
+      "comment": "",
+      "command": "if",
+      "target": "(${count} == 0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "44af8ed9-d2ad-4479-8f22-ed7a36764f4b",
+      "comment": "",
+      "command": "click",
+      "target": "id=CreateNewUser",
+      "targets": [
+        ["id=edit1", "id"],
+        ["css=#edit1", "css:finder"],
+        ["xpath=//button[@id='edit1']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Edit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "95abaa0a-27cd-40fe-b5b1-190e13549c91",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuserfirstname",
+      "targets": [
+        ["id=editfirstname", "id"],
+        ["css=#editfirstname", "css:finder"],
+        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Yuhong"
+    }, {
+      "id": "c77c82df-1a04-414d-b2b9-3d65dad64a1d",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuserlastname",
+      "targets": [
+        ["id=editfirstname", "id"],
+        ["css=#editfirstname", "css:finder"],
+        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Wang"
+    }, {
+      "id": "36d94b14-a557-4137-98ec-77cdce29e513",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuseremail",
+      "targets": [
+        ["id=editlastname", "id"],
+        ["css=#editlastname", "css:finder"],
+        ["xpath=//input[@id='editlastname']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "ywang3550@gatech.edu"
+    }, {
+      "id": "b382338a-7f84-4575-b078-b1f6ddbf0f04",
+      "comment": "",
+      "command": "click",
+      "target": "id=okbuttoncreate",
+      "targets": [
+        ["css=.modal-action-container", "css:finder"],
+        ["xpath=//div/div/div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ec6984c1-aa6f-4009-81e9-e80dc5d88cc3",
+      "comment": "",
+      "command": "click",
+      "target": "id=CreateNewUser",
+      "targets": [
+        ["id=edit1", "id"],
+        ["css=#edit1", "css:finder"],
+        ["xpath=//button[@id='edit1']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Edit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0486f1c1-9256-499b-88ac-3efce988d524",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuserfirstname",
+      "targets": [
+        ["id=editfirstname", "id"],
+        ["css=#editfirstname", "css:finder"],
+        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Yang"
+    }, {
+      "id": "4aecc056-bae2-4ecf-a491-d016ac496e0e",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuserlastname",
+      "targets": [
+        ["id=editfirstname", "id"],
+        ["css=#editfirstname", "css:finder"],
+        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Hu"
+    }, {
+      "id": "f5e1a8b4-1989-44cb-a97e-d75827dc46f5",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuseremail",
+      "targets": [
+        ["id=editlastname", "id"],
+        ["css=#editlastname", "css:finder"],
+        ["xpath=//input[@id='editlastname']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "yhu388@gatech.edu"
+    }, {
+      "id": "7d3795bf-30a8-48df-b6de-e432349c6461",
+      "comment": "",
+      "command": "click",
+      "target": "id=okbuttoncreate",
+      "targets": [
+        ["css=.modal-action-container", "css:finder"],
+        ["xpath=//div/div/div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f461899c-4f30-4cfd-98e7-157055e34509",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "b267f88c-a89f-455b-a44a-ab5b3c760491",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0733c278-ba5a-45ef-807e-92300cee4b46",
+      "comment": "",
+      "command": "storeText",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
+      "targets": [],
+      "value": "id"
+    }, {
+      "id": "f79dd026-d0f1-4ca4-97dc-0816a0fad627",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${id}\"]",
+      "targets": [
+        ["id=delete1", "id"],
+        ["css=#delete1", "css:finder"],
+        ["xpath=//button[@id='delete1']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Delete')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bacbd885-2ff4-421c-a4b1-94847071723d",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"okbuttondelete\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6d2f2204-7e7c-458c-bd26-325860f34eb1",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "targets": [],
+      "value": "count_after_delete"
+    }, {
+      "id": "4d2c4fcb-53ec-41e2-ab98-01f162530983",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${count} - 1",
+      "targets": [],
+      "value": "expect_count"
+    }, {
+      "id": "2ebfd541-356e-4074-adf0-cf069245077c",
+      "comment": "",
+      "command": "echo",
+      "target": "${expect_count}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d7647754-4599-4e75-bdad-ed0698f1320c",
+      "comment": "",
+      "command": "assert",
+      "target": "count_after_delete",
+      "targets": [],
+      "value": "${expect_count}"
+    }, {
+      "id": "23935ed6-96b1-48eb-a0a8-9901c367cf44",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "e4409c4e-97cb-4c3a-8ea0-c023eed1a0e9",
+    "name": "AdminUpdateUserTest",
+    "commands": [{
+      "id": "6280c3ca-6b97-42ed-a051-5e4d750c03fb",
+      "comment": "",
+      "command": "open",
+      "target": "/adminpage",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3cdae5a5-60ea-4be3-84cf-f5fb0e394e24",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "79d635dc-96ac-4097-954a-fe3516c55285",
+      "comment": "",
+      "command": "echo",
+      "target": "${count}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f809aed6-bf1f-4ac9-ac18-6009b44cc9e7",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=CreateNewUser",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "75359197-3c4f-4b84-93f6-bb8ddf5b3dc3",
+      "comment": "",
+      "command": "if",
+      "target": "(${count} == 0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f38f51b9-06da-4703-980a-995e26f72d97",
+      "comment": "",
+      "command": "click",
+      "target": "id=CreateNewUser",
+      "targets": [
+        ["id=edit1", "id"],
+        ["css=#edit1", "css:finder"],
+        ["xpath=//button[@id='edit1']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Edit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bfecb47e-66c6-49db-ab31-136bc2670a47",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuserfirstname",
+      "targets": [
+        ["id=editfirstname", "id"],
+        ["css=#editfirstname", "css:finder"],
+        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Yuhong"
+    }, {
+      "id": "d162e85d-9843-4867-a3f8-eaf1038aae80",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuserlastname",
+      "targets": [
+        ["id=editfirstname", "id"],
+        ["css=#editfirstname", "css:finder"],
+        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Wang"
+    }, {
+      "id": "4c6f504b-615e-4bf3-bc4a-5780ebffbb84",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuseremail",
+      "targets": [
+        ["id=editlastname", "id"],
+        ["css=#editlastname", "css:finder"],
+        ["xpath=//input[@id='editlastname']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "ywang3550@gatech.edu"
+    }, {
+      "id": "6547489a-23df-4aa0-b0d3-46d5b19a4376",
+      "comment": "",
+      "command": "click",
+      "target": "id=okbuttoncreate",
+      "targets": [
+        ["css=.modal-action-container", "css:finder"],
+        ["xpath=//div/div/div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "768894df-dace-4b87-87f2-97b81e062576",
+      "comment": "",
+      "command": "click",
+      "target": "id=CreateNewUser",
+      "targets": [
+        ["id=edit1", "id"],
+        ["css=#edit1", "css:finder"],
+        ["xpath=//button[@id='edit1']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Edit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "504d945e-5006-4bcd-9807-6238b86fcf2d",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuserfirstname",
+      "targets": [
+        ["id=editfirstname", "id"],
+        ["css=#editfirstname", "css:finder"],
+        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Yang"
+    }, {
+      "id": "0e8ea2e7-1d2e-41d5-852a-4b3f04b3390a",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuserlastname",
+      "targets": [
+        ["id=editfirstname", "id"],
+        ["css=#editfirstname", "css:finder"],
+        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Hu"
+    }, {
+      "id": "585ef88b-d808-44f4-bc9e-0f1bc2058c6a",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuseremail",
+      "targets": [
+        ["id=editlastname", "id"],
+        ["css=#editlastname", "css:finder"],
+        ["xpath=//input[@id='editlastname']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "yhu388@gatech.edu"
+    }, {
+      "id": "793c23d6-02aa-4400-afc1-309f895d1287",
+      "comment": "",
+      "command": "click",
+      "target": "id=okbuttoncreate",
+      "targets": [
+        ["css=.modal-action-container", "css:finder"],
+        ["xpath=//div/div/div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8437d4e3-ac71-4291-9925-73cc4176fd9e",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "a72d29d0-0d64-439d-9b2e-a43c5dd3410b",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9e4a21c4-8ceb-4436-ac6f-8ed311e6b8a7",
+      "comment": "",
+      "command": "storeText",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
+      "targets": [],
+      "value": "id"
+    }, {
+      "id": "b7a891eb-1c86-4c79-8f62-8f93fcfe89b9",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"edit${id}\"]",
+      "targets": [
+        ["id=delete1", "id"],
+        ["css=#delete1", "css:finder"],
+        ["xpath=//button[@id='delete1']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Delete')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ae5d462b-5184-4945-b37a-41aaf08de94d",
+      "comment": "",
+      "command": "type",
+      "target": "id=editfirstname",
+      "targets": [],
+      "value": "Yang"
+    }, {
+      "id": "cb377587-94c9-4505-a2ef-c7fd0ce9fc34",
+      "comment": "",
+      "command": "type",
+      "target": "id=editlastname",
+      "targets": [],
+      "value": "Hu Jr."
+    }, {
+      "id": "2c82fe7e-27fb-4813-8c75-a06a6baf942c",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"okbuttonedit\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9854f1c6-f00f-4298-a3cc-f2c0b269feb9",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "targets": [],
+      "value": "count_after_edit"
+    }, {
+      "id": "8f4a5c0f-96af-49e4-af5d-8c2f4dc19e9c",
+      "comment": "",
+      "command": "assert",
+      "target": "count_after_edit",
+      "targets": [],
+      "value": "${count}"
+    }, {
+      "id": "7f4bcabc-2ec4-48b8-9c6f-d8824d48d2bc",
+      "comment": "",
+      "command": "assertNotText",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
+      "targets": [],
+      "value": "Yuhong Wang"
+    }, {
+      "id": "d4d768b4-770d-41d9-b9cc-55bd6fc3428c",
+      "comment": "",
+      "command": "assertText",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
+      "targets": [],
+      "value": "Yang Hu Jr."
+    }, {
+      "id": "4bf012d3-c737-43f7-9d90-867af3e56249",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "b9c7e750-24fd-4955-9039-920a6bfc7b67",
@@ -573,7 +915,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["d811e590-476d-4058-8527-ddb626920657", "5715d2c1-35a4-4f94-b549-2f16db7366e9", "0c3f8740-62fc-4631-b2ee-37e641aa7ddb", "fa002633-38ec-4283-baca-5a7e3a2dfaf7"]
+    "tests": ["d811e590-476d-4058-8527-ddb626920657", "0c3f8740-62fc-4631-b2ee-37e641aa7ddb"]
   }, {
     "id": "c043cd31-ad0e-47e8-81f1-416dfebc7b19",
     "name": "User Tests Suite",

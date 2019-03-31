@@ -3,3 +3,4 @@ PTTBackendTests/.idea/*
 PTTBackendTests/build/*
 *.iml
 .DS_Store
+DB.json
