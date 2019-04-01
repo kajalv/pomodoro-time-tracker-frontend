@@ -104,18 +104,16 @@ class AdminPage extends React.Component {
               console.log(newUserList)
             }
             this.setState({
-              userList: newUserList
+              userList: newUserList,
+              editModalIsOpen: false,
+              userToEdit: -1
             });
           });
       });
     } else {
       // nothing entered, just close
+      alert("Fields cannot be empty!");
     }
-
-    this.setState({
-      editModalIsOpen: false,
-      userToEdit: -1
-    });
   }
 
   closeEditModal() {
@@ -172,15 +170,15 @@ class AdminPage extends React.Component {
     if (userfirstname && userlastname && useremail) {
       CreateNewUser(userfirstname as string, userlastname as string, useremail as string)
         .then((user: User) => {
-          this.setState({ userList: this.state.userList.concat(user) });
+          this.setState({
+            userList: this.state.userList.concat(user),
+            createModalIsOpen: false
+          });
         });
     } else {
       // nothing entered, just close
+      alert("Fields cannot be empty!");
     }
-
-    this.setState({
-      createModalIsOpen: false
-    });
   }
 
   closeCreateModal() {

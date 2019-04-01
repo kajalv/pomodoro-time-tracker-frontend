@@ -126,7 +126,7 @@ class LoginPage extends React.Component<any, LoginState> {
                   <TextField id="useremail" label="User Email" type="email" fullWidth autoFocus required />
                 </Grid>
               </Grid>
-              {this.state.userEnteredInvalid && <Grid item md={true} sm={true} xs={true} className={classes.invalidLabel}>
+              {this.state.userEnteredInvalid && <Grid item md={true} sm={true} xs={true} className={classes.invalidLabel} id="invaliduser">
                 Invalid email entered!
               </Grid>}
               <Grid container justify="center" style={{ marginTop: '20px' }}>
@@ -144,7 +144,7 @@ class LoginPage extends React.Component<any, LoginState> {
                   <TextField id="adminid" label="Admin ID" type="email" fullWidth autoFocus required />
                 </Grid>
               </Grid>
-              {this.state.adminEnteredInvalid && <Grid item md={true} sm={true} xs={true} className={classes.invalidLabel}>
+              {this.state.adminEnteredInvalid && <Grid item md={true} sm={true} xs={true} className={classes.invalidLabel} id="invalidadmin">
                 Invalid credentials!
               </Grid>}
               <Grid container justify="center" style={{ marginTop: '20px' }}>
