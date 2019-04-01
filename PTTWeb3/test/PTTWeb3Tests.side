@@ -1393,7 +1393,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["a8ea4739-3dfe-4dc0-a857-0f6ed4d89f1a"]
+    "tests": ["a8ea4739-3dfe-4dc0-a857-0f6ed4d89f1a", "c764bd19-698b-4705-80c5-e530333ca0b1", "45b4ecf9-fef1-412c-8290-3f756c009ac4"]
   }],
   "urls": ["http://localhost:3000/", "http://localhost:3000/adminpage"],
   "plugins": []
