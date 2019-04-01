@@ -154,15 +154,15 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
     if (projectname) {
       CreateNewProject(this.state.userId, projectname as string)
         .then((project: Project) => {
-          this.setState({ projects: this.state.projects.concat(project) });
+          this.setState({
+            projects: this.state.projects.concat(project),
+            createModalIsOpen: false
+          });
         })
     } else {
       // nothing entered, just close
+      alert("Project name cannot be empty!")
     }
-
-    this.setState({
-      createModalIsOpen: false
-    });
   }
 
   closeCreateModal() {
