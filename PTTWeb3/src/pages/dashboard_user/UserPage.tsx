@@ -240,10 +240,10 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
         <div className={classes.projectsPage}>
           <h1 id={classes.titleHeader}>User: {`${this.state.user.firstName} ${this.state.user.lastName}`}</h1>
           <p id={classes.titleDesc}>The list of projects that you've created is available below.</p>
-          <Button className={classes.createButton} variant="contained" style={{ textTransform: "none", marginRight: "10px" }} onClick={this.handleCreateProject.bind(this)}>
+          <Button id="createnewproject" className={classes.createButton} variant="contained" style={{ textTransform: "none", marginRight: "10px" }} onClick={this.handleCreateProject.bind(this)}>
             Create a New Project
           </Button>
-          <Button className={classes.createButton} variant="contained" style={{ textTransform: "none", marginRight: "10px" }} onClick={this.handleUpdateUserInfo.bind(this)}>
+          <Button id="updateinfo" className={classes.createButton} variant="contained" style={{ textTransform: "none", marginRight: "10px" }} onClick={this.handleUpdateUserInfo.bind(this)}>
             Update User Infomation
           </Button>
           <Modal
