@@ -297,16 +297,16 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
               {this.state.projects.map((currentProject, i) =>
                 <ListItem key={currentProject.id} className={classes.projDetails}>
                   <Grid container spacing={8} alignItems="flex-end" className={classes.projitem} style={{ flexGrow: 1, justifyContent: 'center', alignItems: 'center' }}>
-                    <Grid item md={true} sm={true} xs={true}>
+                    <Grid item md={true} sm={true} xs={true} id="project_id">
                       {currentProject.id}
                     </Grid>
-                    <Grid item md={true} sm={true} xs={true}>
+                    <Grid item md={true} sm={true} xs={true} id="project_name">
                       {currentProject.projectName}
                     </Grid>
-                    <Grid item md={true} sm={true} xs={true}>
+                    <Grid item md={true} sm={true} xs={true} id="project_sessions">
                       {currentProject.sessionCount}
                     </Grid>
-                    <Grid item md={true} sm={true} xs={true}>
+                    <Grid item md={true} sm={true} xs={true} id="project_actions">
                       <Button id={"delete" + currentProject.id} className={classes.deleteButton} onClick={() => this.handleProjectDelete(currentProject.id)} variant="contained" style={{ textTransform: "none" }}>
                         Delete
                   </Button>
