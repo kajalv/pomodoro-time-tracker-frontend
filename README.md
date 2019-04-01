@@ -58,7 +58,7 @@ Use created user email or `a` (predefined test user) to login into user page, wh
 
 ### Steps To Run
 
-First, follow the steps in the `README.md` at the root of the repository to install the front end and start the React server. The server needs to be running at `localhost:3000`.  
+First, follow the steps above to install the front end and start the React server. The server needs to be running at `localhost:3000`.  
 There are two options to run the `.side` test cases: through Selenium IDE Chrome extentions or through CLI.
 
 ### Selenium IDE Extension
@@ -79,7 +79,7 @@ There are two options to run the `.side` test cases: through Selenium IDE Chrome
 
     export PATH=(full path here)/6301Spring19Web3/PTTWeb3/node_modules/chromedriver/lib/chromedriver:$PATH
 
-4. For CLI, 
+4. For CLI, in the `PTTWeb3` directory,
 ```
 selenium-side-runner ./test/PTTWeb3Tests.side
 ``` 

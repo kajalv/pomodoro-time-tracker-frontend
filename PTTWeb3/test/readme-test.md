@@ -23,7 +23,7 @@ There are two options to run the `.side` test cases: through Selenium IDE Chrome
 
     export PATH=(full path here)/6301Spring19Web3/PTTWeb3/node_modules/chromedriver/lib/chromedriver:$PATH
 
-4. For CLI, 
+4. For CLI, in the `PTTWeb3` directory,
 ```
 selenium-side-runner ./test/PTTWeb3Tests.side
 ``` 
