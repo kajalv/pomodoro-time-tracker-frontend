@@ -99,13 +99,6 @@
       "targets": [],
       "value": "count"
     }, {
-      "id": "b217dc4c-e856-4363-a1a9-2e492b0adaff",
-      "comment": "",
-      "command": "echo",
-      "target": "${count}",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "e421a57a-6f00-43bd-8ed2-25395cc99fce",
       "comment": "",
       "command": "while",
@@ -294,26 +287,12 @@
       ],
       "value": "user_count"
     }, {
-      "id": "abe47128-e55b-40d2-829e-de9673e4cb29",
-      "comment": "",
-      "command": "echo",
-      "target": "${user_count}",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "e74bf9eb-4d7b-492a-bf6f-52559dab8a77",
       "comment": "",
       "command": "assert",
       "target": "user_count",
       "targets": [],
       "value": "2"
-    }, {
-      "id": "1546241e-2315-43cf-be33-17f4a2af6037",
-      "comment": "",
-      "command": "//assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
-      "targets": [],
-      "value": "1"
     }, {
       "id": "ff6bed7d-90c9-40dd-a457-174edbc6f814",
       "comment": "",
@@ -350,10 +329,6 @@
       "targets": [],
       "value": ""
     }]
-  }, {
-    "id": "43582590-34df-4f1d-80d8-3957f11445df",
-    "name": "CreateATestUserAndLoginTest",
-    "commands": []
   }, {
     "id": "a8ea4739-3dfe-4dc0-a857-0f6ed4d89f1a",
     "name": "HomePageTest",
@@ -423,45 +398,73 @@
       "value": ""
     }]
   }, {
-    "id": "9828eda5-7272-48a7-8ffb-17a6cd96ec01",
+    "id": "89c03692-09b8-465c-b6fc-b11528da806c",
     "name": "AdminDeleteUserTest",
     "commands": [{
-      "id": "7ca04fde-10d9-448b-bcea-6f9221379489",
+      "id": "5fee8b64-68c6-4602-9852-96baa8c9fb69",
       "comment": "",
       "command": "open",
       "target": "/adminpage",
       "targets": [],
       "value": ""
     }, {
-      "id": "aca9cc38-c520-4eab-801d-af5e0228af4c",
+      "id": "ee61313e-b2a3-4b4b-8d20-73617c0ad081",
       "comment": "",
       "command": "storeXpathCount",
       "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
       "targets": [],
       "value": "count"
     }, {
-      "id": "a48ca651-272b-475e-be92-0ca7cf5de2bf",
+      "id": "ad606b52-7469-45a8-8c0a-965ac37d12dc",
       "comment": "",
-      "command": "echo",
-      "target": "${count}",
+      "command": "while",
+      "target": "(${count} != 0)",
       "targets": [],
       "value": ""
     }, {
-      "id": "de16275c-4154-4a80-8639-c858e3fa53b3",
+      "id": "fb1ecd2f-5b8b-43f6-b31c-31b55556ce7c",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${count}\"]",
+      "targets": [
+        ["id=delete1", "id"],
+        ["css=#delete1", "css:finder"],
+        ["xpath=//button[@id='delete1']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Delete')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "714bb39a-872e-4150-990d-3f58c79bff89",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"okbuttondelete\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e74ca154-8711-4d5b-94f5-41a77d5b3dd2",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${count} - 1",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "b499ff67-9446-419b-b239-6566a7dbc1aa",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "38246679-c8b3-4aa7-bb18-abfce48068d9",
       "comment": "",
       "command": "assertElementPresent",
       "target": "id=CreateNewUser",
       "targets": [],
       "value": ""
     }, {
-      "id": "d467b110-5ab8-46f8-bfd6-64f0918efdbe",
-      "comment": "",
-      "command": "if",
-      "target": "(${count} == 0)",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "44af8ed9-d2ad-4479-8f22-ed7a36764f4b",
+      "id": "cf6fd9c5-6bcc-4edf-ad98-2c527aa72eaf",
       "comment": "",
       "command": "click",
       "target": "id=CreateNewUser",
@@ -475,7 +478,7 @@
       ],
       "value": ""
     }, {
-      "id": "95abaa0a-27cd-40fe-b5b1-190e13549c91",
+      "id": "83126033-c2fb-451d-b52e-e9bee9a7e010",
       "comment": "",
       "command": "type",
       "target": "id=newuserfirstname",
@@ -487,7 +490,7 @@
       ],
       "value": "Yuhong"
     }, {
-      "id": "c77c82df-1a04-414d-b2b9-3d65dad64a1d",
+      "id": "423338e3-c8c0-4432-8713-251ad054adde",
       "comment": "",
       "command": "type",
       "target": "id=newuserlastname",
@@ -499,7 +502,7 @@
       ],
       "value": "Wang"
     }, {
-      "id": "36d94b14-a557-4137-98ec-77cdce29e513",
+      "id": "01a5bc03-99f6-480c-9992-fd58cf6e284c",
       "comment": "",
       "command": "type",
       "target": "id=newuseremail",
@@ -511,7 +514,7 @@
       ],
       "value": "ywang3550@gatech.edu"
     }, {
-      "id": "b382338a-7f84-4575-b078-b1f6ddbf0f04",
+      "id": "c416066d-a7c3-44d4-8f16-04a6ce4265d8",
       "comment": "",
       "command": "click",
       "target": "id=okbuttoncreate",
@@ -521,7 +524,7 @@
       ],
       "value": ""
     }, {
-      "id": "ec6984c1-aa6f-4009-81e9-e80dc5d88cc3",
+      "id": "fed584d9-a4b7-4ad1-b4e7-c1b1b63e0dd9",
       "comment": "",
       "command": "click",
       "target": "id=CreateNewUser",
@@ -535,7 +538,7 @@
       ],
       "value": ""
     }, {
-      "id": "0486f1c1-9256-499b-88ac-3efce988d524",
+      "id": "9944e802-100d-4b1a-86cc-651953219ada",
       "comment": "",
       "command": "type",
       "target": "id=newuserfirstname",
@@ -547,7 +550,7 @@
       ],
       "value": "Yang"
     }, {
-      "id": "4aecc056-bae2-4ecf-a491-d016ac496e0e",
+      "id": "99ae1734-6656-4a47-911a-f5de7db50bf5",
       "comment": "",
       "command": "type",
       "target": "id=newuserlastname",
@@ -559,7 +562,7 @@
       ],
       "value": "Hu"
     }, {
-      "id": "f5e1a8b4-1989-44cb-a97e-d75827dc46f5",
+      "id": "42bf3b65-e477-440c-abde-8d3e07c7bea3",
       "comment": "",
       "command": "type",
       "target": "id=newuseremail",
@@ -571,7 +574,7 @@
       ],
       "value": "yhu388@gatech.edu"
     }, {
-      "id": "7d3795bf-30a8-48df-b6de-e432349c6461",
+      "id": "e04331d0-786e-46d3-a97e-beaf959d8c8a",
       "comment": "",
       "command": "click",
       "target": "id=okbuttoncreate",
@@ -581,28 +584,140 @@
       ],
       "value": ""
     }, {
-      "id": "f461899c-4f30-4cfd-98e7-157055e34509",
+      "id": "399e2fa7-3c6b-462b-b1b4-7c97da5bf648",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "targets": [
+        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
+        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
+        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": "user_count"
+    }, {
+      "id": "2ee77c73-7723-4616-b808-9f3e4fdbcc92",
+      "comment": "",
+      "command": "assert",
+      "target": "user_count",
+      "targets": [],
+      "value": "2"
+    }, {
+      "id": "d8faff22-e79d-48e9-a3ed-fbb278feed1f",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
+      "targets": [],
+      "value": "Yuhong Wang"
+    }, {
+      "id": "325ecc60-3387-4f21-955e-5d2fdb1012bc",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_email\"]",
+      "targets": [],
+      "value": "ywang3550@gatech.edu"
+    }, {
+      "id": "da730ed2-bcda-4153-ac76-d3c6dd811ff8",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
+      "targets": [],
+      "value": "Yang Hu"
+    }, {
+      "id": "92e189e2-747d-49bb-bb66-03c7ccfbce82",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_email\"]",
+      "targets": [],
+      "value": "yhu388@gatech.edu"
+    }, {
+      "id": "439f6cfc-1f20-4de3-b17e-bce877e2cb8f",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${user_count}\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ad5f2544-952a-4d22-9f64-d61623202a6c",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"okbuttondelete\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "763186b4-b30b-4dd8-94fe-5a4b8c95cc80",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "targets": [
+        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
+        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
+        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": "current_user_count"
+    }, {
+      "id": "392d423a-471c-44a3-951b-d3055a6a405a",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${user_count} - 1",
+      "targets": [],
+      "value": "expected_count"
+    }, {
+      "id": "73ce417e-cd39-4cb9-9deb-d31d29ef3e93",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${current_user_count}",
+      "targets": [],
+      "value": "current_user_count"
+    }, {
+      "id": "2656f07b-1994-4aa1-8366-6f8dc0e16b9a",
+      "comment": "",
+      "command": "verify",
+      "target": "current_user_count",
+      "targets": [],
+      "value": "${expected_count}"
+    }, {
+      "id": "ff2532bd-87a5-4b43-ac1d-1da45c757561",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "413ef963-9943-4492-98b7-ceb64ff95b34",
+    "name": "AdminUpdateUserTest",
+    "commands": [{
+      "id": "a435a25d-4196-4b78-ba0a-84d3031bfd63",
+      "comment": "",
+      "command": "open",
+      "target": "/adminpage",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4232bdf7-414e-4b62-8cd4-de63e22957d3",
       "comment": "",
       "command": "storeXpathCount",
       "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
       "targets": [],
       "value": "count"
     }, {
-      "id": "b267f88c-a89f-455b-a44a-ab5b3c760491",
+      "id": "919a94a4-95ab-40f6-b8e2-3749bbd5db7b",
       "comment": "",
-      "command": "end",
-      "target": "",
+      "command": "while",
+      "target": "(${count} != 0)",
       "targets": [],
       "value": ""
     }, {
-      "id": "0733c278-ba5a-45ef-807e-92300cee4b46",
+      "id": "23b7a44a-4810-417e-8cc5-2de03f0623e3",
       "comment": "",
       "command": "storeText",
       "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
       "targets": [],
       "value": "id"
     }, {
-      "id": "f79dd026-d0f1-4ca4-97dc-0816a0fad627",
+      "id": "9f866f1a-ae38-4eda-af5b-f376daa2af2a",
       "comment": "",
       "command": "click",
       "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${id}\"]",
@@ -616,88 +731,35 @@
       ],
       "value": ""
     }, {
-      "id": "bacbd885-2ff4-421c-a4b1-94847071723d",
+      "id": "639911f3-dde1-443e-bbe4-a0987edb926d",
       "comment": "",
       "command": "click",
       "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"okbuttondelete\"]",
       "targets": [],
       "value": ""
     }, {
-      "id": "6d2f2204-7e7c-458c-bd26-325860f34eb1",
-      "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [],
-      "value": "count_after_delete"
-    }, {
-      "id": "4d2c4fcb-53ec-41e2-ab98-01f162530983",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return ${count} - 1",
-      "targets": [],
-      "value": "expect_count"
-    }, {
-      "id": "2ebfd541-356e-4074-adf0-cf069245077c",
-      "comment": "",
-      "command": "echo",
-      "target": "${expect_count}",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "d7647754-4599-4e75-bdad-ed0698f1320c",
-      "comment": "",
-      "command": "assert",
-      "target": "count_after_delete",
-      "targets": [],
-      "value": "${expect_count}"
-    }, {
-      "id": "23935ed6-96b1-48eb-a0a8-9901c367cf44",
-      "comment": "",
-      "command": "close",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }]
-  }, {
-    "id": "e4409c4e-97cb-4c3a-8ea0-c023eed1a0e9",
-    "name": "AdminUpdateUserTest",
-    "commands": [{
-      "id": "6280c3ca-6b97-42ed-a051-5e4d750c03fb",
-      "comment": "",
-      "command": "open",
-      "target": "/adminpage",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "3cdae5a5-60ea-4be3-84cf-f5fb0e394e24",
+      "id": "74beddb1-94bb-47d7-b040-1b0df6c0306e",
       "comment": "",
       "command": "storeXpathCount",
       "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
       "targets": [],
       "value": "count"
     }, {
-      "id": "79d635dc-96ac-4097-954a-fe3516c55285",
+      "id": "47a77f30-c788-4cfa-b6dd-02cc62d016fa",
       "comment": "",
-      "command": "echo",
-      "target": "${count}",
+      "command": "end",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
-      "id": "f809aed6-bf1f-4ac9-ac18-6009b44cc9e7",
+      "id": "abc63b02-6e87-4f3c-9494-886ca3362958",
       "comment": "",
       "command": "assertElementPresent",
       "target": "id=CreateNewUser",
       "targets": [],
       "value": ""
     }, {
-      "id": "75359197-3c4f-4b84-93f6-bb8ddf5b3dc3",
-      "comment": "",
-      "command": "if",
-      "target": "(${count} == 0)",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "f38f51b9-06da-4703-980a-995e26f72d97",
+      "id": "df535fdc-5a47-48ab-bdfa-eba7331ac0c1",
       "comment": "",
       "command": "click",
       "target": "id=CreateNewUser",
@@ -711,7 +773,7 @@
       ],
       "value": ""
     }, {
-      "id": "bfecb47e-66c6-49db-ab31-136bc2670a47",
+      "id": "2804e60a-d284-4e78-bce0-d2f22f1f7270",
       "comment": "",
       "command": "type",
       "target": "id=newuserfirstname",
@@ -723,7 +785,7 @@
       ],
       "value": "Yuhong"
     }, {
-      "id": "d162e85d-9843-4867-a3f8-eaf1038aae80",
+      "id": "0313495b-247f-4d39-863e-103d059526b1",
       "comment": "",
       "command": "type",
       "target": "id=newuserlastname",
@@ -735,7 +797,7 @@
       ],
       "value": "Wang"
     }, {
-      "id": "4c6f504b-615e-4bf3-bc4a-5780ebffbb84",
+      "id": "323450c8-7c52-42d3-834f-9382e422902d",
       "comment": "",
       "command": "type",
       "target": "id=newuseremail",
@@ -747,7 +809,7 @@
       ],
       "value": "ywang3550@gatech.edu"
     }, {
-      "id": "6547489a-23df-4aa0-b0d3-46d5b19a4376",
+      "id": "ffe6abda-50cc-4fb5-9690-90b0b1dba98d",
       "comment": "",
       "command": "click",
       "target": "id=okbuttoncreate",
@@ -757,7 +819,7 @@
       ],
       "value": ""
     }, {
-      "id": "768894df-dace-4b87-87f2-97b81e062576",
+      "id": "36cbc055-78b4-405e-9006-5112e5efa241",
       "comment": "",
       "command": "click",
       "target": "id=CreateNewUser",
@@ -771,7 +833,7 @@
       ],
       "value": ""
     }, {
-      "id": "504d945e-5006-4bcd-9807-6238b86fcf2d",
+      "id": "80dfa8c2-2e17-4657-a438-9a962e99497a",
       "comment": "",
       "command": "type",
       "target": "id=newuserfirstname",
@@ -783,7 +845,7 @@
       ],
       "value": "Yang"
     }, {
-      "id": "0e8ea2e7-1d2e-41d5-852a-4b3f04b3390a",
+      "id": "dc28c174-2d5c-4a2f-a3e3-fd4583ec5653",
       "comment": "",
       "command": "type",
       "target": "id=newuserlastname",
@@ -795,7 +857,7 @@
       ],
       "value": "Hu"
     }, {
-      "id": "585ef88b-d808-44f4-bc9e-0f1bc2058c6a",
+      "id": "0756cfbd-2517-4a77-9dc4-b857e9754998",
       "comment": "",
       "command": "type",
       "target": "id=newuseremail",
@@ -807,7 +869,7 @@
       ],
       "value": "yhu388@gatech.edu"
     }, {
-      "id": "793c23d6-02aa-4400-afc1-309f895d1287",
+      "id": "6d99aade-ac99-4334-b524-375ad0202bbb",
       "comment": "",
       "command": "click",
       "target": "id=okbuttoncreate",
@@ -817,91 +879,115 @@
       ],
       "value": ""
     }, {
-      "id": "8437d4e3-ac71-4291-9925-73cc4176fd9e",
+      "id": "17104d85-5af3-41c7-98bb-5cdb2e874199",
       "comment": "",
       "command": "storeXpathCount",
       "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [],
-      "value": "count"
+      "targets": [
+        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
+        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
+        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": "user_count"
     }, {
-      "id": "a72d29d0-0d64-439d-9b2e-a43c5dd3410b",
+      "id": "cc2c0ebb-40b0-44a6-988a-528520a07018",
       "comment": "",
-      "command": "end",
-      "target": "",
+      "command": "assert",
+      "target": "user_count",
       "targets": [],
-      "value": ""
+      "value": "2"
     }, {
-      "id": "9e4a21c4-8ceb-4436-ac6f-8ed311e6b8a7",
+      "id": "af32402c-3168-4253-bf2f-921cb4003fd9",
       "comment": "",
-      "command": "storeText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
+      "command": "assertElementPresent",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
       "targets": [],
-      "value": "id"
+      "value": "Yuhong Wang"
     }, {
-      "id": "b7a891eb-1c86-4c79-8f62-8f93fcfe89b9",
+      "id": "1cec008d-79c1-4da0-99d3-439012a954f4",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_email\"]",
+      "targets": [],
+      "value": "ywang3550@gatech.edu"
+    }, {
+      "id": "6ce1a962-8dbc-480b-b48d-aa493f29144b",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
+      "targets": [],
+      "value": "Yang Hu"
+    }, {
+      "id": "193400d8-e1d9-45ff-863c-b4e83c4593e7",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_email\"]",
+      "targets": [],
+      "value": "yhu388@gatech.edu"
+    }, {
+      "id": "6d08d558-5b5d-44a1-865e-36e9fd827776",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"edit${id}\"]",
-      "targets": [
-        ["id=delete1", "id"],
-        ["css=#delete1", "css:finder"],
-        ["xpath=//button[@id='delete1']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button[2]", "xpath:idRelative"],
-        ["xpath=//button[2]", "xpath:position"],
-        ["xpath=//button[contains(.,'Delete')]", "xpath:innerText"]
-      ],
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"edit1\"]",
+      "targets": [],
       "value": ""
     }, {
-      "id": "ae5d462b-5184-4945-b37a-41aaf08de94d",
+      "id": "0d32f0f4-0e19-4811-a07b-8e412ec95554",
       "comment": "",
       "command": "type",
       "target": "id=editfirstname",
       "targets": [],
       "value": "Yang"
     }, {
-      "id": "cb377587-94c9-4505-a2ef-c7fd0ce9fc34",
+      "id": "ab1253c6-40ff-4e87-b78b-9927ac3a61e8",
       "comment": "",
       "command": "type",
       "target": "id=editlastname",
       "targets": [],
       "value": "Hu Jr."
     }, {
-      "id": "2c82fe7e-27fb-4813-8c75-a06a6baf942c",
+      "id": "5a7d6e2d-1545-4d1a-b908-5b88a24b8593",
       "comment": "",
       "command": "click",
       "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"okbuttonedit\"]",
       "targets": [],
       "value": ""
     }, {
-      "id": "9854f1c6-f00f-4298-a3cc-f2c0b269feb9",
+      "id": "a704028c-3a66-4f5c-b4f9-e228001ab89d",
       "comment": "",
       "command": "storeXpathCount",
       "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [],
-      "value": "count_after_edit"
+      "targets": [
+        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
+        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
+        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
+      ],
+      "value": "current_user_count"
     }, {
-      "id": "8f4a5c0f-96af-49e4-af5d-8c2f4dc19e9c",
+      "id": "a1fb797a-fb29-4f36-88f1-d3ebdfa3915a",
       "comment": "",
       "command": "assert",
-      "target": "count_after_edit",
+      "target": "current_user_count",
       "targets": [],
-      "value": "${count}"
+      "value": "${user_count}"
     }, {
-      "id": "7f4bcabc-2ec4-48b8-9c6f-d8824d48d2bc",
-      "comment": "",
-      "command": "assertNotText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
-      "targets": [],
-      "value": "Yuhong Wang"
-    }, {
-      "id": "d4d768b4-770d-41d9-b9cc-55bd6fc3428c",
+      "id": "ec81c0e1-7f2d-4496-8c7a-f3c1735fec4e",
       "comment": "",
       "command": "assertText",
       "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
       "targets": [],
       "value": "Yang Hu Jr."
     }, {
-      "id": "4bf012d3-c737-43f7-9d90-867af3e56249",
+      "id": "d92ef772-af16-4315-ad63-c70cf76c27a3",
+      "comment": "",
+      "command": "assertNotText",
+      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
+      "targets": [],
+      "value": "Yuhong Wang"
+    }, {
+      "id": "10e4bc8c-3fa3-44cf-801c-d7d428082307",
       "comment": "",
       "command": "close",
       "target": "",
@@ -915,7 +1001,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["d811e590-476d-4058-8527-ddb626920657", "0c3f8740-62fc-4631-b2ee-37e641aa7ddb", "9828eda5-7272-48a7-8ffb-17a6cd96ec01", "e4409c4e-97cb-4c3a-8ea0-c023eed1a0e9"]
+    "tests": ["d811e590-476d-4058-8527-ddb626920657", "0c3f8740-62fc-4631-b2ee-37e641aa7ddb", "89c03692-09b8-465c-b6fc-b11528da806c", "413ef963-9943-4492-98b7-ceb64ff95b34"]
   }, {
     "id": "c043cd31-ad0e-47e8-81f1-416dfebc7b19",
     "name": "User Tests Suite",
