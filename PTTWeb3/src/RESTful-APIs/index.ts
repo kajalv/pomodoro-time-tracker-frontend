@@ -4,7 +4,7 @@ export * from './Project-APIs';
 
 import axios, { AxiosError, AxiosRequestConfig, AxiosPromise } from 'axios';
 export const httpClient = axios.create({
-  baseURL: "http://localhost:8080/api/"
+  baseURL: process.env.REACT_APP_DEV_API_URL
 });
 
 

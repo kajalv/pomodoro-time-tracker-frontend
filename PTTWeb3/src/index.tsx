@@ -5,6 +5,9 @@ import App from './pages/App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
+require('dotenv').config()
+
+console.log(process.env.REACT_APP_DEV_API_URL);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
