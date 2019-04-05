@@ -8,6 +8,7 @@ import { User, Project } from '../../models';
 import { List, ListItem, Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox, Backdrop } from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
 import { FetchProjectsByUserId, FetchUserById, DeleteProjectById, CreateNewProject, UpdateUserById } from '../../RESTful-APIs';
+import { Redirect } from 'react-router-dom';
 
 // match the id paremeter from the path.
 interface MatchParam {
@@ -31,6 +32,7 @@ interface UserPageState {
   projectToDelete: number,
   selectedAssociationValue: string,
   projectNameToAssociate: string,
+  backPressed: boolean,
 }
 
 const modalStyle = {
@@ -66,6 +68,7 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
       projectToDelete: -1,
       selectedAssociationValue: "no",
       projectNameToAssociate: "",
+      backPressed: false,
     }
     this._isMounted = false;
 
@@ -74,6 +77,7 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
     this.afterOpenCreateModal = this.afterOpenCreateModal.bind(this);
     this.closeCreateModal = this.closeCreateModal.bind(this);
     this.closeModalAndCreateProj = this.closeModalAndCreateProj.bind(this);
+    this.navigateBack = this.navigateBack.bind(this);
 
     this.handleProjectDelete = this.handleProjectDelete.bind(this);
     this.afterOpenDeleteModal = this.afterOpenDeleteModal.bind(this);
@@ -281,6 +285,12 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
     });
   }
 
+  navigateBack() {
+    this.setState({
+      backPressed: true
+    });
+  }
+
   render() {
 
     var classes = ({
@@ -304,6 +314,9 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
       radioOptions: 'radio-options',
     });
 
+    if (this.state.backPressed) {
+      return (<Redirect push to='/login' />);
+    } else {
     return (
       this.state.dataLoaded ?
         <div className={classes.projectsPage}>
@@ -425,12 +438,16 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
               </Modal>
             </List>
           </Paper>
+          <Button id="backbutton" className={classes.createButton} variant="contained" style={{ textTransform: "none", marginRight: "10px", marginTop: "20px" }} onClick={this.navigateBack.bind(this)}>
+            Back
+          </Button>
         </div> :
         <div id="center" className={classes.spinnerDiv}>
           <ClipLoader>
           </ClipLoader>
         </div>
     );
+    }
   }
 
 }

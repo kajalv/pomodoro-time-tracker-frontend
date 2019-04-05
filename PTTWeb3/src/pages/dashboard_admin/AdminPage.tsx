@@ -7,6 +7,7 @@ import { User, Project } from '../../models';
 import { List, ListItem, Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox, Backdrop } from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
 import { FetchAllUsers, CreateNewUser, DeleteUserById, UpdateUserById, FetchUserById } from '../../RESTful-APIs';
+import { Redirect } from 'react-router-dom';
 
 interface AdminPageProps extends RouteComponentProps {
 
@@ -20,7 +21,8 @@ interface AdminPageState {
   editModalIsOpen: boolean,
   deleteConfModalIsOpen: boolean,
   userToDelete: number,
-  userToEdit: number
+  userToEdit: number,
+  backPressed: boolean
 }
 
 const modalStyle = {
@@ -50,7 +52,8 @@ class AdminPage extends React.Component {
       editModalIsOpen: false,
       deleteConfModalIsOpen: false,
       userToDelete: -1,
-      userToEdit: -1
+      userToEdit: -1,
+      backPressed: false
     }
 
     this.handleCreateUser = this.handleCreateUser.bind(this);
@@ -58,6 +61,7 @@ class AdminPage extends React.Component {
     this.closeCreateModal = this.closeCreateModal.bind(this);
     this.closeModalAndCreateUser = this.closeModalAndCreateUser.bind(this);
     this.closeModalAndDeleteUser = this.closeModalAndDeleteUser.bind(this);
+    this.navigateBack = this.navigateBack.bind(this);
   }
 
   // this function will be called right before render function.
@@ -187,9 +191,13 @@ class AdminPage extends React.Component {
     });
   }
 
-  render() {
-    console.log(this.state);
+  navigateBack() {
+    this.setState({
+      backPressed: true
+    });
+  }
 
+  render() {
     var classes = ({
       headernav: 'header-nav',
       projDetails: 'project-details',
@@ -209,6 +217,9 @@ class AdminPage extends React.Component {
       modalActionContainer: 'modal-action-container',
     });
 
+    if (this.state.backPressed) {
+      return (<Redirect push to='/login' />);
+    } else {
     return (
       <div className={classes.projectsPage}>
           <h1 id={classes.titleHeader}>Administrator Dashboard</h1>
@@ -310,8 +321,12 @@ class AdminPage extends React.Component {
               </Modal>
             </List>
           </Paper>
+          <Button id="backbutton" className={classes.createButton} variant="contained" style={{ textTransform: "none", marginRight: "10px", marginTop: "20px" }} onClick={this.navigateBack.bind(this)}>
+            Back
+          </Button>
         </div>
     );
+  }
   }
 
 }
