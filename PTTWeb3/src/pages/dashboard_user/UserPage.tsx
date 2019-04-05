@@ -1,5 +1,7 @@
 import React from 'react';
+import Dropdown from 'react-dropdown';
 import { RouteComponentProps } from 'react-router';
+import { Radio, RadioGroup } from 'react-radio-group';
 import Modal from 'react-modal';
 import { ClipLoader } from 'react-spinners';
 import { User, Project } from '../../models';
@@ -23,9 +25,12 @@ interface UserPageState {
   projects: Project[],
   dataLoaded: boolean,
   createModalIsOpen: boolean,
+  startSessionModalIsOpen: boolean,
   deleteConfModalIsOpen: boolean,
   updateInfoModalIsOpen: boolean,
-  projectToDelete: number
+  projectToDelete: number,
+  selectedAssociationValue: string,
+  projectNameToAssociate: string,
 }
 
 const modalStyle = {
@@ -55,13 +60,17 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
       projects: [] as Project[],
       dataLoaded: false,
       createModalIsOpen: false,
+      startSessionModalIsOpen: false,
       deleteConfModalIsOpen: false,
       updateInfoModalIsOpen: false,
-      projectToDelete: -1
+      projectToDelete: -1,
+      selectedAssociationValue: "no",
+      projectNameToAssociate: "",
     }
     this._isMounted = false;
 
     this.handleCreateProject = this.handleCreateProject.bind(this);
+    this.handleStartSession = this.handleStartSession.bind(this);
     this.afterOpenCreateModal = this.afterOpenCreateModal.bind(this);
     this.closeCreateModal = this.closeCreateModal.bind(this);
     this.closeModalAndCreateProj = this.closeModalAndCreateProj.bind(this);
@@ -70,6 +79,9 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
     this.afterOpenDeleteModal = this.afterOpenDeleteModal.bind(this);
     this.closeDeleteModal = this.closeDeleteModal.bind(this);
     this.closeModalAndDeleteProj = this.closeModalAndDeleteProj.bind(this);
+
+    this.handleOptionChange = this.handleOptionChange.bind(this);
+    this.handleDropdownChange = this.handleDropdownChange.bind(this);
   }
 
   // this function will be called right before render function. 
@@ -77,8 +89,6 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
   componentWillMount() {
     FetchUserById(this.state.userId)
       .then((user: User) => {
-        console.log("fetch user by id");
-        console.log(user);
         this._isMounted && this.setState({ user });
       })
       .catch(_ => {
@@ -87,7 +97,6 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
       });
     FetchProjectsByUserId(this.state.userId)
       .then((projects: Project[]) => {
-        console.log("fetch projects by userId");
         this._isMounted && this.setState({
           projects: projects,
           dataLoaded: true,
@@ -171,6 +180,54 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
     });
   }
 
+  handleStartSession() {
+    this.setState({
+      startSessionModalIsOpen: true
+    });
+  }
+
+  afterOpenStartSessionModal() {
+    // references are now sync'd and can be accessed.
+  }
+
+  closeModalAndStartSession() {
+    var associationVal = this.state.selectedAssociationValue as string;
+    if (associationVal == "yes") {
+      if (this.state.projectNameToAssociate) {
+        // create association
+      } else {
+        alert("Please select a project!");
+      }
+    } else {
+      // do not associate with any project, one-time session
+      
+    }
+    // var projectname = ((document.getElementById('newprojname') as HTMLInputElement).value)
+
+    // if (projectname) {
+    //   CreateNewProject(this.state.userId, projectname as string)
+    //     .then((project: Project) => {
+    //       this.setState({
+    //         projects: this.state.projects.concat(project),
+    //         startSessionModalIsOpen: false
+    //       });
+    //     })
+    // } else {
+    //   // nothing entered, just close
+    //   alert("Project name cannot be empty!")
+    // }
+
+    this.setState({
+      startSessionModalIsOpen: false
+    });
+  }
+
+  closeStartSessionModal() {
+    this.setState({
+      startSessionModalIsOpen: false
+    });
+  }
+
   handleUpdateUserInfo() {
     this.setState({
       updateInfoModalIsOpen: true
@@ -211,9 +268,20 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
     });
   }
 
-  render() {
+  handleOptionChange(changeEvent: any) {
+    this.setState({
+      selectedAssociationValue: changeEvent
+    });
+  }
 
-    console.log(this.state);
+  handleDropdownChange(changeEvent: any) {
+    var associate = changeEvent.value as string;
+    this.setState({
+      projectNameToAssociate: associate
+    });
+  }
+
+  render() {
 
     var classes = ({
       headernav: 'header-nav',
@@ -232,7 +300,8 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
       modalDesc: 'modal-desc',
       modalInput: 'modal-input',
       modalAction: 'modal-action',
-      modalActionContainer: 'modal-action-container'
+      modalActionContainer: 'modal-action-container',
+      radioOptions: 'radio-options',
     });
 
     return (
@@ -243,8 +312,11 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
           <Button id="createnewproject" className={classes.createButton} variant="contained" style={{ textTransform: "none", marginRight: "10px" }} onClick={this.handleCreateProject.bind(this)}>
             Create a New Project
           </Button>
+          <Button id="startsession" className={classes.createButton} variant="contained" style={{ textTransform: "none", marginRight: "10px" }} onClick={this.handleStartSession.bind(this)}>
+            Start a New Session
+          </Button>
           <Button id="updateinfo" className={classes.createButton} variant="contained" style={{ textTransform: "none", marginRight: "10px" }} onClick={this.handleUpdateUserInfo.bind(this)}>
-            Update User Infomation
+            Update User Information
           </Button>
           <Modal
             isOpen={this.state.createModalIsOpen}
@@ -259,6 +331,29 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
             <div className={classes.modalActionContainer}>
               <Button className={classes.modalAction} onClick={this.closeModalAndCreateProj.bind(this)} variant="text" style={{ textTransform: "none" }} id="okbuttoncreate">OK</Button>
               <Button className={classes.modalAction} onClick={this.closeCreateModal.bind(this)} variant="text" style={{ textTransform: "none" }} id="cancelbuttoncreate">Cancel</Button>
+            </div>
+          </Modal>
+          <Modal
+            isOpen={this.state.startSessionModalIsOpen}
+            onAfterOpen={this.afterOpenStartSessionModal}
+            onRequestClose={this.closeStartSessionModal}
+            style={modalStyle}
+            contentLabel="Start New Session"
+          >
+            <h2 className={classes.modalTitle}>Start New Session</h2>
+            <div className={classes.modalDesc}>Do you want to associate this session with a project?</div>
+            <div className={classes.radioOptions}>
+              <RadioGroup name="associate" selectedValue={this.state.selectedAssociationValue} onChange={this.handleOptionChange}>
+                  <Radio value="yes"/><span>Yes</span>
+                  <Radio value="no"/><span>No</span>
+              </RadioGroup>
+            </div>
+            {this.state.selectedAssociationValue == "yes" &&
+              <Dropdown options={this.state.projects.map(a => a.projectName)} value={this.state.projectNameToAssociate} onChange={this.handleDropdownChange} placeholder="Select a project" />
+            }
+            <div className={classes.modalActionContainer}>
+              <Button className={classes.modalAction} onClick={this.closeModalAndStartSession.bind(this)} variant="text" style={{ textTransform: "none" }} id="okbuttonstartsession">OK</Button>
+              <Button className={classes.modalAction} onClick={this.closeStartSessionModal.bind(this)} variant="text" style={{ textTransform: "none" }} id="cancelbuttonstartsession">Cancel</Button>
             </div>
           </Modal>
           <Modal
