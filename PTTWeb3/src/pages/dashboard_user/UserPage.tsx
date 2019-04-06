@@ -33,6 +33,8 @@ interface UserPageState {
   selectedAssociationValue: string,
   projectNameToAssociate: string,
   backPressed: boolean,
+  sessionStarted: boolean,
+  sessionId: number,
 }
 
 const modalStyle = {
@@ -69,6 +71,8 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
       selectedAssociationValue: "no",
       projectNameToAssociate: "",
       backPressed: false,
+      sessionStarted: false,
+      sessionId: 0,
     }
     this._isMounted = false;
 
@@ -199,12 +203,19 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
     if (associationVal == "yes") {
       if (this.state.projectNameToAssociate) {
         // create association
+        this.setState({
+          sessionStarted: true,
+          sessionId: 345, // TODO: dummy
+        });
       } else {
         alert("Please select a project!");
       }
     } else {
       // do not associate with any project, one-time session
-      
+      this.setState({
+        sessionStarted: true,
+        sessionId: 345, // TODO: dummy
+      });
     }
     // var projectname = ((document.getElementById('newprojname') as HTMLInputElement).value)
 
@@ -314,7 +325,9 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
       radioOptions: 'radio-options',
     });
 
-    if (this.state.backPressed) {
+    if (this.state.sessionStarted) {
+      return (<Redirect push to={'/session/' + this.state.sessionId} />);
+    } else if (this.state.backPressed) {
       return (<Redirect push to='/login' />);
     } else {
     return (

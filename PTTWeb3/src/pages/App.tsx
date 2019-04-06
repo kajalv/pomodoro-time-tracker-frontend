@@ -9,6 +9,7 @@ import Login from './page_login/LoginPage';
 import Home from './page_home/HomePage';
 import UserPage from './dashboard_user/UserPage';
 import AdminPage from './dashboard_admin/AdminPage';
+import PomodoroPage from './page_pomodoro/PomodoroPage';
 
 class App extends Component {
 
@@ -20,6 +21,7 @@ class App extends Component {
           <Route path="/login" component={Login} />
           <Route path="/user/:id" component={UserPage} />
           <Route path="/adminpage" component={AdminPage} />
+          <Route path="/session/:id" component={PomodoroPage} />
         </div>
       </Router>
     );

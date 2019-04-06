@@ -16,6 +16,7 @@
     "axios": "^0.18.0",
     "dotenv": "^7.0.0",
     "react": "^16.8.2",
+    "react-compound-timer": "^1.0.12",
     "react-dom": "^16.8.2",
     "react-dropdown": "^1.6.4",
     "react-modal": "^3.8.1",

@@ -277,3 +277,29 @@ div.modal-input div::after {
   display: block;
   padding: 8px 10px;
 }
+
+.pomodoroPage img {
+  width: 300px;
+  overflow: hidden;
+  margin: 0;
+  margin: -50px 0 -70px 0;
+}
+
+div.pomodoroPage {
+  text-align: center;
+}
+
+/* timer */
+
+.timer-div {
+  font-size: 50px;
+  color: tomato;
+  font-weight: bold;
+  text-align: center;
+}
+
+.phase p {
+  font-size: 20px;
+  color: gray;
+  margin-bottom: 0px;
+}
