@@ -155,7 +155,7 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
                     }
                 ]}
             >
-                {( { start, resume, pause, stop, reset, getTimerState, getTime } ) => (
+                {(  ) => (
                     <React.Fragment>
                         <Timer.Minutes /> : <Timer.Seconds />
                     </React.Fragment>
