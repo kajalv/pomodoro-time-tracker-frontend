@@ -17,9 +17,9 @@ export function DeleteProjectById(userId: number, projectId: number): Promise<Pr
     .catch(errorHandler)
 }
 
-export function CreateNewProject(userId: number, projectName: string): Promise<Project> {
+export function CreateNewProject(userId: number, projectname: string): Promise<Project> {
   return httpClient.post(`/users/${userId}/projects`, {
-    projectName: projectName,
+    projectname: projectname,
     userId: userId
   })
     .then(response => {

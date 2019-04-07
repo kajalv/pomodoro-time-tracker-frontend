@@ -1,6 +1,5 @@
 export interface Project {
   id: number,
-  projectName: string,
-  sessionCount: number,
+  projectname: string,
   userId: number
 }

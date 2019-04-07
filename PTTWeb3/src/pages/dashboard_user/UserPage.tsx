@@ -375,7 +375,7 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
               </RadioGroup>
             </div>
             {this.state.selectedAssociationValue == "yes" &&
-              <Dropdown options={this.state.projects.map(a => a.projectName)} value={this.state.projectNameToAssociate} onChange={this.handleDropdownChange} placeholder="Select a project" />
+              <Dropdown options={this.state.projects.map(a => a.projectname)} value={this.state.projectNameToAssociate} onChange={this.handleDropdownChange} placeholder="Select a project" />
             }
             <div className={classes.modalActionContainer}>
               <Button className={classes.modalAction} onClick={this.closeModalAndStartSession.bind(this)} variant="text" style={{ textTransform: "none" }} id="okbuttonstartsession">OK</Button>
@@ -422,10 +422,10 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
                       {currentProject.id}
                     </Grid>
                     <Grid item md={true} sm={true} xs={true} id="project_name">
-                      {currentProject.projectName}
+                      {currentProject.projectname}
                     </Grid>
                     <Grid item md={true} sm={true} xs={true} id="project_sessions">
-                      {currentProject.sessionCount}
+                      -
                     </Grid>
                     <Grid item md={true} sm={true} xs={true} id="project_actions">
                       <Button id={"delete" + currentProject.id} className={classes.deleteButton} onClick={() => this.handleProjectDelete(currentProject.id)} variant="contained" style={{ textTransform: "none" }}>
