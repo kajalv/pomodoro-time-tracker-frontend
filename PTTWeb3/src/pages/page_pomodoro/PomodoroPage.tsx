@@ -26,6 +26,8 @@ interface PomodoroPageState {
     sessionId: number,
     imageUrl: string
     inWorkPhase: boolean,
+    startAnotherPomodoroModalIsOpen: boolean,
+    stopPartialPomodoroModalIsOpen: boolean,
 }
 
 const modalStyle = {
@@ -53,6 +55,8 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
         sessionId: parseInt(props.match.params.id, 10),
         imageUrl: require("../../assets/large_pomodoro.png"),
         inWorkPhase: true,
+        startAnotherPomodoroModalIsOpen: false,
+        stopPartialPomodoroModalIsOpen: false,
     }
     this._isMounted = false;
 
@@ -73,7 +77,67 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
   }
 
   handleStopSession() {
-    alert("Stop session clicked"); // TODO
+    // pause timer
+    if (this.state.inWorkPhase) {
+        (document.getElementById("work_pauseButton") as HTMLButtonElement).click();
+    } else {
+        (document.getElementById("rest_pauseButton") as HTMLButtonElement).click();
+    }
+
+    this.setState({
+        stopPartialPomodoroModalIsOpen: true
+    });
+  }
+
+  closeModalAndStartAnotherPomodoro() {
+    (document.getElementById("restTimer") as HTMLDivElement).className += " hidden-element";
+    (document.getElementById("workTimer") as HTMLDivElement).className = "timer-div";
+    (document.getElementById("work_resetButton") as HTMLButtonElement).click();
+    (document.getElementById("work_startButton") as HTMLButtonElement).click();
+    this.setState({
+        startAnotherPomodoroModalIsOpen: false
+    })
+  }
+
+  closeStartAnotherPomodoroModal() {
+    this.setState({
+      startAnotherPomodoroModalIsOpen: false
+    });
+    //TODO: end session
+  }
+
+  closeModalAndLogPartialPomodoro() {
+    // close modal, log info
+
+    this.setState({
+        stopPartialPomodoroModalIsOpen: false
+    });
+
+    // TODO: log data and end session
+  }
+
+  closeModalAndEndSession() {
+    // close modal and end session, but do not log info
+
+    this.setState({
+        stopPartialPomodoroModalIsOpen: false
+    });
+
+    // TODO: end session
+  }
+
+  closePartialPomodoroModal() {
+    // continue the pomodoro
+    this.setState({
+        stopPartialPomodoroModalIsOpen: false
+    });
+
+    // resume timer
+    if (this.state.inWorkPhase) {
+        (document.getElementById("work_resumeButton") as HTMLButtonElement).click();
+    } else {
+        (document.getElementById("rest_resumeButton") as HTMLButtonElement).click();
+    }
   }
 
   render() {
@@ -122,6 +186,33 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
             <br/>
             <img src={this.state.imageUrl}></img>
           </div>
+          <Modal
+            isOpen={this.state.startAnotherPomodoroModalIsOpen}
+            onRequestClose={this.closeStartAnotherPomodoroModal}
+            style={modalStyle}
+            contentLabel="Continue Session?"
+            >
+            <h2 className={classes.modalTitle}>Start Another Pomodoro</h2>
+            <div className={classes.modalDesc}>Do you want to start another pomodoro?</div>
+            <div className={classes.modalActionContainer}>
+                <Button className={classes.modalAction} onClick={this.closeModalAndStartAnotherPomodoro.bind(this)} variant="text" style={{ textTransform: "none" }} id="startanotherbutton">Yes</Button>
+                <Button className={classes.modalAction} onClick={this.closeStartAnotherPomodoroModal.bind(this)} variant="text" style={{ textTransform: "none" }} id="cancelanotherbutton">No</Button>
+            </div>
+          </Modal>
+          <Modal
+            isOpen={this.state.stopPartialPomodoroModalIsOpen}
+            onRequestClose={this.closePartialPomodoroModal}
+            style={modalStyle}
+            contentLabel="Continue Session?"
+            >
+            <h2 className={classes.modalTitle}>End Session</h2>
+            <div className={classes.modalDesc}>Do you want to log the partial pomodoro time?</div>
+            <div className={classes.modalActionContainer}>
+                <Button className={classes.modalAction} onClick={this.closeModalAndLogPartialPomodoro.bind(this)} variant="text" style={{ textTransform: "none" }} id="logpartialbutton">Yes</Button>
+                <Button className={classes.modalAction} onClick={this.closeModalAndEndSession.bind(this)} variant="text" style={{ textTransform: "none" }} id="endsessionbutton">No</Button>
+                <Button className={classes.modalAction} onClick={this.closePartialPomodoroModal.bind(this)} variant="text" style={{ textTransform: "none" }} id="cancelpartialbutton">Cancel</Button>
+            </div>
+          </Modal>
           <div id="timerContainer">
             <div className={classes.timerDiv} id="workTimer">
                 <Timer
@@ -184,16 +275,10 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
                             // toggle the state
                             this.setState({
                                 imageUrl: require("../../assets/large_pomodoro.png"),
-                                inWorkPhase: true
+                                inWorkPhase: true,
+                                startAnotherPomodoroModalIsOpen: true
                             });
-                            if (confirm("continue?")) {
-                                (document.getElementById("restTimer") as HTMLDivElement).className += " hidden-element";
-                                (document.getElementById("workTimer") as HTMLDivElement).className = "timer-div";
-                                (document.getElementById("work_resetButton") as HTMLButtonElement).click();
-                                (document.getElementById("work_startButton") as HTMLButtonElement).click();
-                            } else {
-                                // do nothing
-                            }
+                            //depending on the dialog outcome, action will be taken
                         },
                     }
                 ]}
