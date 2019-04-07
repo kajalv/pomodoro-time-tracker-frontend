@@ -303,3 +303,15 @@ div.pomodoroPage {
   color: gray;
   margin-bottom: 0px;
 }
+
+#workButtons,
+#restButtons
+{
+  height: 0;
+  visibility: hidden;
+}
+
+div.hidden-element {
+  visibility: hidden;
+  height: 0;
+}

@@ -105,8 +105,6 @@ class LoginPage extends React.Component<any, LoginState> {
       invalidLabel: "invalidLabel"
     }
 
-    console.log(this.state);
-
     if (this.state.adminLoggedIn) {
       return (<Redirect push to='/adminpage' />);
     } else if (this.state.userLoggedIn) {

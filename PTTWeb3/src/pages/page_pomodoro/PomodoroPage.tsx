@@ -98,7 +98,8 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
       modalActionContainer: 'modal-action-container',
       radioOptions: 'radio-options',
       pomodoroPage: 'pomodoroPage',
-      timerDiv: 'timer-div'
+      timerDiv: 'timer-div',
+      hiddenElement: 'hidden-element',
     });
 
     return (
@@ -121,46 +122,98 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
             <br/>
             <img src={this.state.imageUrl}></img>
           </div>
-          <div className={classes.timerDiv}>
+          <div id="timerContainer">
+            <div className={classes.timerDiv} id="workTimer">
+                <Timer
+                    initialTime={5000} /*value is in milliseconds*/ /*1200000 for 20 mins*/
+                    direction="backward"
+                    onStart={() => {}}
+                    onResume={() => {}}
+                    onPause={() => {}}
+                    onStop={() => {}}
+                    onReset={() => {}}
+                    checkpoints={[
+                        {
+                            time: 0,
+                            callback: () => {
+                                // the timer has expired
+                                // toggle the state
+                                this.setState({
+                                    imageUrl: require("../../assets/coffee.png"),
+                                    inWorkPhase: false
+                                });
+                                (document.getElementById("workTimer") as HTMLDivElement).className += " hidden-element";
+                                (document.getElementById("restTimer") as HTMLDivElement).className = "timer-div";
+                                (document.getElementById("rest_resetButton") as HTMLButtonElement).click();
+                                (document.getElementById("rest_startButton") as HTMLButtonElement).click();
+                            },
+                        }
+                    ]}
+                >
+                    {( { start, stop, pause, resume, reset } : { start: any, stop : any, pause: any, resume: any, reset: any } ) => (
+                        <React.Fragment>
+                            <div>
+                                <Timer.Minutes /> : <Timer.Seconds />
+                            </div>
+                            <div id="workButtons">
+                                <button id="work_startButton" onClick={start}>Start Rest Phase</button>
+                                <button id="work_pauseButton" onClick={pause}>Pause</button>
+                                <button id="work_resumeButton" onClick={resume}>Resume</button>
+                                <button id="work_stopButton" onClick={stop}>Start</button>
+                                <button id="work_resetButton" onClick={reset}>Reset to Work Phase</button>
+                            </div>
+                        </React.Fragment>
+                    )}
+                </Timer>
+            </div>
+            <div className="timer-div hidden-element" id="restTimer">
             <Timer
-                initialTime={10000} /*value is in milliseconds*/ /*1200000 for 20 mins*/
+                initialTime={3000} /*value is in milliseconds*/ /*1200000 for 20 mins*/
                 direction="backward"
-                onStart={() => console.log('onStart hook')}
-                onResume={() => console.log('onResume hook')}
-                onPause={() => console.log('onPause hook')}
-                onStop={() => console.log('onStop hook')}
-                onReset={() => console.log('onReset hook')}
+                startImmediately={false}
+                onStart={() => {}}
+                onResume={() => {}}
+                onPause={() => {}}
+                onStop={() => {}}
+                onReset={() => {}}
                 checkpoints={[
                     {
                         time: 0,
                         callback: () => {
                             // the timer has expired
                             // toggle the state
-                            if (this.state.inWorkPhase) {
-                                //work phase completed
-                                this.setState({
-                                    imageUrl: require("../../assets/coffee.png"),
-                                    inWorkPhase: false
-                                });
+                            this.setState({
+                                imageUrl: require("../../assets/large_pomodoro.png"),
+                                inWorkPhase: true
+                            });
+                            if (confirm("continue?")) {
+                                (document.getElementById("restTimer") as HTMLDivElement).className += " hidden-element";
+                                (document.getElementById("workTimer") as HTMLDivElement).className = "timer-div";
+                                (document.getElementById("work_resetButton") as HTMLButtonElement).click();
+                                (document.getElementById("work_startButton") as HTMLButtonElement).click();
+                            } else {
+                                // do nothing
                             }
-                            else {
-                                //rest phase completed
-                                this.setState({
-                                    imageUrl: require("../../assets/large_pomodoro.png"),
-                                    inWorkPhase: true
-                                });
-                            }
-                            
                         },
                     }
                 ]}
             >
-                {(  ) => (
+                {( { start, stop, pause, resume, reset } : { start: any, stop : any, pause: any, resume: any, reset: any } ) => (
                     <React.Fragment>
-                        <Timer.Minutes /> : <Timer.Seconds />
+                        <div>
+                            <Timer.Minutes /> : <Timer.Seconds />
+                        </div>
+                        <div id="restButtons">
+                            <button id="rest_startButton" onClick={start}>Start Rest Phase</button>
+                            <button id="rest_pauseButton" onClick={pause}>Pause</button>
+                            <button id="rest_resumeButton" onClick={resume}>Resume</button>
+                            <button id="rest_stopButton" onClick={stop}>Start</button>
+                            <button id="rest_resetButton" onClick={reset}>Reset to Work Phase</button>
+                        </div>
                     </React.Fragment>
                 )}
             </Timer>
+          </div>
           </div>
         </div>
     );
