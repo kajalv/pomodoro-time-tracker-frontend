@@ -1,5 +1,6 @@
 export * from './User-APIs';
 export * from './Project-APIs';
+export * from './Session-APIs';
 
 
 import axios, { AxiosError, AxiosRequestConfig, AxiosPromise } from 'axios';
