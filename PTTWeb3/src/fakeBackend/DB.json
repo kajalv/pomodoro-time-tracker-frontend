@@ -1,4 +1,38 @@
 {
-  "users": [],
-  "projects": []
+  "users": [
+    {
+      "firstName": "a",
+      "lastName": "a",
+      "email": "a",
+      "id": 1
+    }
+  ],
+  "projects": [],
+  "sessions": [
+    {
+      "id": 1,
+      "projectId": 1
+    },
+    {
+      "id": 2,
+      "projectId": 2
+    },
+    {
+      "startTime": "st",
+      "endTime": "ed",
+      "counter": 3,
+      "id": 3
+    }
+  ],
+  "report": {
+    "sessions": [
+      {
+        "startingTime": "2019-02-18T20:00Z",
+        "endingTime": "2019-02-18T20:00Z",
+        "hoursWorked": 0
+      }
+    ],
+    "completedPomodoros": 0,
+    "totalHoursWorkedOnProject": 0
+  }
 }
