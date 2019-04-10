@@ -294,7 +294,14 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
       }
     } else {
       // do not associate with any project, one-time session
-      // no need to pass any details because it will not be logged
+      // only pass user ID for redirect
+      // no need to pass any other details because it will not be logged
+      this.props.history.push({ // pass data to the next page through redirect
+        pathname: '/session',
+        state: {
+          userToAssociate: this.state.userId,
+        }
+      });
       this.setState({
         sessionStarted: true,
         startSessionModalIsOpen: false

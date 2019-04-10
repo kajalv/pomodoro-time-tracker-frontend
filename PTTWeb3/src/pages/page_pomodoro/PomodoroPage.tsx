@@ -219,7 +219,7 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
     });
 
     if (this.state.sessionEnded) {
-      return (<Redirect push to={'/user' + this.props.location.state.userToAssociate} />);
+      return (<Redirect push to={'/user/' + this.props.location.state.userToAssociate} />);
     } else {
     return (
         <div className={classes.projectsPage}>
