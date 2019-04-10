@@ -20,7 +20,8 @@ interface LoginState {
   userEnteredInvalid: boolean,
   adminEnteredInvalid: boolean,
   userEmail: string,
-  userId: number
+  userId: number,
+  backPressed: boolean,
 }
 
 class LoginPage extends React.Component<any, LoginState> {
@@ -35,7 +36,10 @@ class LoginPage extends React.Component<any, LoginState> {
       adminEnteredInvalid: false,
       userEmail: "",
       userId: 0,
+      backPressed: false,
     }
+
+    this.navigateBack = this.navigateBack.bind(this);
   }
 
 
@@ -93,6 +97,12 @@ class LoginPage extends React.Component<any, LoginState> {
     }
   }
 
+  navigateBack() {
+    this.setState({
+      backPressed: true
+    });
+  }
+
   render() {
     var classes = {
       login: "login",
@@ -109,6 +119,8 @@ class LoginPage extends React.Component<any, LoginState> {
       return (<Redirect push to='/adminpage' />);
     } else if (this.state.userLoggedIn) {
       return (<Redirect push to={'/user/' + this.state.userId} />);
+    } else if (this.state.backPressed) {
+      return (<Redirect push to='/' />);
     } else {
       return (
         <div className={classes.loginContainer}>
@@ -150,6 +162,10 @@ class LoginPage extends React.Component<any, LoginState> {
               </Grid>
             </div>
           </Paper>
+          <br />
+          <Button id="backbutton" className='button-create' variant="contained" style={{ textTransform: "none", marginRight: "10px", marginTop: "20px" }} onClick={this.navigateBack.bind(this)}>
+            Back
+          </Button>
         </div>
       );
     }

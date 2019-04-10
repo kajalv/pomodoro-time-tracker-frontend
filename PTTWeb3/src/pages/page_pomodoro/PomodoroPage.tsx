@@ -11,23 +11,20 @@ import { FetchProjectsByUserId, FetchUserById, DeleteProjectById, CreateNewProje
 import { Redirect } from 'react-router-dom';
 import Timer from 'react-compound-timer';
 import { ShortText } from '@material-ui/icons';
+import { CreateNewSession } from '../../RESTful-APIs';
 
-// match the id paremeter from the path.
-interface MatchParam {
-    id: string
-}
-
-interface PomodoroPageProps extends RouteComponentProps<MatchParam> {
+interface PomodoroPageProps extends RouteComponentProps {
 
 }
 
 // store session data.
 interface PomodoroPageState {
-    sessionId: number,
     imageUrl: string
     inWorkPhase: boolean,
     startAnotherPomodoroModalIsOpen: boolean,
     stopPartialPomodoroModalIsOpen: boolean,
+    sessionEnded: boolean,
+    pomodorosCompleted: number,
 }
 
 const modalStyle = {
@@ -52,11 +49,12 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
   constructor(props: PomodoroPageProps) {
     super(props);
     this.state = {
-        sessionId: parseInt(props.match.params.id, 10),
         imageUrl: require("../../assets/large_pomodoro.png"),
         inWorkPhase: true,
         startAnotherPomodoroModalIsOpen: false,
         stopPartialPomodoroModalIsOpen: false,
+        sessionEnded: false,
+        pomodorosCompleted: 0,
     }
     this._isMounted = false;
 
@@ -84,12 +82,20 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
         (document.getElementById("rest_pauseButton") as HTMLButtonElement).click();
     }
 
-    this.setState({
-        stopPartialPomodoroModalIsOpen: true
-    });
+    if (this.isThereAProjectToAssociate()) {
+      this.setState({
+          stopPartialPomodoroModalIsOpen: true
+      });
+    } else {
+      // just end the session
+      this.setState({
+        sessionEnded: true
+      });
+    }
   }
 
   closeModalAndStartAnotherPomodoro() {
+    // continue session, start another pomodoro
     (document.getElementById("restTimer") as HTMLDivElement).className += " hidden-element";
     (document.getElementById("workTimer") as HTMLDivElement).className = "timer-div";
     (document.getElementById("work_resetButton") as HTMLButtonElement).click();
@@ -100,30 +106,36 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
   }
 
   closeStartAnotherPomodoroModal() {
+    // don't start another pomodoro, end session
     this.setState({
-      startAnotherPomodoroModalIsOpen: false
+      startAnotherPomodoroModalIsOpen: false,
+      sessionEnded: true
     });
-    //TODO: end session
+    // TODO: log whatever was done so far
+    if (this.props.location.state && this.props.location.state.userToAssociate) {
+      if (this.isThereAProjectToAssociate()) {
+        // only if the user and project details are available, log the data
+        //TODO: CreateNewSession, get start time and end time details
+      }
+    }
   }
 
   closeModalAndLogPartialPomodoro() {
     // close modal, log info
-
     this.setState({
-        stopPartialPomodoroModalIsOpen: false
+        stopPartialPomodoroModalIsOpen: false,
+        sessionEnded: true
     });
-
-    // TODO: log data and end session
+    // TODO: log data including partial info
   }
 
   closeModalAndEndSession() {
-    // close modal and end session, but do not log info
-
+    // close modal and end session, but do not log partial info
     this.setState({
-        stopPartialPomodoroModalIsOpen: false
+        stopPartialPomodoroModalIsOpen: false,
+        sessionEnded: true
     });
-
-    // TODO: end session
+    // TODO: log previous info
   }
 
   closePartialPomodoroModal() {
@@ -138,6 +150,17 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
     } else {
         (document.getElementById("rest_resumeButton") as HTMLButtonElement).click();
     }
+  }
+
+  endSessionAndNavigateBack() {
+    this.setState({
+      sessionEnded: true
+    });
+  }
+
+  isThereAProjectToAssociate() {
+    var result = (this.props.location.state && this.props.location.state.associatedProject);
+    return result;
   }
 
   render() {
@@ -166,9 +189,19 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
       hiddenElement: 'hidden-element',
     });
 
+    if (this.state.sessionEnded) {
+      return (<Redirect push to='/login' />);
+    } else {
     return (
         <div className={classes.projectsPage}>
-          <h1 id={classes.titleHeader}>Session ID: {this.state.sessionId}</h1>
+          <h1 id={classes.titleHeader}>Session Ongoing</h1>
+          {this.isThereAProjectToAssociate() &&
+            <Grid item md={true} sm={true} xs={true} id="projectlabel">
+              <p>Associated project: {this.props.location.state.associatedProject}</p>
+            </Grid>}
+          <Grid item md={true} sm={true} xs={true} id="pomodorosCompletedLabel">
+            <p>Pomodoros completed: {this.state.pomodorosCompleted}</p>
+          </Grid>
           <Button id="stopsession" className={classes.createButton} variant="contained" style={{ textTransform: "none", marginRight: "10px" }} onClick={this.handleStopSession.bind(this)}>
             Stop this session
           </Button>
@@ -272,6 +305,8 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
                         time: 0,
                         callback: () => {
                             // the timer has expired
+                            // increment the number of pomodoros completed
+                            this.state.pomodorosCompleted = this.state.pomodorosCompleted + 1;
                             // toggle the state
                             this.setState({
                                 imageUrl: require("../../assets/large_pomodoro.png"),
@@ -302,6 +337,7 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
           </div>
         </div>
     );
+  }
   }
 
 }

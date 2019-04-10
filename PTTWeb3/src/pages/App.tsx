@@ -21,7 +21,7 @@ class App extends Component {
           <Route path="/login" component={Login} />
           <Route path="/user/:id" component={UserPage} />
           <Route path="/adminpage" component={AdminPage} />
-          <Route path="/session/:id" component={PomodoroPage} />
+          <Route path="/session" component={PomodoroPage} />
         </div>
       </Router>
     );

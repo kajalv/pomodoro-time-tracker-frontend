@@ -34,7 +34,6 @@ interface UserPageState {
   projectNameToAssociate: string,
   backPressed: boolean,
   sessionStarted: boolean,
-  sessionId: number,
 }
 
 const modalStyle = {
@@ -72,7 +71,6 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
       projectNameToAssociate: "",
       backPressed: false,
       sessionStarted: false,
-      sessionId: 0,
     }
     this._isMounted = false;
 
@@ -203,38 +201,29 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
     if (associationVal == "yes") {
       if (this.state.projectNameToAssociate) {
         // create association
+        this.props.history.push({ // pass data to the next page through redirect
+          pathname: '/session',
+          state: {
+            associatedProject: this.state.projectNameToAssociate,
+            userToAssociate: this.state.userId,
+            startTime: "STARTTIME", //TODO: dummy
+          }
+        });
         this.setState({
           sessionStarted: true,
-          sessionId: 345, // TODO: dummy
+          startSessionModalIsOpen: false
         });
       } else {
         alert("Please select a project!");
       }
     } else {
       // do not associate with any project, one-time session
+      // no need to pass any details because it will not be logged
       this.setState({
         sessionStarted: true,
-        sessionId: 345, // TODO: dummy
+        startSessionModalIsOpen: false
       });
     }
-    // var projectname = ((document.getElementById('newprojname') as HTMLInputElement).value)
-
-    // if (projectname) {
-    //   CreateNewProject(this.state.userId, projectname as string)
-    //     .then((project: Project) => {
-    //       this.setState({
-    //         projects: this.state.projects.concat(project),
-    //         startSessionModalIsOpen: false
-    //       });
-    //     })
-    // } else {
-    //   // nothing entered, just close
-    //   alert("Project name cannot be empty!")
-    // }
-
-    this.setState({
-      startSessionModalIsOpen: false
-    });
   }
 
   closeStartSessionModal() {
@@ -326,7 +315,7 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
     });
 
     if (this.state.sessionStarted) {
-      return (<Redirect push to={'/session/' + this.state.sessionId} />);
+      return (<Redirect push to='/session' />);
     } else if (this.state.backPressed) {
       return (<Redirect push to='/login' />);
     } else {
