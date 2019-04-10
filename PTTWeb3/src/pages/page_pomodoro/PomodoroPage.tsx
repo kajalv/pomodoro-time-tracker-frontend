@@ -25,6 +25,7 @@ interface PomodoroPageState {
     stopPartialPomodoroModalIsOpen: boolean,
     sessionEnded: boolean,
     pomodorosCompleted: number,
+    endTimeOfLastPomodoro: string,
 }
 
 const modalStyle = {
@@ -55,6 +56,7 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
         stopPartialPomodoroModalIsOpen: false,
         sessionEnded: false,
         pomodorosCompleted: 0,
+        endTimeOfLastPomodoro: "",
     }
     this._isMounted = false;
 
@@ -107,35 +109,63 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
 
   closeStartAnotherPomodoroModal() {
     // don't start another pomodoro, end session
-    this.setState({
-      startAnotherPomodoroModalIsOpen: false,
-      sessionEnded: true
-    });
-    // TODO: log whatever was done so far
-    if (this.props.location.state && this.props.location.state.userToAssociate) {
-      if (this.isThereAProjectToAssociate()) {
-        // only if the user and project details are available, log the data
-        //TODO: CreateNewSession, get start time and end time details
-      }
+    if (this.props.location.state && this.props.location.state.userToAssociate && this.props.location.state.startTime && this.isThereAProjectToAssociate() && this.props.location.state.associatedProjectId) {
+      // only if the user and project details are available, log the data
+      var date = new Date();
+      var end_time = date.toISOString();
+      CreateNewSession(this.props.location.state.userToAssociate, this.props.location.state.associatedProjectId, this.props.location.state.startTime, end_time, this.state.pomodorosCompleted)
+      .then(() => {
+        this.setState({
+          startAnotherPomodoroModalIsOpen: false,
+          sessionEnded: true
+        });
+      }); 
+    } else {
+      this.setState({
+        startAnotherPomodoroModalIsOpen: false,
+        sessionEnded: true
+      });
     }
   }
 
   closeModalAndLogPartialPomodoro() {
     // close modal, log info
-    this.setState({
+    if (this.props.location.state && this.props.location.state.userToAssociate && this.props.location.state.startTime && this.isThereAProjectToAssociate() && this.props.location.state.associatedProjectId) {
+      // only if the user and project details are available, log the data
+      var date = new Date();
+      var end_time = date.toISOString();
+      CreateNewSession(this.props.location.state.userToAssociate, this.props.location.state.associatedProjectId, this.props.location.state.startTime, end_time, this.state.pomodorosCompleted)
+      .then(() => {
+        this.setState({
+          stopPartialPomodoroModalIsOpen: false,
+          sessionEnded: true
+        });
+      }); 
+    } else {
+      this.setState({
         stopPartialPomodoroModalIsOpen: false,
         sessionEnded: true
-    });
-    // TODO: log data including partial info
+      });
+    }
   }
 
   closeModalAndEndSession() {
     // close modal and end session, but do not log partial info
-    this.setState({
+    if (this.props.location.state && this.props.location.state.userToAssociate && this.props.location.state.startTime && this.isThereAProjectToAssociate() && this.props.location.state.associatedProjectId) {
+      // only if the user and project details are available, log the data
+      CreateNewSession(this.props.location.state.userToAssociate, this.props.location.state.associatedProjectId, this.props.location.state.startTime, this.state.endTimeOfLastPomodoro, this.state.pomodorosCompleted)
+      .then(() => {
+        this.setState({
+          stopPartialPomodoroModalIsOpen: false,
+          sessionEnded: true
+        });
+      }); 
+    } else {
+      this.setState({
         stopPartialPomodoroModalIsOpen: false,
         sessionEnded: true
-    });
-    // TODO: log previous info
+      });
+    }
   }
 
   closePartialPomodoroModal() {
@@ -164,7 +194,6 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
   }
 
   render() {
-
     var classes = ({
       headernav: 'header-nav',
       projDetails: 'project-details',
@@ -307,6 +336,8 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
                             // the timer has expired
                             // increment the number of pomodoros completed
                             this.state.pomodorosCompleted = this.state.pomodorosCompleted + 1;
+                            var date = new Date();
+                            this.state.endTimeOfLastPomodoro = date.toISOString();
                             // toggle the state
                             this.setState({
                                 imageUrl: require("../../assets/large_pomodoro.png"),

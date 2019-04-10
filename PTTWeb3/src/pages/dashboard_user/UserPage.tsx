@@ -200,13 +200,23 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
     var associationVal = this.state.selectedAssociationValue as string;
     if (associationVal == "yes") {
       if (this.state.projectNameToAssociate) {
+        // get the project ID to associate
+        var projIdToAssociate = 0 as number;
+        for (var i = 0; i < this.state.projects.length; i++) {
+          if (this.state.projects[i].projectname == this.state.projectNameToAssociate) {
+            projIdToAssociate = this.state.projects[i].id;
+          }
+        }
         // create association
+        var date = new Date();
+        var start_time = date.toISOString();
         this.props.history.push({ // pass data to the next page through redirect
           pathname: '/session',
           state: {
+            associatedProjectId: projIdToAssociate,
             associatedProject: this.state.projectNameToAssociate,
             userToAssociate: this.state.userId,
-            startTime: "STARTTIME", //TODO: dummy
+            startTime: start_time,
           }
         });
         this.setState({
