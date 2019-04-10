@@ -231,7 +231,9 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
           pathname: '/report',
           state: {
             reportToShow: report,
-            userId: this.state.userId
+            userId: this.state.userId,
+            optionPomo: option_pomo,
+            optionHours: option_hours,
           }
         });
         this.setState({
@@ -560,9 +562,6 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
                   <div>Project Name</div>
                 </Grid>
                 <Grid item md={true} sm={true} xs={true}>
-                  <div>Sessions</div>
-                </Grid>
-                <Grid item md={true} sm={true} xs={true}>
                   <div>Actions</div>
                 </Grid>
               </Grid>
@@ -575,9 +574,6 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
                     </Grid>
                     <Grid item md={true} sm={true} xs={true} id="project_name">
                       {currentProject.projectname}
-                    </Grid>
-                    <Grid item md={true} sm={true} xs={true} id="project_sessions">
-                      -
                     </Grid>
                     <Grid item md={true} sm={true} xs={true} id="project_actions">
                       <Button id={"delete" + currentProject.id} className={classes.deleteButton} onClick={() => this.handleProjectDelete(currentProject.id)} variant="contained" style={{ textTransform: "none" }}>

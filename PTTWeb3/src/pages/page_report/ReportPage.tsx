@@ -4,7 +4,7 @@ import { RouteComponentProps } from 'react-router';
 import { Radio, RadioGroup } from 'react-radio-group';
 import Modal from 'react-modal';
 import { ClipLoader } from 'react-spinners';
-import { User, Project } from '../../models';
+import { User, Project, Report } from '../../models';
 import { List, ListItem, Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox, Backdrop } from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
 import { FetchProjectsByUserId, FetchUserById, DeleteProjectById, CreateNewProject, UpdateUserById } from '../../RESTful-APIs';
@@ -85,6 +85,8 @@ class ReportPage extends React.Component<ReportPageProps, ReportPageState> {
       radioOptions: 'radio-options',
     });
 
+    var report = this.props.location.state.reportToShow as Report;
+
     if (this.state.backPressed) {
       return (<Redirect push to={'/user/' + this.props.location.state.userId} />);
     } else {
@@ -93,6 +95,51 @@ class ReportPage extends React.Component<ReportPageProps, ReportPageState> {
         <div className={classes.projectsPage}>
           <h1 id={classes.titleHeader}>Report</h1>
           <p id={classes.titleDesc}>The report you requested is shown below.</p>
+          {this.props.location.state && this.props.location.state.optionPomo &&
+            <Grid item md={true} sm={true} xs={true} id="optionpomolabel">
+              <p>Completed pomodoros: {report.completedPomodoros}</p>
+            </Grid>}
+          {this.props.location.state && this.props.location.state.optionHours &&
+            <Grid item md={true} sm={true} xs={true} id="optionhourslabel">
+              <p>Total hours worked on project: {report.totalHoursWorkedOnProject}</p>
+            </Grid>}
+          <Paper style={{ maxWidth: 800, marginTop: 30 }}>
+            <List className={classes.projectList}>
+              <Grid container spacing={8} alignItems="flex-end" className={classes.headernav}>
+                <Grid item md={true} sm={true} xs={true}>
+                  <div>Session Sr. No.</div>
+                </Grid>
+                <Grid item md={true} sm={true} xs={true}>
+                  <div>Starting Time</div>
+                </Grid>
+                <Grid item md={true} sm={true} xs={true}>
+                  <div>Ending Time</div>
+                </Grid>
+                <Grid item md={true} sm={true} xs={true}>
+                  <div>Hours Worked</div>
+                </Grid>
+              </Grid>
+            </List>
+
+            {report.sessions.map((currentSession, i) =>
+                <ListItem key={i} className={classes.projDetails}>
+                  <Grid container spacing={8} alignItems="flex-end" className={classes.projitem} style={{ flexGrow: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    <Grid item md={true} sm={true} xs={true} id="sessionsrno">
+                      {i}
+                    </Grid>
+                    <Grid item md={true} sm={true} xs={true} id="sttime">
+                      {currentSession.startingTime}
+                    </Grid>
+                    <Grid item md={true} sm={true} xs={true} id="endtime">
+                      {currentSession.endingTime}
+                    </Grid>
+                    <Grid item md={true} sm={true} xs={true} id="hours">
+                      {currentSession.hoursWorked}
+                    </Grid>
+                  </Grid>
+                </ListItem>)}
+
+          </Paper>
           <Button id="backbutton" className={classes.createButton} variant="contained" style={{ textTransform: "none", marginRight: "10px", marginTop: "20px" }} onClick={this.navigateBack.bind(this)}>
             Back
           </Button>
