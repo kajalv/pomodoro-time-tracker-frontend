@@ -315,3 +315,13 @@ div.hidden-element {
   visibility: hidden;
   height: 0;
 }
+
+div.date-picker {
+  margin-bottom: 10px;
+}
+
+div.date-picker input[type="text"] {
+  height: 20px;
+  padding: 5px 10px;
+  width: 170px;
+}

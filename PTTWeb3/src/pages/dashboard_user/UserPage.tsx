@@ -4,11 +4,14 @@ import { RouteComponentProps } from 'react-router';
 import { Radio, RadioGroup } from 'react-radio-group';
 import Modal from 'react-modal';
 import { ClipLoader } from 'react-spinners';
-import { User, Project } from '../../models';
+import { User, Project, Report } from '../../models';
 import { List, ListItem, Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox, Backdrop } from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
-import { FetchProjectsByUserId, FetchUserById, DeleteProjectById, CreateNewProject, UpdateUserById } from '../../RESTful-APIs';
+import { FetchProjectsByUserId, FetchUserById, DeleteProjectById, CreateNewProject, UpdateUserById, GetReportByProjectId } from '../../RESTful-APIs';
 import { Redirect } from 'react-router-dom';
+import DatePicker from 'react-datepicker';
+
+import "react-datepicker/dist/react-datepicker.css";
 
 // match the id paremeter from the path.
 interface MatchParam {
@@ -34,6 +37,13 @@ interface UserPageState {
   projectNameToAssociate: string,
   backPressed: boolean,
   sessionStarted: boolean,
+  reportRequested: boolean,
+  reportModalIsOpen: boolean,
+  projectNameForReport: string,
+  selectedCompletedPomoOption: string,
+  selectedHoursOption: string,
+  selectedStartTime: Date,
+  selectedEndTime: Date,
 }
 
 const modalStyle = {
@@ -71,6 +81,13 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
       projectNameToAssociate: "",
       backPressed: false,
       sessionStarted: false,
+      reportRequested: false,
+      reportModalIsOpen: false,
+      projectNameForReport: "",
+      selectedCompletedPomoOption: "",
+      selectedHoursOption: "",
+      selectedStartTime: new Date(),
+      selectedEndTime: new Date(),
     }
     this._isMounted = false;
 
@@ -80,6 +97,7 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
     this.closeCreateModal = this.closeCreateModal.bind(this);
     this.closeModalAndCreateProj = this.closeModalAndCreateProj.bind(this);
     this.navigateBack = this.navigateBack.bind(this);
+    this.handleGetReport = this.handleGetReport.bind(this);
 
     this.handleProjectDelete = this.handleProjectDelete.bind(this);
     this.afterOpenDeleteModal = this.afterOpenDeleteModal.bind(this);
@@ -88,6 +106,11 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
 
     this.handleOptionChange = this.handleOptionChange.bind(this);
     this.handleDropdownChange = this.handleDropdownChange.bind(this);
+    this.handleReportDropdownChange = this.handleReportDropdownChange.bind(this);
+    this.handlePomoOptionChange = this.handlePomoOptionChange.bind(this);
+    this.handleHoursOptionChange = this.handleHoursOptionChange.bind(this);
+    this.handleDateChangeFrom = this.handleDateChangeFrom.bind(this);
+    this.handleDateChangeTo = this.handleDateChangeTo.bind(this);
   }
 
   // this function will be called right before render function. 
@@ -118,10 +141,6 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
   componentWillUnmount() {
     this._isMounted = false;
   }
-
-  handleProjectEdit() {
-    console.log("edit project");
-  };
 
   handleProjectDelete(projectId: number) {
     this.setState({
@@ -183,6 +202,51 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
   closeCreateModal() {
     this.setState({
       createModalIsOpen: false
+    });
+  }
+
+  handleGetReport() {
+    this.setState({
+      reportModalIsOpen: true
+    })
+  }
+
+  closeModalAndGetReport() {
+    var user = this.state.userId;
+    var project = 0 as number;
+    for (var i = 0; i < this.state.projects.length; i++) {
+      if (this.state.projects[i].projectname == this.state.projectNameForReport) {
+        project = this.state.projects[i].id;
+      }
+    }
+    var start_time = (this.state.selectedStartTime).toISOString();
+    var end_time = (this.state.selectedEndTime).toISOString();
+    var option_pomo = this.state.selectedCompletedPomoOption == "yes" ? true : false;
+    var option_hours = this.state.selectedHoursOption == "yes" ? true : false;
+
+    if (user && project) {
+      GetReportByProjectId(user, project, start_time, end_time, option_pomo, option_hours)
+      .then((report: Report) => {
+        this.props.history.push({ // pass data to the next page through redirect
+          pathname: '/report',
+          state: {
+            reportToShow: report,
+            userId: this.state.userId
+          }
+        });
+        this.setState({
+          reportModalIsOpen: false,
+          reportRequested: true
+        });
+      });
+    } else {
+      alert("Please check the details!");
+    }
+  }
+
+  closeReportModal() {
+    this.setState({
+      reportModalIsOpen: false
     });
   }
 
@@ -288,10 +352,29 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
     });
   }
 
+  handlePomoOptionChange(changeEvent: any) {
+    this.setState({
+      selectedCompletedPomoOption: changeEvent
+    });
+  }
+
+  handleHoursOptionChange(changeEvent: any) {
+    this.setState({
+      selectedHoursOption: changeEvent
+    });
+  }
+
   handleDropdownChange(changeEvent: any) {
     var associate = changeEvent.value as string;
     this.setState({
       projectNameToAssociate: associate
+    });
+  }
+
+  handleReportDropdownChange(changeEvent: any) {
+    var projreport = changeEvent.value as string;
+    this.setState({
+      projectNameForReport: projreport
     });
   }
 
@@ -300,6 +383,18 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
       backPressed: true
     });
   }
+
+  handleDateChangeFrom(date: any) {
+    this.setState({
+      selectedStartTime: date
+    });
+  };
+
+  handleDateChangeTo(date: any) {
+    this.setState({
+      selectedEndTime: date
+    });
+   };
 
   render() {
 
@@ -322,12 +417,15 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
       modalAction: 'modal-action',
       modalActionContainer: 'modal-action-container',
       radioOptions: 'radio-options',
+      datePicker: 'date-picker',
     });
 
     if (this.state.sessionStarted) {
       return (<Redirect push to='/session' />);
     } else if (this.state.backPressed) {
       return (<Redirect push to='/login' />);
+    } else if (this.state.reportRequested) {
+      return (<Redirect push to='/report' />);
     } else {
     return (
       this.state.dataLoaded ?
@@ -339,6 +437,9 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
           </Button>
           <Button id="startsession" className={classes.createButton} variant="contained" style={{ textTransform: "none", marginRight: "10px" }} onClick={this.handleStartSession.bind(this)}>
             Start a New Session
+          </Button>
+          <Button id="getreportbutton" className={classes.createButton} variant="contained" style={{ textTransform: "none", marginRight: "10px" }} onClick={this.handleGetReport.bind(this)}>
+            Get Report
           </Button>
           <Button id="updateinfo" className={classes.createButton} variant="contained" style={{ textTransform: "none", marginRight: "10px" }} onClick={this.handleUpdateUserInfo.bind(this)}>
             Update User Information
@@ -379,6 +480,58 @@ class UserPage extends React.Component<UserPageProps, UserPageState> {
             <div className={classes.modalActionContainer}>
               <Button className={classes.modalAction} onClick={this.closeModalAndStartSession.bind(this)} variant="text" style={{ textTransform: "none" }} id="okbuttonstartsession">OK</Button>
               <Button className={classes.modalAction} onClick={this.closeStartSessionModal.bind(this)} variant="text" style={{ textTransform: "none" }} id="cancelbuttonstartsession">Cancel</Button>
+            </div>
+          </Modal>
+          <Modal
+            isOpen={this.state.reportModalIsOpen}
+            onRequestClose={this.closeReportModal}
+            style={modalStyle}
+            contentLabel="Get Report"
+          >
+            <h2 className={classes.modalTitle}>Get Report</h2>
+            <div className={classes.modalDesc}>Fill in the options below to generate a report of your sessions.</div>
+            <Dropdown options={this.state.projects.map(a => a.projectname)} value={this.state.projectNameForReport} onChange={this.handleReportDropdownChange} placeholder="Select a project" />
+            <div className={classes.modalDesc} style={{ marginBottom: "10px", marginTop: "10px" }}>From time:</div>
+            <div className={classes.datePicker}>
+              <DatePicker
+                selected={this.state.selectedStartTime}
+                onChange={this.handleDateChangeFrom}
+                showTimeSelect
+                timeFormat="HH:mm"
+                timeIntervals={15}
+                dateFormat="MMMM d, yyyy h:mm aa"
+                timeCaption="time"
+              />
+            </div>
+            <div className={classes.modalDesc} style={{ marginBottom: "10px", marginTop: "5px" }}>To time:</div>
+            <div className={classes.datePicker}>
+              <DatePicker
+                selected={this.state.selectedEndTime}
+                onChange={this.handleDateChangeTo}
+                showTimeSelect
+                timeFormat="HH:mm"
+                timeIntervals={15}
+                dateFormat="MMMM d, yyyy h:mm aa"
+                timeCaption="time"
+              />
+            </div>
+            <div className={classes.modalDesc}>Include completed pomodoros?</div>
+            <div className={classes.radioOptions}>
+              <RadioGroup name="associatepomo" selectedValue={this.state.selectedCompletedPomoOption} onChange={this.handlePomoOptionChange}>
+                  <Radio value="yes"/><span>Yes</span>
+                  <Radio value="no"/><span>No</span>
+              </RadioGroup>
+            </div>
+            <div className={classes.modalDesc}>Include total hours worked on project?</div>
+            <div className={classes.radioOptions}>
+              <RadioGroup name="associatehour" selectedValue={this.state.selectedHoursOption} onChange={this.handleHoursOptionChange}>
+                  <Radio value="yes"/><span>Yes</span>
+                  <Radio value="no"/><span>No</span>
+              </RadioGroup>
+            </div>
+            <div className={classes.modalActionContainer}>
+              <Button className={classes.modalAction} onClick={this.closeModalAndGetReport.bind(this)} variant="text" style={{ textTransform: "none" }} id="okbuttonreport">OK</Button>
+              <Button className={classes.modalAction} onClick={this.closeReportModal.bind(this)} variant="text" style={{ textTransform: "none" }} id="cancelbuttonreport">Cancel</Button>
             </div>
           </Modal>
           <Modal

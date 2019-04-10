@@ -22,8 +22,8 @@ export function UpdateSessionById(_userId: number, _projectId: number, _sessionI
     .catch(errorHandler);
 }
 
-export function GetReportByProjectId(_userId: number, _projectId: number): Promise<Report> {
-  return httpClient.get(`/users/${_userId}/projects/${_projectId}/report`)
+export function GetReportByProjectId(_userId: number, _projectId: number, from: string, to: string, includeCompletedPomodoros: boolean, includeTotalHoursWorkedOnProject: boolean): Promise<Report> {
+  return httpClient.get(`/users/${_userId}/projects/${_projectId}/report?from=${from}&to=${to}&includeCompletedPomodoros=${includeCompletedPomodoros}&includeTotalHoursWorkedOnProject=${includeTotalHoursWorkedOnProject}`)
     .then(response => {
       return response.data;
     })
