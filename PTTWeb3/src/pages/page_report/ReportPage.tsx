@@ -121,17 +121,17 @@ class ReportPage extends React.Component<ReportPageProps, ReportPageState> {
               </Grid>
             </List>
 
-            {report.sessions.map((currentSession, i) =>
+            {report.sessions && report.sessions.map((currentSession, i) =>
                 <ListItem key={i} className={classes.projDetails}>
                   <Grid container spacing={8} alignItems="flex-end" className={classes.projitem} style={{ flexGrow: 1, justifyContent: 'center', alignItems: 'center' }}>
                     <Grid item md={true} sm={true} xs={true} id="sessionsrno">
                       {i}
                     </Grid>
                     <Grid item md={true} sm={true} xs={true} id="sttime">
-                      {currentSession.startingTime}
+                      {new Date(currentSession.startingTime).toString()}
                     </Grid>
                     <Grid item md={true} sm={true} xs={true} id="endtime">
-                      {currentSession.endingTime}
+                      {new Date(currentSession.endingTime).toString()}
                     </Grid>
                     <Grid item md={true} sm={true} xs={true} id="hours">
                       {currentSession.hoursWorked}
