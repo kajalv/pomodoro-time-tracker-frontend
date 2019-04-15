@@ -7,13 +7,6 @@
     "id": "d811e590-476d-4058-8527-ddb626920657",
     "name": "AdminLoginTest",
     "commands": [{
-      "id": "e8bae473-ed07-4ee2-9530-57529d5e26a3",
-      "comment": "",
-      "command": "setSpeed",
-      "target": "400",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "7f0d6c71-09dc-46ef-939d-53737b4df880",
       "comment": "",
       "command": "open",
@@ -92,13 +85,6 @@
     "id": "0c3f8740-62fc-4631-b2ee-37e641aa7ddb",
     "name": "AdminCreateUserTest",
     "commands": [{
-      "id": "94619318-acad-4929-ae00-feff08f937dc",
-      "comment": "",
-      "command": "setSpeed",
-      "target": "500",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "2105256c-d782-47ad-81d3-5d425408997f",
       "comment": "",
       "command": "open",
@@ -154,6 +140,20 @@
       "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
+    }, {
+      "id": "eb9f492c-8beb-4ec4-9c9b-b1615fe6bbcd",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "001f96d4-58b1-40ea-b489-05c86b0375db",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
     }, {
       "id": "23a411be-f2ab-4116-bc3b-29e36ab40729",
       "comment": "",
@@ -229,19 +229,26 @@
       ],
       "value": ""
     }, {
+      "id": "fdbb0a52-928d-4fe8-9ff5-a111f5873be5",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "94619318-acad-4929-ae00-feff08f937dc",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "107a7739-6b5f-40c0-a85c-60dad9e85edb",
       "comment": "",
       "command": "storeXpathCount",
       "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "user_count"
-    }, {
-      "id": "e74bf9eb-4d7b-492a-bf6f-52559dab8a77",
-      "comment": "",
-      "command": "assert",
-      "target": "user_count",
-      "targets": [],
-      "value": "1"
     }, {
       "id": "ff6bed7d-90c9-40dd-a457-174edbc6f814",
       "comment": "",
@@ -268,13 +275,6 @@
     "id": "a8ea4739-3dfe-4dc0-a857-0f6ed4d89f1a",
     "name": "HomePageTest",
     "commands": [{
-      "id": "a7defa48-8b29-44bb-97e6-cc1625f7733c",
-      "comment": "",
-      "command": "setSpeed",
-      "target": "400",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "57b25cb1-0b66-4523-bd24-94aa7497c66d",
       "comment": "",
       "command": "open",
@@ -337,13 +337,6 @@
     "id": "89c03692-09b8-465c-b6fc-b11528da806c",
     "name": "AdminDeleteUserTest",
     "commands": [{
-      "id": "ed4e3fc4-7d3a-4aee-8acc-4eb640f48b8d",
-      "comment": "",
-      "command": "setSpeed",
-      "target": "500",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "5fee8b64-68c6-4602-9852-96baa8c9fb69",
       "comment": "",
       "command": "open",
@@ -399,6 +392,20 @@
       "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
+    }, {
+      "id": "19d9814d-843b-4208-a9ab-cd77894a260e",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2a6e41eb-3aa5-4208-8e09-2dbf86cff67f",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
     }, {
       "id": "b499ff67-9446-419b-b239-6566a7dbc1aa",
       "comment": "",
@@ -474,19 +481,26 @@
       ],
       "value": ""
     }, {
+      "id": "d40c1be1-ee9c-4bb6-a72c-71e3362f3db1",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ed4e3fc4-7d3a-4aee-8acc-4eb640f48b8d",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "399e2fa7-3c6b-462b-b1b4-7c97da5bf648",
       "comment": "",
       "command": "storeXpathCount",
       "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "user_count"
-    }, {
-      "id": "2ee77c73-7723-4616-b808-9f3e4fdbcc92",
-      "comment": "",
-      "command": "assert",
-      "target": "user_count",
-      "targets": [],
-      "value": "1"
     }, {
       "id": "da730ed2-bcda-4153-ac76-d3c6dd811ff8",
       "comment": "",
@@ -523,19 +537,26 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "df5cfb6e-251f-4186-99d6-53d6f8e5292d",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c6f8d11d-6c9d-40a2-b2b3-4d8fcc8489a6",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "763186b4-b30b-4dd8-94fe-5a4b8c95cc80",
       "comment": "",
       "command": "storeXpathCount",
       "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "user_count"
-    }, {
-      "id": "2656f07b-1994-4aa1-8366-6f8dc0e16b9a",
-      "comment": "",
-      "command": "assert",
-      "target": "user_count",
-      "targets": [],
-      "value": "0"
     }, {
       "id": "ff2532bd-87a5-4b43-ac1d-1da45c757561",
       "comment": "",
@@ -548,13 +569,6 @@
     "id": "45b4ecf9-fef1-412c-8290-3f756c009ac4",
     "name": "UserLoginTest",
     "commands": [{
-      "id": "494b2019-2423-481c-9a94-0c7c9a4301a9",
-      "comment": "",
-      "command": "setSpeed",
-      "target": "400",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "c1f03ad9-43fd-4832-8910-81d6ea4b5d80",
       "comment": "",
       "command": "open",
@@ -603,6 +617,13 @@
       "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
+    }, {
+      "id": "494b2019-2423-481c-9a94-0c7c9a4301a9",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
     }, {
       "id": "d033ced4-98e9-4aae-b3b1-e98bb62d7c58",
       "comment": "",
@@ -678,6 +699,13 @@
       ],
       "value": ""
     }, {
+      "id": "5abbf4dd-081f-414d-8196-bf06eb06ee09",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "457b3d48-fb37-40b4-b5d6-0f880dabf56a",
       "comment": "",
       "command": "open",
@@ -712,13 +740,6 @@
       ],
       "value": ""
     }, {
-      "id": "70362d83-4927-44d3-b9a2-d92d67155c03",
-      "comment": "",
-      "command": "assertText",
-      "target": "id=titleHeader",
-      "targets": [],
-      "value": "User: User Name"
-    }, {
       "id": "711334a5-b145-42f5-89da-b4036dd37bc3",
       "comment": "",
       "command": "close",
@@ -730,13 +751,6 @@
     "id": "c764bd19-698b-4705-80c5-e530333ca0b1",
     "name": "UserCreateProjectTest",
     "commands": [{
-      "id": "82cce08c-6a1b-4b5e-abf3-d936c604a940",
-      "comment": "",
-      "command": "setSpeed",
-      "target": "500",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "9c054a93-4c54-4a43-aa5f-84c0eeea727e",
       "comment": "",
       "command": "open",
@@ -785,6 +799,13 @@
       "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
+    }, {
+      "id": "82cce08c-6a1b-4b5e-abf3-d936c604a940",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
     }, {
       "id": "17e59bca-2da6-48b8-a26c-ed92e7094e92",
       "comment": "",
@@ -860,6 +881,13 @@
       ],
       "value": ""
     }, {
+      "id": "ab650ad1-fba8-4baa-bf4a-aace58ea6704",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "b8ef1c96-2e79-4fa7-998e-1fb13d22b8af",
       "comment": "",
       "command": "open",
@@ -894,13 +922,6 @@
       ],
       "value": ""
     }, {
-      "id": "9f2c7955-a96b-430a-8038-22c7abbe2de3",
-      "comment": "",
-      "command": "assertText",
-      "target": "id=titleHeader",
-      "targets": [],
-      "value": "User: Big Head"
-    }, {
       "id": "29ac7424-1361-4006-9122-250cc01a0741",
       "comment": "",
       "command": "click",
@@ -919,6 +940,13 @@
       "comment": "",
       "command": "click",
       "target": "id=okbuttoncreate",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c890faa6-408b-4c6f-92f1-a95c051b760e",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
       "targets": [],
       "value": ""
     }, {
@@ -1053,13 +1081,6 @@
     "id": "282028f6-2119-422d-97e4-9bcc3f8ffdad",
     "name": "AdminCreateUserBadTest",
     "commands": [{
-      "id": "6c2093de-fe4d-4089-944a-8c5549adafae",
-      "comment": "",
-      "command": "setSpeed",
-      "target": "500",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "6159f7cd-f57f-4ca5-92a0-649308d5bdbc",
       "comment": "",
       "command": "open",
@@ -1115,6 +1136,13 @@
       "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
+    }, {
+      "id": "6c2093de-fe4d-4089-944a-8c5549adafae",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
     }, {
       "id": "b30a9a1d-11de-4cc6-a787-cb4ea8c1ad4c",
       "comment": "",
@@ -1204,6 +1232,13 @@
       "targets": [],
       "value": "Fields cannot be empty!"
     }, {
+      "id": "ba0ebb6d-489d-4af9-ab93-71a0346ec10f",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "7fc564ca-edab-4f98-bcaf-923f1dfaa6d7",
       "comment": "",
       "command": "storeXpathCount",
@@ -1229,13 +1264,6 @@
     "id": "18df018d-9200-4303-98bf-bca84ecf546a",
     "name": "AdminCreateUserCancelTest",
     "commands": [{
-      "id": "385f3a5b-e19e-4e9d-82cd-364d61222cc3",
-      "comment": "",
-      "command": "setSpeed",
-      "target": "500",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "975c2046-6b8a-4a4c-bc35-b1055a5b32ea",
       "comment": "",
       "command": "open",
@@ -1291,6 +1319,20 @@
       "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
+    }, {
+      "id": "b36a5280-24c1-4d7c-8ba6-188cbe089846",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "564a475d-6a3c-4e0d-b9fa-405dcc280b25",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
     }, {
       "id": "1621a057-58a4-4ef7-81b3-36657ce6fe36",
       "comment": "",
@@ -1366,6 +1408,20 @@
       ],
       "value": ""
     }, {
+      "id": "9a719b3f-19bd-45f0-9ea7-dd3b87f9ecbc",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "385f3a5b-e19e-4e9d-82cd-364d61222cc3",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "bdb42a56-a2d8-46ec-832e-586d6e170047",
       "comment": "",
       "command": "storeXpathCount",
@@ -1405,13 +1461,6 @@
     "id": "ac53f46b-0031-4f3e-acb9-acdca8608e66",
     "name": "AdminDeleteUserCancelTest",
     "commands": [{
-      "id": "3ad43659-f581-4910-be11-212308f40454",
-      "comment": "",
-      "command": "setSpeed",
-      "target": "500",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "32e4682d-c0a2-48b7-8f74-02ad31515013",
       "comment": "",
       "command": "open",
@@ -1467,6 +1516,20 @@
       "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
+    }, {
+      "id": "78a2d793-f372-4307-a654-61ab4007a365",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3ad43659-f581-4910-be11-212308f40454",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
     }, {
       "id": "23bd45a7-553f-4efe-b1bd-d7f9b755fd1b",
       "comment": "",
@@ -1542,19 +1605,26 @@
       ],
       "value": ""
     }, {
+      "id": "25bf1156-7b41-4e58-9d22-1d0f2c871bf1",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c4cc5777-db8e-48a9-a17d-d4774992bfe8",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "03ef1f91-a6c5-4816-842c-9f7c930eeed2",
       "comment": "",
       "command": "storeXpathCount",
       "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "user_count"
-    }, {
-      "id": "4a341e92-0bb0-4c07-a459-ad7bcefdce98",
-      "comment": "",
-      "command": "assert",
-      "target": "user_count",
-      "targets": [],
-      "value": "1"
     }, {
       "id": "c413ea8f-8b3f-4f9e-9778-ca287694fb07",
       "comment": "",
@@ -1591,19 +1661,26 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "08df267d-f26f-4a1f-8a2d-cc2313196f31",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "29ee6a4e-d681-4701-82dc-9cdc13de9be2",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "bc8adf6a-d4eb-4ac7-961e-7e022d58326d",
       "comment": "",
       "command": "storeXpathCount",
       "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "user_count"
-    }, {
-      "id": "226cef71-3916-4ae3-b0fd-35b1cf7b830e",
-      "comment": "",
-      "command": "assert",
-      "target": "user_count",
-      "targets": [],
-      "value": "1"
     }, {
       "id": "5773d086-4542-4d13-a6c2-2210e841392a",
       "comment": "",
@@ -1616,13 +1693,6 @@
     "id": "953d87ba-88df-4537-842f-b234c9a6dba7",
     "name": "AdminUpdateUserCancelTest",
     "commands": [{
-      "id": "455eca07-7266-4462-a2d1-66b61e9dc5e4",
-      "comment": "",
-      "command": "setSpeed",
-      "target": "300",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "1d275eda-8bc7-4bff-9348-a9a0526dbc3e",
       "comment": "",
       "command": "open",
@@ -1678,6 +1748,13 @@
       "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
+    }, {
+      "id": "27ca6bbd-c17f-4fb6-9d16-d05727374d3f",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
     }, {
       "id": "8708e9cd-c5dd-487f-b4b5-83e1c0671657",
       "comment": "",
@@ -1753,6 +1830,20 @@
       ],
       "value": ""
     }, {
+      "id": "40836112-a392-4fab-8912-32a93084ad01",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "455eca07-7266-4462-a2d1-66b61e9dc5e4",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "764e1e53-f552-448c-a599-21dce1cc7e7d",
       "comment": "",
       "command": "storeXpathCount",
@@ -1788,6 +1879,20 @@
       "targets": [],
       "value": "id"
     }, {
+      "id": "94eac484-60d7-41bd-90ca-9a3a60cc4bec",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "446e1539-4c28-4f0c-9b1e-65b7d4ff3043",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "2b367598-8a64-4d01-b4a7-ae3277555715",
       "comment": "",
       "command": "click",
@@ -1813,6 +1918,20 @@
       "comment": "",
       "command": "click",
       "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"cancelbuttonedit\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d9a31192-d431-4d47-b081-b5e425313db0",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ab5d716d-64ed-4bf6-a200-2c2b8bdf177e",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
       "targets": [],
       "value": ""
     }, {
@@ -2297,13 +2416,6 @@
     "id": "15edf164-7a12-4217-a578-9aa3023442eb",
     "name": "UserDeleteProjectCancelTest",
     "commands": [{
-      "id": "ea4ea89c-a612-4e18-a13c-ccf26b9860cd",
-      "comment": "",
-      "command": "setSpeed",
-      "target": "500",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "66407897-c9d8-43b9-ad09-5003a9c42283",
       "comment": "",
       "command": "open",
@@ -2352,6 +2464,13 @@
       "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
+    }, {
+      "id": "ea4ea89c-a612-4e18-a13c-ccf26b9860cd",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
     }, {
       "id": "bf6c8f51-964d-49eb-9bf2-32a19d830af3",
       "comment": "",
@@ -2427,6 +2546,13 @@
       ],
       "value": ""
     }, {
+      "id": "82d22486-e91a-431b-a192-0656cd7891f9",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "0544d405-5c74-499c-b51b-8a4a1bffb642",
       "comment": "",
       "command": "open",
@@ -2461,12 +2587,12 @@
       ],
       "value": ""
     }, {
-      "id": "cc047673-707e-4117-b9df-bbff647787dc",
+      "id": "3f6b8d3d-c92b-409d-9171-428183fa0df6",
       "comment": "",
-      "command": "assertText",
-      "target": "id=titleHeader",
+      "command": "pause",
+      "target": "500",
       "targets": [],
-      "value": "User: User Name"
+      "value": ""
     }, {
       "id": "97199668-7416-4e8f-8c2d-3048d3b2b4b9",
       "comment": "",
@@ -2486,6 +2612,13 @@
       "comment": "",
       "command": "click",
       "target": "id=okbuttoncreate",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0f6d3f24-7349-4584-8273-61829cb74da5",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
       "targets": [],
       "value": ""
     }, {
@@ -2521,6 +2654,13 @@
       "comment": "",
       "command": "click",
       "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"cancelbuttondelete\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "66300e6f-e8b2-43da-8a8e-f8cdc151cd34",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
       "targets": [],
       "value": ""
     }, {
@@ -2780,13 +2920,6 @@
     "id": "211f4823-1763-4d4f-b896-dfe75043a303",
     "name": "AdminNoUsersTest",
     "commands": [{
-      "id": "b10307af-01a9-4032-b58e-37a06d295794",
-      "comment": "",
-      "command": "setSpeed",
-      "target": "500",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "8ba14c67-bcff-42b1-ba12-d6b5f34b99e8",
       "comment": "",
       "command": "open",
@@ -2843,10 +2976,38 @@
       "targets": [],
       "value": "count"
     }, {
+      "id": "453f647c-3d62-46e4-9ad8-90a1057b5436",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b10307af-01a9-4032-b58e-37a06d295794",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "808e3633-1ef0-4302-88f6-ebf33ab1f53a",
       "comment": "",
       "command": "end",
       "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "defb0025-1f4b-47e7-87db-ebccdf5c5b36",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "46de84c6-a8b8-42d5-b0fb-9c1032cba07c",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
       "targets": [],
       "value": ""
     }, {
@@ -2856,13 +3017,6 @@
       "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "user_count"
-    }, {
-      "id": "f8ff9f38-7ba1-4587-96a0-b1fb97ecc268",
-      "comment": "",
-      "command": "assert",
-      "target": "user_count",
-      "targets": [],
-      "value": "0"
     }, {
       "id": "7fb61b61-f95c-40cd-be1b-8bfdbde4c04f",
       "comment": "",
@@ -2889,13 +3043,6 @@
     "id": "594320da-f444-424c-86d2-23f6e8644153",
     "name": "UserNoProjectsTest",
     "commands": [{
-      "id": "96c42aaf-c9db-4f9b-8d8a-4cc89dccfff0",
-      "comment": "",
-      "command": "setSpeed",
-      "target": "500",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "ac2b284b-da2a-49a5-816f-147b6beca8a6",
       "comment": "",
       "command": "open",
@@ -2944,6 +3091,13 @@
       "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
+    }, {
+      "id": "96c42aaf-c9db-4f9b-8d8a-4cc89dccfff0",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
     }, {
       "id": "06c0480d-613d-415a-b21a-10b37fe7e2bc",
       "comment": "",
@@ -3019,6 +3173,13 @@
       ],
       "value": ""
     }, {
+      "id": "d7187ee9-6cda-4de3-a9cf-9513c4f49b18",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "82229dd5-1ca2-4afc-9e28-44f666020d92",
       "comment": "",
       "command": "open",
@@ -3053,12 +3214,12 @@
       ],
       "value": ""
     }, {
-      "id": "710a28ee-98b1-499b-83cc-a69c895820f3",
+      "id": "c9a80a44-f9f5-420f-914b-05b1c0d6d629",
       "comment": "",
-      "command": "assertText",
-      "target": "id=titleHeader",
+      "command": "pause",
+      "target": "500",
       "targets": [],
-      "value": "User: K J"
+      "value": ""
     }, {
       "id": "5b4761fe-e03d-430a-8757-303b60d6d5ef",
       "comment": "",
@@ -3092,13 +3253,6 @@
     "id": "bc84430b-aa2a-41bd-b3a9-43f5cd6bbe2c",
     "name": "AdminUpdateUserTest",
     "commands": [{
-      "id": "14f4eef7-32f7-48c5-ab56-489f2ce85a17",
-      "comment": "",
-      "command": "setSpeed",
-      "target": "300",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "ab054191-601d-45f3-ba40-92f16658ba22",
       "comment": "",
       "command": "open",
@@ -3154,6 +3308,20 @@
       "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
+    }, {
+      "id": "dbc5bda3-3aa4-4a80-881a-6de694b2d6e8",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "14f4eef7-32f7-48c5-ab56-489f2ce85a17",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
     }, {
       "id": "3d63535d-02fc-4046-bdf4-2afda36f665a",
       "comment": "",
@@ -3229,6 +3397,20 @@
       ],
       "value": ""
     }, {
+      "id": "a1cebde8-d1fa-414a-99dd-97e005953453",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ceca8582-cbd0-465f-a2da-e2e9209bb93c",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "2ea0d2e7-201b-4b9d-81b4-d8bae20f8ab8",
       "comment": "",
       "command": "storeXpathCount",
@@ -3292,6 +3474,20 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "f1721daf-b97f-4457-a446-24b6a1d81f7b",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4966e3a4-3b22-485f-b303-66f5b32f0ea1",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "7cc6349d-96b8-4768-a12a-c0d7c46c205e",
       "comment": "",
       "command": "storeXpathCount",
@@ -3331,13 +3527,6 @@
     "id": "d43de7fe-01e6-4c21-b970-8dcc43ed9e72",
     "name": "UserCreateProjectCancelTest",
     "commands": [{
-      "id": "f21e647e-7c61-4d63-8101-361affeb06ab",
-      "comment": "",
-      "command": "setSpeed",
-      "target": "500",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "23b836e1-6c87-4a01-8f5b-bdc28f0aad34",
       "comment": "",
       "command": "open",
@@ -3386,6 +3575,13 @@
       "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
+    }, {
+      "id": "f21e647e-7c61-4d63-8101-361affeb06ab",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
     }, {
       "id": "396cf895-7c98-4dda-8680-1df5287ac102",
       "comment": "",
@@ -3461,6 +3657,13 @@
       ],
       "value": ""
     }, {
+      "id": "2ec2e79e-a943-4b80-b714-c14d5ee68c23",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "c8936cd9-d087-41fd-9384-2bc45da89561",
       "comment": "",
       "command": "open",
@@ -3495,13 +3698,6 @@
       ],
       "value": ""
     }, {
-      "id": "de8dc718-dd3c-446e-819f-61cb5b89f638",
-      "comment": "",
-      "command": "assertText",
-      "target": "id=titleHeader",
-      "targets": [],
-      "value": "User: Big Head"
-    }, {
       "id": "7e07eeea-a154-4da1-ae81-e42e3b90a4fb",
       "comment": "",
       "command": "click",
@@ -3520,6 +3716,13 @@
       "comment": "",
       "command": "click",
       "target": "id=cancelbuttoncreate",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2916f39b-0ddb-4425-b040-ceebe6bfe2eb",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
       "targets": [],
       "value": ""
     }, {
@@ -3548,13 +3751,6 @@
     "id": "24038926-dda0-4676-b548-b8e6bd343bcc",
     "name": "UserDeleteProjectTest",
     "commands": [{
-      "id": "ddcaf32b-3bc0-4618-a0cf-d4762164272a",
-      "comment": "",
-      "command": "setSpeed",
-      "target": "500",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "418c1737-2f40-434d-a9b0-226c61b3ff1e",
       "comment": "",
       "command": "open",
@@ -3603,6 +3799,13 @@
       "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
+    }, {
+      "id": "ddcaf32b-3bc0-4618-a0cf-d4762164272a",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
     }, {
       "id": "2223e977-7270-4518-bb32-03f4dfd3532d",
       "comment": "",
@@ -3678,10 +3881,24 @@
       ],
       "value": ""
     }, {
+      "id": "c9d88b86-8175-4b82-9c63-c3881f82ca2e",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "d36dde63-c056-4674-a231-c73815347452",
       "comment": "",
       "command": "open",
       "target": "/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5c127ee7-28d7-4e7c-98dc-98bf2d21305a",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
       "targets": [],
       "value": ""
     }, {
@@ -3712,12 +3929,19 @@
       ],
       "value": ""
     }, {
-      "id": "183b01fc-0572-4784-b80a-d57be850261c",
+      "id": "1f1df111-2f78-45b2-8b1c-75416d7f0950",
       "comment": "",
-      "command": "assertText",
-      "target": "id=titleHeader",
+      "command": "pause",
+      "target": "500",
       "targets": [],
-      "value": "User: User Name"
+      "value": ""
+    }, {
+      "id": "262ea6e1-789d-4182-8893-78bdc3432ad6",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
     }, {
       "id": "f1ea3b87-4149-4501-a7b6-19617cb0f9a5",
       "comment": "",
@@ -3737,6 +3961,13 @@
       "comment": "",
       "command": "click",
       "target": "id=okbuttoncreate",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "53f32b6f-f7df-4434-bf12-92c3a45f65f7",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
       "targets": [],
       "value": ""
     }, {
@@ -3775,6 +4006,13 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "d43e4d50-85a4-4145-8a0a-0b7cb879e9c3",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "7784fbbb-77e1-4926-9ad5-f7039c20fb8c",
       "comment": "",
       "command": "storeXpathCount",
@@ -3803,14 +4041,14 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["d811e590-476d-4058-8527-ddb626920657", "0c3f8740-62fc-4631-b2ee-37e641aa7ddb", "282028f6-2119-422d-97e4-9bcc3f8ffdad", "18df018d-9200-4303-98bf-bca84ecf546a", "ac53f46b-0031-4f3e-acb9-acdca8608e66", "fe1872c9-eaef-4888-8774-781931b7c2bf", "d0b3a0e3-5264-419e-91d6-1b6b4275b345", "953d87ba-88df-4537-842f-b234c9a6dba7", "211f4823-1763-4d4f-b896-dfe75043a303", "89c03692-09b8-465c-b6fc-b11528da806c", "bc84430b-aa2a-41bd-b3a9-43f5cd6bbe2c"]
+    "tests": ["0c3f8740-62fc-4631-b2ee-37e641aa7ddb", "18df018d-9200-4303-98bf-bca84ecf546a", "ac53f46b-0031-4f3e-acb9-acdca8608e66", "89c03692-09b8-465c-b6fc-b11528da806c", "d811e590-476d-4058-8527-ddb626920657", "211f4823-1763-4d4f-b896-dfe75043a303", "953d87ba-88df-4537-842f-b234c9a6dba7", "bc84430b-aa2a-41bd-b3a9-43f5cd6bbe2c"]
   }, {
     "id": "c043cd31-ad0e-47e8-81f1-416dfebc7b19",
     "name": "User Tests Suite",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["a8ea4739-3dfe-4dc0-a857-0f6ed4d89f1a", "c764bd19-698b-4705-80c5-e530333ca0b1", "45b4ecf9-fef1-412c-8290-3f756c009ac4", "93c4c3c3-ca47-45f2-ba3f-7b1f1325e33b", "15edf164-7a12-4217-a578-9aa3023442eb", "cbc21fd9-a471-4d06-9107-4d7f9e4cb209", "594320da-f444-424c-86d2-23f6e8644153", "d43de7fe-01e6-4c21-b970-8dcc43ed9e72", "24038926-dda0-4676-b548-b8e6bd343bcc"]
+    "tests": ["a8ea4739-3dfe-4dc0-a857-0f6ed4d89f1a", "d43de7fe-01e6-4c21-b970-8dcc43ed9e72", "c764bd19-698b-4705-80c5-e530333ca0b1", "15edf164-7a12-4217-a578-9aa3023442eb", "24038926-dda0-4676-b548-b8e6bd343bcc", "45b4ecf9-fef1-412c-8290-3f756c009ac4", "594320da-f444-424c-86d2-23f6e8644153"]
   }],
   "urls": ["http://localhost:3000/", "http://localhost:3000/adminpage", "http://gazelle.cc.gatech.edu:9301/"],
   "plugins": []
