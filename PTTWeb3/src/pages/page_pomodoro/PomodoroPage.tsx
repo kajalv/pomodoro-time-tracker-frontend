@@ -279,7 +279,7 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
           <div id="timerContainer">
             <div className={classes.timerDiv} id="workTimer">
                 <Timer
-                    initialTime={5000} /*value is in milliseconds*/ /*1200000 for 20 mins*/
+                    initialTime={1200000} /*value is in milliseconds*/ /*1200000 for 20 mins*/
                     direction="backward"
                     onStart={() => {}}
                     onResume={() => {}}
@@ -322,7 +322,7 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
             </div>
             <div className="timer-div hidden-element" id="restTimer">
             <Timer
-                initialTime={3000} /*value is in milliseconds*/ /*1200000 for 20 mins*/
+                initialTime={600000} /*value is in milliseconds*/ /*1200000 for 20 mins*/
                 direction="backward"
                 startImmediately={false}
                 onStart={() => {}}
