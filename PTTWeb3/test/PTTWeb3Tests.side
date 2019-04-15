@@ -5259,7 +5259,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["7c77bd54-f000-4f72-af16-4a2fbfe23064", "ad5df0a2-a27e-4f36-a779-e7d438d476f3", "10cac2cb-4fd1-47c5-abf7-7376722adcaf", "e8d42b19-eca0-4e55-b62d-7cfb0a7b24c2"]
+    "tests": ["7c77bd54-f000-4f72-af16-4a2fbfe23064", "ad5df0a2-a27e-4f36-a779-e7d438d476f3", "10cac2cb-4fd1-47c5-abf7-7376722adcaf", "e8d42b19-eca0-4e55-b62d-7cfb0a7b24c2", "2bb2b38f-6c18-41dd-a1ad-8a1855062c6a"]
   }],
   "urls": ["http://localhost:3000/", "http://localhost:3000/adminpage", "http://gazelle.cc.gatech.edu:9301/"],
   "plugins": []
