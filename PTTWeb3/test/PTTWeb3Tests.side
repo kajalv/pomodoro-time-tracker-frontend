@@ -2,11 +2,18 @@
   "id": "13bedb32-542a-42a9-9f43-84b0258693e7",
   "version": "2.0",
   "name": "PTTWeb3Tests",
-  "url": "http://localhost:3000/",
+  "url": "http://gazelle.cc.gatech.edu:9301/",
   "tests": [{
     "id": "d811e590-476d-4058-8527-ddb626920657",
     "name": "AdminLoginTest",
     "commands": [{
+      "id": "e8bae473-ed07-4ee2-9530-57529d5e26a3",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "400",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "7f0d6c71-09dc-46ef-939d-53737b4df880",
       "comment": "",
       "command": "open",
@@ -85,6 +92,13 @@
     "id": "0c3f8740-62fc-4631-b2ee-37e641aa7ddb",
     "name": "AdminCreateUserTest",
     "commands": [{
+      "id": "94619318-acad-4929-ae00-feff08f937dc",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "2105256c-d782-47ad-81d3-5d425408997f",
       "comment": "",
       "command": "open",
@@ -95,7 +109,7 @@
       "id": "4d33d478-ed71-450e-bd24-c2e03b95f695",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -109,14 +123,14 @@
       "id": "1e350eae-4389-43d6-89ea-8ae31106a201",
       "comment": "",
       "command": "storeText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
       "targets": [],
       "value": "id"
     }, {
       "id": "46b108db-3c8b-4839-b31c-1a243d1b09d9",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${id}\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
       "targets": [
         ["id=delete1", "id"],
         ["css=#delete1", "css:finder"],
@@ -136,8 +150,8 @@
     }, {
       "id": "3cae2c48-7e03-4855-84fc-350eaa87fad4",
       "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "command": "executeScript",
+      "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
     }, {
@@ -215,76 +229,11 @@
       ],
       "value": ""
     }, {
-      "id": "cb0e5ba5-aa2c-47e9-9a84-8f4edb24aa22",
-      "comment": "",
-      "command": "click",
-      "target": "id=CreateNewUser",
-      "targets": [
-        ["id=edit1", "id"],
-        ["css=#edit1", "css:finder"],
-        ["xpath=//button[@id='edit1']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button", "xpath:idRelative"],
-        ["xpath=//div[4]/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Edit')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "00975562-7567-463b-8d51-edab63d31679",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserfirstname",
-      "targets": [
-        ["id=editfirstname", "id"],
-        ["css=#editfirstname", "css:finder"],
-        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "Yang"
-    }, {
-      "id": "b1b686a4-eda4-4d8a-b3b9-14ff77f54dc8",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserlastname",
-      "targets": [
-        ["id=editfirstname", "id"],
-        ["css=#editfirstname", "css:finder"],
-        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "Hu"
-    }, {
-      "id": "0d206c68-f084-4a20-988a-d36733e8fa50",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuseremail",
-      "targets": [
-        ["id=editlastname", "id"],
-        ["css=#editlastname", "css:finder"],
-        ["xpath=//input[@id='editlastname']", "xpath:attributes"],
-        ["xpath=//div[3]/div/input", "xpath:position"]
-      ],
-      "value": "yhu388@gatech.edu"
-    }, {
-      "id": "67951325-127c-479a-a0b2-d868c6774672",
-      "comment": "",
-      "command": "click",
-      "target": "id=okbuttoncreate",
-      "targets": [
-        ["css=.modal-action-container", "css:finder"],
-        ["xpath=//div/div/div[4]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
       "id": "107a7739-6b5f-40c0-a85c-60dad9e85edb",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [
-        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
-        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
+      "targets": [],
       "value": "user_count"
     }, {
       "id": "e74bf9eb-4d7b-492a-bf6f-52559dab8a77",
@@ -292,35 +241,21 @@
       "command": "assert",
       "target": "user_count",
       "targets": [],
-      "value": "2"
+      "value": "1"
     }, {
       "id": "ff6bed7d-90c9-40dd-a457-174edbc6f814",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_name\"]",
       "targets": [],
       "value": "Yuhong Wang"
     }, {
       "id": "d46bdcd4-1013-4c8f-a747-7b9996c3b095",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_email\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_email\"]",
       "targets": [],
       "value": "ywang3550@gatech.edu"
-    }, {
-      "id": "d8288c65-d2be-43a8-9b07-68f6edb74a6f",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
-      "targets": [],
-      "value": "Yang Hu"
-    }, {
-      "id": "ceaaf9a6-0bbc-40fa-828c-549b442c3f0c",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_email\"]",
-      "targets": [],
-      "value": "yhu388@gatech.edu"
     }, {
       "id": "8d51467e-c24e-4188-8c96-16026bab34f0",
       "comment": "",
@@ -333,17 +268,18 @@
     "id": "a8ea4739-3dfe-4dc0-a857-0f6ed4d89f1a",
     "name": "HomePageTest",
     "commands": [{
+      "id": "a7defa48-8b29-44bb-97e6-cc1625f7733c",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "400",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "57b25cb1-0b66-4523-bd24-94aa7497c66d",
       "comment": "",
       "command": "open",
       "target": "",
-      "targets": [
-        ["css=.MuiButtonBase-root-27", "css:finder"],
-        ["xpath=//button[@type='button']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/div/a/div/button", "xpath:idRelative"],
-        ["xpath=//button", "xpath:position"],
-        ["xpath=//button[contains(.,'Get Started!')]", "xpath:innerText"]
-      ],
+      "targets": [],
       "value": "\\"
     }, {
       "id": "a98f509f-e303-4c7a-a628-b067e3212a19",
@@ -401,6 +337,13 @@
     "id": "89c03692-09b8-465c-b6fc-b11528da806c",
     "name": "AdminDeleteUserTest",
     "commands": [{
+      "id": "ed4e3fc4-7d3a-4aee-8acc-4eb640f48b8d",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "5fee8b64-68c6-4602-9852-96baa8c9fb69",
       "comment": "",
       "command": "open",
@@ -411,7 +354,7 @@
       "id": "ee61313e-b2a3-4b4b-8d20-73617c0ad081",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -422,10 +365,17 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "b519c967-d3ec-46fd-b6a0-e7e1a2038653",
+      "comment": "",
+      "command": "storeText",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
+      "targets": [],
+      "value": "id"
+    }, {
       "id": "fb1ecd2f-5b8b-43f6-b31c-31b55556ce7c",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${count}\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
       "targets": [
         ["id=delete1", "id"],
         ["css=#delete1", "css:finder"],
@@ -462,66 +412,6 @@
       "command": "assertElementPresent",
       "target": "id=CreateNewUser",
       "targets": [],
-      "value": ""
-    }, {
-      "id": "cf6fd9c5-6bcc-4edf-ad98-2c527aa72eaf",
-      "comment": "",
-      "command": "click",
-      "target": "id=CreateNewUser",
-      "targets": [
-        ["id=edit1", "id"],
-        ["css=#edit1", "css:finder"],
-        ["xpath=//button[@id='edit1']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button", "xpath:idRelative"],
-        ["xpath=//div[4]/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Edit')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "83126033-c2fb-451d-b52e-e9bee9a7e010",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserfirstname",
-      "targets": [
-        ["id=editfirstname", "id"],
-        ["css=#editfirstname", "css:finder"],
-        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "Yuhong"
-    }, {
-      "id": "423338e3-c8c0-4432-8713-251ad054adde",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserlastname",
-      "targets": [
-        ["id=editfirstname", "id"],
-        ["css=#editfirstname", "css:finder"],
-        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "Wang"
-    }, {
-      "id": "01a5bc03-99f6-480c-9992-fd58cf6e284c",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuseremail",
-      "targets": [
-        ["id=editlastname", "id"],
-        ["css=#editlastname", "css:finder"],
-        ["xpath=//input[@id='editlastname']", "xpath:attributes"],
-        ["xpath=//div[3]/div/input", "xpath:position"]
-      ],
-      "value": "ywang3550@gatech.edu"
-    }, {
-      "id": "c416066d-a7c3-44d4-8f16-04a6ce4265d8",
-      "comment": "",
-      "command": "click",
-      "target": "id=okbuttoncreate",
-      "targets": [
-        ["css=.modal-action-container", "css:finder"],
-        ["xpath=//div/div/div[4]", "xpath:position"]
-      ],
       "value": ""
     }, {
       "id": "fed584d9-a4b7-4ad1-b4e7-c1b1b63e0dd9",
@@ -587,13 +477,8 @@
       "id": "399e2fa7-3c6b-462b-b1b4-7c97da5bf648",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [
-        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
-        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
+      "targets": [],
       "value": "user_count"
     }, {
       "id": "2ee77c73-7723-4616-b808-9f3e4fdbcc92",
@@ -601,40 +486,33 @@
       "command": "assert",
       "target": "user_count",
       "targets": [],
-      "value": "2"
-    }, {
-      "id": "d8faff22-e79d-48e9-a3ed-fbb278feed1f",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
-      "targets": [],
-      "value": "Yuhong Wang"
-    }, {
-      "id": "325ecc60-3387-4f21-955e-5d2fdb1012bc",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_email\"]",
-      "targets": [],
-      "value": "ywang3550@gatech.edu"
+      "value": "1"
     }, {
       "id": "da730ed2-bcda-4153-ac76-d3c6dd811ff8",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_name\"]",
       "targets": [],
       "value": "Yang Hu"
     }, {
       "id": "92e189e2-747d-49bb-bb66-03c7ccfbce82",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_email\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_email\"]",
       "targets": [],
       "value": "yhu388@gatech.edu"
+    }, {
+      "id": "5042205e-7e17-4ec0-bad0-16bfdc65bffd",
+      "comment": "",
+      "command": "storeText",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
+      "targets": [],
+      "value": "id"
     }, {
       "id": "439f6cfc-1f20-4de3-b17e-bce877e2cb8f",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${user_count}\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
       "targets": [],
       "value": ""
     }, {
@@ -648,346 +526,18 @@
       "id": "763186b4-b30b-4dd8-94fe-5a4b8c95cc80",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [
-        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
-        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
-      "value": "current_user_count"
-    }, {
-      "id": "392d423a-471c-44a3-951b-d3055a6a405a",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return ${user_count} - 1",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
-      "value": "expected_count"
-    }, {
-      "id": "73ce417e-cd39-4cb9-9deb-d31d29ef3e93",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return ${current_user_count}",
-      "targets": [],
-      "value": "current_user_count"
-    }, {
-      "id": "2656f07b-1994-4aa1-8366-6f8dc0e16b9a",
-      "comment": "",
-      "command": "verify",
-      "target": "current_user_count",
-      "targets": [],
-      "value": "${expected_count}"
-    }, {
-      "id": "ff2532bd-87a5-4b43-ac1d-1da45c757561",
-      "comment": "",
-      "command": "close",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }]
-  }, {
-    "id": "413ef963-9943-4492-98b7-ceb64ff95b34",
-    "name": "AdminUpdateUserTest",
-    "commands": [{
-      "id": "a435a25d-4196-4b78-ba0a-84d3031bfd63",
-      "comment": "",
-      "command": "open",
-      "target": "/adminpage",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "4232bdf7-414e-4b62-8cd4-de63e22957d3",
-      "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [],
-      "value": "count"
-    }, {
-      "id": "919a94a4-95ab-40f6-b8e2-3749bbd5db7b",
-      "comment": "",
-      "command": "while",
-      "target": "(${count} != 0)",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "23b7a44a-4810-417e-8cc5-2de03f0623e3",
-      "comment": "",
-      "command": "storeText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
-      "targets": [],
-      "value": "id"
-    }, {
-      "id": "9f866f1a-ae38-4eda-af5b-f376daa2af2a",
-      "comment": "",
-      "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${id}\"]",
-      "targets": [
-        ["id=delete1", "id"],
-        ["css=#delete1", "css:finder"],
-        ["xpath=//button[@id='delete1']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button[2]", "xpath:idRelative"],
-        ["xpath=//button[2]", "xpath:position"],
-        ["xpath=//button[contains(.,'Delete')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "639911f3-dde1-443e-bbe4-a0987edb926d",
-      "comment": "",
-      "command": "click",
-      "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"okbuttondelete\"]",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "74beddb1-94bb-47d7-b040-1b0df6c0306e",
-      "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [],
-      "value": "count"
-    }, {
-      "id": "47a77f30-c788-4cfa-b6dd-02cc62d016fa",
-      "comment": "",
-      "command": "end",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "abc63b02-6e87-4f3c-9494-886ca3362958",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "id=CreateNewUser",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "df535fdc-5a47-48ab-bdfa-eba7331ac0c1",
-      "comment": "",
-      "command": "click",
-      "target": "id=CreateNewUser",
-      "targets": [
-        ["id=edit1", "id"],
-        ["css=#edit1", "css:finder"],
-        ["xpath=//button[@id='edit1']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button", "xpath:idRelative"],
-        ["xpath=//div[4]/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Edit')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "2804e60a-d284-4e78-bce0-d2f22f1f7270",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserfirstname",
-      "targets": [
-        ["id=editfirstname", "id"],
-        ["css=#editfirstname", "css:finder"],
-        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "Yuhong"
-    }, {
-      "id": "0313495b-247f-4d39-863e-103d059526b1",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserlastname",
-      "targets": [
-        ["id=editfirstname", "id"],
-        ["css=#editfirstname", "css:finder"],
-        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "Wang"
-    }, {
-      "id": "323450c8-7c52-42d3-834f-9382e422902d",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuseremail",
-      "targets": [
-        ["id=editlastname", "id"],
-        ["css=#editlastname", "css:finder"],
-        ["xpath=//input[@id='editlastname']", "xpath:attributes"],
-        ["xpath=//div[3]/div/input", "xpath:position"]
-      ],
-      "value": "ywang3550@gatech.edu"
-    }, {
-      "id": "ffe6abda-50cc-4fb5-9690-90b0b1dba98d",
-      "comment": "",
-      "command": "click",
-      "target": "id=okbuttoncreate",
-      "targets": [
-        ["css=.modal-action-container", "css:finder"],
-        ["xpath=//div/div/div[4]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "36cbc055-78b4-405e-9006-5112e5efa241",
-      "comment": "",
-      "command": "click",
-      "target": "id=CreateNewUser",
-      "targets": [
-        ["id=edit1", "id"],
-        ["css=#edit1", "css:finder"],
-        ["xpath=//button[@id='edit1']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button", "xpath:idRelative"],
-        ["xpath=//div[4]/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Edit')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "80dfa8c2-2e17-4657-a438-9a962e99497a",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserfirstname",
-      "targets": [
-        ["id=editfirstname", "id"],
-        ["css=#editfirstname", "css:finder"],
-        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "Yang"
-    }, {
-      "id": "dc28c174-2d5c-4a2f-a3e3-fd4583ec5653",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserlastname",
-      "targets": [
-        ["id=editfirstname", "id"],
-        ["css=#editfirstname", "css:finder"],
-        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "Hu"
-    }, {
-      "id": "0756cfbd-2517-4a77-9dc4-b857e9754998",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuseremail",
-      "targets": [
-        ["id=editlastname", "id"],
-        ["css=#editlastname", "css:finder"],
-        ["xpath=//input[@id='editlastname']", "xpath:attributes"],
-        ["xpath=//div[3]/div/input", "xpath:position"]
-      ],
-      "value": "yhu388@gatech.edu"
-    }, {
-      "id": "6d99aade-ac99-4334-b524-375ad0202bbb",
-      "comment": "",
-      "command": "click",
-      "target": "id=okbuttoncreate",
-      "targets": [
-        ["css=.modal-action-container", "css:finder"],
-        ["xpath=//div/div/div[4]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "17104d85-5af3-41c7-98bb-5cdb2e874199",
-      "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [
-        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
-        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
       "value": "user_count"
     }, {
-      "id": "cc2c0ebb-40b0-44a6-988a-528520a07018",
+      "id": "2656f07b-1994-4aa1-8366-6f8dc0e16b9a",
       "comment": "",
       "command": "assert",
       "target": "user_count",
       "targets": [],
-      "value": "2"
+      "value": "0"
     }, {
-      "id": "af32402c-3168-4253-bf2f-921cb4003fd9",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
-      "targets": [],
-      "value": "Yuhong Wang"
-    }, {
-      "id": "1cec008d-79c1-4da0-99d3-439012a954f4",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_email\"]",
-      "targets": [],
-      "value": "ywang3550@gatech.edu"
-    }, {
-      "id": "6ce1a962-8dbc-480b-b48d-aa493f29144b",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
-      "targets": [],
-      "value": "Yang Hu"
-    }, {
-      "id": "193400d8-e1d9-45ff-863c-b4e83c4593e7",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_email\"]",
-      "targets": [],
-      "value": "yhu388@gatech.edu"
-    }, {
-      "id": "6d08d558-5b5d-44a1-865e-36e9fd827776",
-      "comment": "",
-      "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"edit1\"]",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "0d32f0f4-0e19-4811-a07b-8e412ec95554",
-      "comment": "",
-      "command": "type",
-      "target": "id=editfirstname",
-      "targets": [],
-      "value": "Yang"
-    }, {
-      "id": "ab1253c6-40ff-4e87-b78b-9927ac3a61e8",
-      "comment": "",
-      "command": "type",
-      "target": "id=editlastname",
-      "targets": [],
-      "value": "Hu Jr."
-    }, {
-      "id": "5a7d6e2d-1545-4d1a-b908-5b88a24b8593",
-      "comment": "",
-      "command": "click",
-      "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"okbuttonedit\"]",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "a704028c-3a66-4f5c-b4f9-e228001ab89d",
-      "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [
-        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
-        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
-      "value": "current_user_count"
-    }, {
-      "id": "a1fb797a-fb29-4f36-88f1-d3ebdfa3915a",
-      "comment": "",
-      "command": "assert",
-      "target": "current_user_count",
-      "targets": [],
-      "value": "${user_count}"
-    }, {
-      "id": "ec81c0e1-7f2d-4496-8c7a-f3c1735fec4e",
-      "comment": "",
-      "command": "assertText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
-      "targets": [],
-      "value": "Yang Hu Jr."
-    }, {
-      "id": "d92ef772-af16-4315-ad63-c70cf76c27a3",
-      "comment": "",
-      "command": "assertNotText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
-      "targets": [],
-      "value": "Yuhong Wang"
-    }, {
-      "id": "10e4bc8c-3fa3-44cf-801c-d7d428082307",
+      "id": "ff2532bd-87a5-4b43-ac1d-1da45c757561",
       "comment": "",
       "command": "close",
       "target": "",
@@ -998,6 +548,13 @@
     "id": "45b4ecf9-fef1-412c-8290-3f756c009ac4",
     "name": "UserLoginTest",
     "commands": [{
+      "id": "494b2019-2423-481c-9a94-0c7c9a4301a9",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "400",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "c1f03ad9-43fd-4832-8910-81d6ea4b5d80",
       "comment": "",
       "command": "open",
@@ -1008,7 +565,7 @@
       "id": "975bac86-74bf-4730-b4b9-aa6cf1bd97b1",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -1022,14 +579,14 @@
       "id": "a8955bea-24b1-4eb6-a20e-8e9d75ac067c",
       "comment": "",
       "command": "storeText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
       "targets": [],
       "value": "id"
     }, {
       "id": "247a6672-72be-4006-adb4-f5075a37f58c",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${id}\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
       "targets": [],
       "value": ""
     }, {
@@ -1042,8 +599,8 @@
     }, {
       "id": "8fac8481-935e-4256-adba-afe24f7028d1",
       "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "command": "executeScript",
+      "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
     }, {
@@ -1173,6 +730,13 @@
     "id": "c764bd19-698b-4705-80c5-e530333ca0b1",
     "name": "UserCreateProjectTest",
     "commands": [{
+      "id": "82cce08c-6a1b-4b5e-abf3-d936c604a940",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "9c054a93-4c54-4a43-aa5f-84c0eeea727e",
       "comment": "",
       "command": "open",
@@ -1183,7 +747,7 @@
       "id": "5fe94dca-3f31-417d-8460-63f4fe62c5ba",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -1197,14 +761,14 @@
       "id": "c9b7c5bb-7e17-4e06-acfd-26dfc1e85bbc",
       "comment": "",
       "command": "storeText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
       "targets": [],
       "value": "id"
     }, {
       "id": "1b85a62d-4f93-4557-86b8-4b4a6af0a0d5",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${id}\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
       "targets": [],
       "value": ""
     }, {
@@ -1217,8 +781,8 @@
     }, {
       "id": "717f5755-f1bc-4216-b76e-7125b4a4f5fc",
       "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "command": "executeScript",
+      "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
     }, {
@@ -1260,7 +824,7 @@
         ["xpath=//input[@id='newuserfirstname']", "xpath:attributes"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "User"
+      "value": "Big"
     }, {
       "id": "4e846755-ca82-41ef-84f3-fde2214fe55c",
       "comment": "",
@@ -1272,7 +836,7 @@
         ["xpath=//input[@id='newuserlastname']", "xpath:attributes"],
         ["xpath=//div[3]/div/input", "xpath:position"]
       ],
-      "value": "Name"
+      "value": "Head"
     }, {
       "id": "396e7c4b-9da7-419d-9738-f922197bbffc",
       "comment": "",
@@ -1284,7 +848,7 @@
         ["xpath=//input[@id='newuseremail']", "xpath:attributes"],
         ["xpath=//div[4]/div/input", "xpath:position"]
       ],
-      "value": "username@email.org"
+      "value": "bighead@email.org"
     }, {
       "id": "a4fa985d-940e-47fa-b40a-ec9ab5b00a89",
       "comment": "",
@@ -1314,7 +878,7 @@
         ["xpath=//div[@id='root']/div/div/div[2]/div/div/div[2]/div/div/input", "xpath:idRelative"],
         ["xpath=//div[2]/div/div/div[2]/div/div/input", "xpath:position"]
       ],
-      "value": "username@email.org"
+      "value": "bighead@email.org"
     }, {
       "id": "2eb792b8-ed42-4523-a908-d2ca6370f1e4",
       "comment": "",
@@ -1335,7 +899,7 @@
       "command": "assertText",
       "target": "id=titleHeader",
       "targets": [],
-      "value": "User: User Name"
+      "value": "User: Big Head"
     }, {
       "id": "29ac7424-1361-4006-9122-250cc01a0741",
       "comment": "",
@@ -1361,7 +925,7 @@
       "id": "921508ef-1528-4367-9aef-1b560cab2126",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-253 MuiPaper-elevation2-257 MuiPaper-rounded-254\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -1372,273 +936,21 @@
       "targets": [],
       "value": "1"
     }, {
-      "id": "c82b8d52-7bd9-4468-a260-a6568ddf6536",
-      "comment": "",
-      "command": "close",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }]
-  }, {
-    "id": "13700d3a-1439-4be4-8bfc-adb502bf879e",
-    "name": "UserDeleteProjectTest",
-    "commands": [{
-      "id": "992b4a59-c3e4-4e6c-8a8f-b0871e1481fa",
-      "comment": "",
-      "command": "open",
-      "target": "/adminpage",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "07dfc003-a915-41a0-bc89-772d00a99fd2",
-      "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [],
-      "value": "count"
-    }, {
-      "id": "b700b9bd-468b-4633-851a-90d4edfc8083",
-      "comment": "",
-      "command": "while",
-      "target": "(${count} != 0)",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "0b225ab6-157d-4841-8a2c-45b0ee0971ad",
+      "id": "0af27b99-75e4-4f94-9f13-ede7ddf9e834",
       "comment": "",
       "command": "storeText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"project_id\"]",
       "targets": [],
       "value": "id"
     }, {
-      "id": "09842181-be41-472b-b711-8a3f4fc9f5b8",
-      "comment": "",
-      "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${id}\"]",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "609948ff-f9e4-4d74-b24a-af822bca7c10",
-      "comment": "",
-      "command": "click",
-      "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"okbuttondelete\"]",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "91c0432c-0959-42fd-b344-a6849fc347c6",
-      "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [],
-      "value": "count"
-    }, {
-      "id": "f9b948f0-df77-46e0-817d-16af8233bcfe",
-      "comment": "",
-      "command": "end",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "310b0f22-a372-4ac6-9bad-e58fdc25655b",
+      "id": "04146c0c-2d07-4a70-9a24-70ae749b8c12",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "id=CreateNewUser",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
       "targets": [],
       "value": ""
     }, {
-      "id": "2b10a357-62f6-469d-b767-709afa04e490",
-      "comment": "",
-      "command": "click",
-      "target": "id=CreateNewUser",
-      "targets": [
-        ["id=edit1", "id"],
-        ["css=#edit1", "css:finder"],
-        ["xpath=//button[@id='edit1']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button", "xpath:idRelative"],
-        ["xpath=//div[4]/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Edit')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "09438386-2858-4e71-bb7b-d7f16d733cb2",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserfirstname",
-      "targets": [
-        ["id=newuserfirstname", "id"],
-        ["css=#newuserfirstname", "css:finder"],
-        ["xpath=//input[@id='newuserfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "User"
-    }, {
-      "id": "1ee386ee-fd25-4294-983c-22b7e16646a3",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserlastname",
-      "targets": [
-        ["id=newuserlastname", "id"],
-        ["css=#newuserlastname", "css:finder"],
-        ["xpath=//input[@id='newuserlastname']", "xpath:attributes"],
-        ["xpath=//div[3]/div/input", "xpath:position"]
-      ],
-      "value": "Name"
-    }, {
-      "id": "dece9010-a983-4c49-a7d5-eedae3212588",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuseremail",
-      "targets": [
-        ["id=newuseremail", "id"],
-        ["css=#newuseremail", "css:finder"],
-        ["xpath=//input[@id='newuseremail']", "xpath:attributes"],
-        ["xpath=//div[4]/div/input", "xpath:position"]
-      ],
-      "value": "username@email.org"
-    }, {
-      "id": "58addcdb-c19b-48f5-9109-bad043d43f16",
-      "comment": "",
-      "command": "click",
-      "target": "id=okbuttoncreate",
-      "targets": [
-        ["css=.modal-action-container", "css:finder"],
-        ["xpath=//div/div/div[4]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "750a506e-34a1-4a01-a34e-76d99fae00c2",
-      "comment": "",
-      "command": "open",
-      "target": "/login",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "092847d0-2888-40df-92b0-c9db9a3c2e43",
-      "comment": "",
-      "command": "type",
-      "target": "id=useremail",
-      "targets": [
-        ["id=adminid", "id"],
-        ["css=#adminid", "css:finder"],
-        ["xpath=//input[@id='adminid']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/div/div[2]/div/div/div[2]/div/div/input", "xpath:idRelative"],
-        ["xpath=//div[2]/div/div/div[2]/div/div/input", "xpath:position"]
-      ],
-      "value": "username@email.org"
-    }, {
-      "id": "24c07592-2fd7-45e1-b3be-6fb2aacbf341",
-      "comment": "",
-      "command": "click",
-      "target": "id=userButton",
-      "targets": [
-        ["id=adminButton", "id"],
-        ["css=#adminButton", "css:finder"],
-        ["xpath=//button[@id='adminButton']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/div/div[2]/div/div[2]/button", "xpath:idRelative"],
-        ["xpath=//div[2]/div/div[2]/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Login as Admin')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "e7a98182-19bf-4587-ad83-dbde357efe4f",
-      "comment": "",
-      "command": "assertText",
-      "target": "id=titleHeader",
-      "targets": [],
-      "value": "User: User Name"
-    }, {
-      "id": "88711db4-d340-4915-bccd-4a6caaee3bb1",
-      "comment": "",
-      "command": "click",
-      "target": "id=createnewproject",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "30fec267-6a9a-479d-aa13-c40d6ed05822",
-      "comment": "",
-      "command": "type",
-      "target": "id=newprojname",
-      "targets": [],
-      "value": "MyProject"
-    }, {
-      "id": "4112c9fe-cc7d-4d22-a03d-bb11303f7fcb",
-      "comment": "",
-      "command": "click",
-      "target": "id=okbuttoncreate",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "b893904c-4e96-42b2-b8a0-460ee2606b9e",
-      "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-253 MuiPaper-elevation2-257 MuiPaper-rounded-254\"]/ul/li",
-      "targets": [],
-      "value": "count"
-    }, {
-      "id": "c52bf536-14ab-4bc0-814a-140412a6a473",
-      "comment": "",
-      "command": "assert",
-      "target": "count",
-      "targets": [],
-      "value": "1"
-    }, {
-      "id": "ce25997d-93d4-4de2-ae9d-1febfa449e87",
-      "comment": "",
-      "command": "while",
-      "target": "(${count} != 0)",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "f7547164-8542-4261-a15a-ec6ea372eba5",
-      "comment": "",
-      "command": "storeText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-253 MuiPaper-elevation2-257 MuiPaper-rounded-254\"]/ul/li/div/div[@id=\"project_id\"]",
-      "targets": [],
-      "value": "id"
-    }, {
-      "id": "8209f5b6-32b9-4dc0-abad-e0e87d5bdc90",
-      "comment": "",
-      "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-253 MuiPaper-elevation2-257 MuiPaper-rounded-254\"]/ul/li/div/div/button[@id=\"delete${id}\"]",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "25a36814-fc69-4853-a6c5-17b17c2828cc",
-      "comment": "",
-      "command": "click",
-      "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"okbuttondelete\"]",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "eb96ef7d-5210-47bf-bb96-0dcbb82c8a41",
-      "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-253 MuiPaper-elevation2-257 MuiPaper-rounded-254\"]/ul/li",
-      "targets": [],
-      "value": "count"
-    }, {
-      "id": "003b5493-e2f3-4529-adba-999cbef5fbc0",
-      "comment": "",
-      "command": "end",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "1ba85336-b79c-41f3-a978-098fc9a8b730",
-      "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-253 MuiPaper-elevation2-257 MuiPaper-rounded-254\"]/ul/li",
-      "targets": [],
-      "value": "count"
-    }, {
-      "id": "1d428b6e-77f4-4eef-99ea-1c68085348e8",
-      "comment": "",
-      "command": "assert",
-      "target": "count",
-      "targets": [],
-      "value": "0"
-    }, {
-      "id": "e8b1dd97-5c00-4e20-8105-3a80975405ac",
+      "id": "c82b8d52-7bd9-4468-a260-a6568ddf6536",
       "comment": "",
       "command": "close",
       "target": "",
@@ -1649,6 +961,13 @@
     "id": "fe1872c9-eaef-4888-8774-781931b7c2bf",
     "name": "AdminLoginBadTest",
     "commands": [{
+      "id": "d90dc9bc-d6d7-4f55-8ed1-0e9e30861b4e",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "400",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "a270dce6-19c1-4fd1-861b-3247295bcd28",
       "comment": "",
       "command": "open",
@@ -1734,6 +1053,13 @@
     "id": "282028f6-2119-422d-97e4-9bcc3f8ffdad",
     "name": "AdminCreateUserBadTest",
     "commands": [{
+      "id": "6c2093de-fe4d-4089-944a-8c5549adafae",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "6159f7cd-f57f-4ca5-92a0-649308d5bdbc",
       "comment": "",
       "command": "open",
@@ -1744,7 +1070,7 @@
       "id": "50a6ff27-4dce-4677-8319-3d5dfa17a2a9",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -1758,14 +1084,14 @@
       "id": "a82a8553-85a3-4c8b-975a-bc09f0f798ac",
       "comment": "",
       "command": "storeText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
       "targets": [],
       "value": "id"
     }, {
       "id": "4a960309-c08d-4a4c-8753-d098cf2f2c9b",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${id}\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
       "targets": [
         ["id=delete1", "id"],
         ["css=#delete1", "css:finder"],
@@ -1785,8 +1111,8 @@
     }, {
       "id": "321f731c-f247-4c07-816e-4b5f2bfba7c6",
       "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "command": "executeScript",
+      "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
     }, {
@@ -1875,24 +1201,14 @@
       "comment": "",
       "command": "chooseOkOnNextConfirmation",
       "target": "",
-      "targets": [
-        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
-        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
+      "targets": [],
       "value": "Fields cannot be empty!"
     }, {
       "id": "7fc564ca-edab-4f98-bcaf-923f1dfaa6d7",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [
-        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
-        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
+      "targets": [],
       "value": "user_count"
     }, {
       "id": "cda7b74f-c44a-4684-bc10-49b44546d8d2",
@@ -1913,6 +1229,13 @@
     "id": "18df018d-9200-4303-98bf-bca84ecf546a",
     "name": "AdminCreateUserCancelTest",
     "commands": [{
+      "id": "385f3a5b-e19e-4e9d-82cd-364d61222cc3",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "975c2046-6b8a-4a4c-bc35-b1055a5b32ea",
       "comment": "",
       "command": "open",
@@ -1923,7 +1246,7 @@
       "id": "8e9c0097-73c6-463d-8c82-4f90e29d1937",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -1937,14 +1260,14 @@
       "id": "44b23a54-8b9d-4e93-9b8f-fe91b05f862b",
       "comment": "",
       "command": "storeText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
       "targets": [],
       "value": "id"
     }, {
       "id": "e958e399-1809-4053-9ee5-79736730aae4",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${id}\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
       "targets": [
         ["id=delete1", "id"],
         ["css=#delete1", "css:finder"],
@@ -1964,8 +1287,8 @@
     }, {
       "id": "02b0accd-ebe8-40ca-bdc1-6873c9b66bd6",
       "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "command": "executeScript",
+      "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
     }, {
@@ -1981,66 +1304,6 @@
       "command": "assertElementPresent",
       "target": "id=CreateNewUser",
       "targets": [],
-      "value": ""
-    }, {
-      "id": "52dbd6ce-acc9-4857-9798-d308fcfd3d63",
-      "comment": "",
-      "command": "click",
-      "target": "id=CreateNewUser",
-      "targets": [
-        ["id=edit1", "id"],
-        ["css=#edit1", "css:finder"],
-        ["xpath=//button[@id='edit1']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button", "xpath:idRelative"],
-        ["xpath=//div[4]/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Edit')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "368a7c21-5fd1-4d16-bd2f-40496fd78e3c",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserfirstname",
-      "targets": [
-        ["id=editfirstname", "id"],
-        ["css=#editfirstname", "css:finder"],
-        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "Yuhong"
-    }, {
-      "id": "fe58a27d-c64a-4e8a-a895-787f710c5d33",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserlastname",
-      "targets": [
-        ["id=editfirstname", "id"],
-        ["css=#editfirstname", "css:finder"],
-        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "Wang"
-    }, {
-      "id": "15bd6aa2-9b5a-4012-8ae9-9b1fd4af3512",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuseremail",
-      "targets": [
-        ["id=editlastname", "id"],
-        ["css=#editlastname", "css:finder"],
-        ["xpath=//input[@id='editlastname']", "xpath:attributes"],
-        ["xpath=//div[3]/div/input", "xpath:position"]
-      ],
-      "value": "ywang3550@gatech.edu"
-    }, {
-      "id": "a2b8cb97-0efb-40db-a55b-8c1c18897ecb",
-      "comment": "",
-      "command": "click",
-      "target": "id=okbuttoncreate",
-      "targets": [
-        ["css=.modal-action-container", "css:finder"],
-        ["xpath=//div/div/div[4]", "xpath:position"]
-      ],
       "value": ""
     }, {
       "id": "fc40b793-b321-4128-8cd3-10819e726edb",
@@ -2106,13 +1369,8 @@
       "id": "bdb42a56-a2d8-46ec-832e-586d6e170047",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [
-        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
-        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
+      "targets": [],
       "value": "user_count"
     }, {
       "id": "e37de717-7079-4a21-a74d-dffe9c6c7b25",
@@ -2120,21 +1378,21 @@
       "command": "assert",
       "target": "user_count",
       "targets": [],
-      "value": "1"
+      "value": "0"
     }, {
       "id": "4117fe3d-c87e-4139-b2e3-60528be12dcc",
       "comment": "",
-      "command": "assertElementPresent",
+      "command": "assertElementNotPresent",
       "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
       "targets": [],
-      "value": "Yuhong Wang"
+      "value": "Yang Hu"
     }, {
       "id": "a89709bd-e14a-4e39-8363-294a58180a3f",
       "comment": "",
-      "command": "assertElementPresent",
+      "command": "assertElementNotPresent",
       "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_email\"]",
       "targets": [],
-      "value": "ywang3550@gatech.edu"
+      "value": "yhu388@gatech.edu"
     }, {
       "id": "4e35f2f2-6182-4a24-8e5f-0af55e04c428",
       "comment": "",
@@ -2147,6 +1405,13 @@
     "id": "ac53f46b-0031-4f3e-acb9-acdca8608e66",
     "name": "AdminDeleteUserCancelTest",
     "commands": [{
+      "id": "3ad43659-f581-4910-be11-212308f40454",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "32e4682d-c0a2-48b7-8f74-02ad31515013",
       "comment": "",
       "command": "open",
@@ -2157,7 +1422,7 @@
       "id": "6b552d61-882e-487a-878c-34e9ae2b337e",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -2168,10 +1433,17 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "d4d2ca77-1355-4a2a-8de1-7bcf58d0cb79",
+      "comment": "",
+      "command": "storeText",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
+      "targets": [],
+      "value": "id"
+    }, {
       "id": "a55ad08a-59dc-4568-8377-846fd8285ccc",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${count}\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
       "targets": [
         ["id=delete1", "id"],
         ["css=#delete1", "css:finder"],
@@ -2270,76 +1542,11 @@
       ],
       "value": ""
     }, {
-      "id": "0802b0b9-a1df-4f13-a777-9d3f0c303633",
-      "comment": "",
-      "command": "click",
-      "target": "id=CreateNewUser",
-      "targets": [
-        ["id=edit1", "id"],
-        ["css=#edit1", "css:finder"],
-        ["xpath=//button[@id='edit1']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button", "xpath:idRelative"],
-        ["xpath=//div[4]/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Edit')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "7bd9a29e-9b7e-48d8-ba8b-7adb6a6c7c73",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserfirstname",
-      "targets": [
-        ["id=editfirstname", "id"],
-        ["css=#editfirstname", "css:finder"],
-        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "Yang"
-    }, {
-      "id": "b2795745-056d-44e1-8ea5-a7f1d45ee675",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserlastname",
-      "targets": [
-        ["id=editfirstname", "id"],
-        ["css=#editfirstname", "css:finder"],
-        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "Hu"
-    }, {
-      "id": "632c5224-1842-40a6-95bd-97672a93d825",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuseremail",
-      "targets": [
-        ["id=editlastname", "id"],
-        ["css=#editlastname", "css:finder"],
-        ["xpath=//input[@id='editlastname']", "xpath:attributes"],
-        ["xpath=//div[3]/div/input", "xpath:position"]
-      ],
-      "value": "yhu388@gatech.edu"
-    }, {
-      "id": "23c517f1-393d-426c-8645-f04a71ad03ce",
-      "comment": "",
-      "command": "click",
-      "target": "id=okbuttoncreate",
-      "targets": [
-        ["css=.modal-action-container", "css:finder"],
-        ["xpath=//div/div/div[4]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
       "id": "03ef1f91-a6c5-4816-842c-9f7c930eeed2",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [
-        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
-        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
+      "targets": [],
       "value": "user_count"
     }, {
       "id": "4a341e92-0bb0-4c07-a459-ad7bcefdce98",
@@ -2347,40 +1554,33 @@
       "command": "assert",
       "target": "user_count",
       "targets": [],
-      "value": "2"
+      "value": "1"
     }, {
       "id": "c413ea8f-8b3f-4f9e-9778-ca287694fb07",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_name\"]",
       "targets": [],
       "value": "Yuhong Wang"
     }, {
       "id": "96861abc-3ab0-4c68-9478-688cb0b2a254",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_email\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_email\"]",
       "targets": [],
       "value": "ywang3550@gatech.edu"
     }, {
-      "id": "7e61d9b1-c060-4b7f-8ce5-ac5f820156cf",
+      "id": "815f33d6-e3c9-4b15-b7e1-07eb0df3f998",
       "comment": "",
-      "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
+      "command": "storeText",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
       "targets": [],
-      "value": "Yang Hu"
-    }, {
-      "id": "6f88614a-c7bc-4128-99ee-df7ca10fd2f1",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_email\"]",
-      "targets": [],
-      "value": "yhu388@gatech.edu"
+      "value": "id"
     }, {
       "id": "e1fa5766-c879-4902-a164-5da9c59fbe96",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${user_count}\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
       "targets": [],
       "value": ""
     }, {
@@ -2391,38 +1591,19 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "254eb7d8-02f9-419c-8898-788bfe4109d6",
+      "id": "bc8adf6a-d4eb-4ac7-961e-7e022d58326d",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [
-        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
-        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
-      "value": "current_user_count"
-    }, {
-      "id": "33de778c-314c-42b3-b263-74a96ee06cd6",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return ${user_count}",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
-      "value": "expected_count"
+      "value": "user_count"
     }, {
-      "id": "ab8539b3-f5cc-4cc9-a665-d7a9045e2a03",
+      "id": "226cef71-3916-4ae3-b0fd-35b1cf7b830e",
       "comment": "",
-      "command": "executeScript",
-      "target": "return ${current_user_count}",
+      "command": "assert",
+      "target": "user_count",
       "targets": [],
-      "value": "current_user_count"
-    }, {
-      "id": "05e8ca0f-9699-4af3-a8b8-290cc69a33f0",
-      "comment": "",
-      "command": "verify",
-      "target": "current_user_count",
-      "targets": [],
-      "value": "${expected_count}"
+      "value": "1"
     }, {
       "id": "5773d086-4542-4d13-a6c2-2210e841392a",
       "comment": "",
@@ -2435,6 +1616,13 @@
     "id": "953d87ba-88df-4537-842f-b234c9a6dba7",
     "name": "AdminUpdateUserCancelTest",
     "commands": [{
+      "id": "455eca07-7266-4462-a2d1-66b61e9dc5e4",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "300",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "1d275eda-8bc7-4bff-9348-a9a0526dbc3e",
       "comment": "",
       "command": "open",
@@ -2445,7 +1633,7 @@
       "id": "2c262882-bd46-4435-99a8-abcaff234064",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -2459,14 +1647,14 @@
       "id": "82f21a8e-4f81-4b06-8a3a-6712a6b4ec7c",
       "comment": "",
       "command": "storeText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
       "targets": [],
       "value": "id"
     }, {
       "id": "40ebaac6-22d9-4d0d-8013-a7003227c9df",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${id}\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
       "targets": [
         ["id=delete1", "id"],
         ["css=#delete1", "css:finder"],
@@ -2486,8 +1674,8 @@
     }, {
       "id": "2a409f05-cc21-44e1-a7f1-c5dd2ed25da0",
       "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "command": "executeScript",
+      "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
     }, {
@@ -2503,66 +1691,6 @@
       "command": "assertElementPresent",
       "target": "id=CreateNewUser",
       "targets": [],
-      "value": ""
-    }, {
-      "id": "935569da-a20d-42fc-9322-b5490748f0bb",
-      "comment": "",
-      "command": "click",
-      "target": "id=CreateNewUser",
-      "targets": [
-        ["id=edit1", "id"],
-        ["css=#edit1", "css:finder"],
-        ["xpath=//button[@id='edit1']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button", "xpath:idRelative"],
-        ["xpath=//div[4]/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Edit')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "348f2d4c-73ed-42ce-990b-30bf4526daf9",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserfirstname",
-      "targets": [
-        ["id=editfirstname", "id"],
-        ["css=#editfirstname", "css:finder"],
-        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "Yuhong"
-    }, {
-      "id": "372d4079-21cc-4e29-8405-6a48d5974ec8",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserlastname",
-      "targets": [
-        ["id=editfirstname", "id"],
-        ["css=#editfirstname", "css:finder"],
-        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "Wang"
-    }, {
-      "id": "f42d3226-6c35-481e-aa04-fc38a383fc29",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuseremail",
-      "targets": [
-        ["id=editlastname", "id"],
-        ["css=#editlastname", "css:finder"],
-        ["xpath=//input[@id='editlastname']", "xpath:attributes"],
-        ["xpath=//div[3]/div/input", "xpath:position"]
-      ],
-      "value": "ywang3550@gatech.edu"
-    }, {
-      "id": "4223c0ab-75df-41c8-971c-966b6f50e291",
-      "comment": "",
-      "command": "click",
-      "target": "id=okbuttoncreate",
-      "targets": [
-        ["css=.modal-action-container", "css:finder"],
-        ["xpath=//div/div/div[4]", "xpath:position"]
-      ],
       "value": ""
     }, {
       "id": "36cd8f66-16a6-442a-a9ee-e6689d870d10",
@@ -2628,13 +1756,8 @@
       "id": "764e1e53-f552-448c-a599-21dce1cc7e7d",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [
-        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
-        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
+      "targets": [],
       "value": "user_count"
     }, {
       "id": "3d472bcf-8c2c-4ded-bd8f-699dc878b81e",
@@ -2642,40 +1765,33 @@
       "command": "assert",
       "target": "user_count",
       "targets": [],
-      "value": "2"
-    }, {
-      "id": "102deeaf-65c4-4b8e-991e-9efbd8d8251b",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
-      "targets": [],
-      "value": "Yuhong Wang"
-    }, {
-      "id": "6a75ff71-ebf3-4fda-9bc5-2cbee5cfcec9",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_email\"]",
-      "targets": [],
-      "value": "ywang3550@gatech.edu"
+      "value": "1"
     }, {
       "id": "74741ab1-7d91-4757-915a-936cc7c5dbd9",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_name\"]",
       "targets": [],
       "value": "Yang Hu"
     }, {
       "id": "527eca2f-2b8e-4f99-b775-c09e86992180",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_email\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_email\"]",
       "targets": [],
       "value": "yhu388@gatech.edu"
+    }, {
+      "id": "e584ed7f-f8a1-415a-b1d0-97fb6ec35409",
+      "comment": "",
+      "command": "storeText",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
+      "targets": [],
+      "value": "id"
     }, {
       "id": "2b367598-8a64-4d01-b4a7-ae3277555715",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"edit1\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"edit${id}\"]",
       "targets": [],
       "value": ""
     }, {
@@ -2700,36 +1816,31 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "e1f19071-3ae0-4801-967b-da3e9489e2a8",
+      "id": "a8fc1eb6-291d-423c-9ec9-3469b796136d",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [
-        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
-        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
-      "value": "current_user_count"
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
+      "targets": [],
+      "value": "user_count"
     }, {
       "id": "30262439-903f-4893-901f-f7dc67350b24",
       "comment": "",
       "command": "assert",
-      "target": "current_user_count",
+      "target": "user_count",
       "targets": [],
-      "value": "${user_count}"
+      "value": "1"
     }, {
       "id": "41f571fe-2835-4207-8f7f-a5ea7103a0df",
       "comment": "",
       "command": "assertText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_name\"]",
       "targets": [],
-      "value": "Yuhong Wang"
+      "value": "Yang Hu"
     }, {
       "id": "8349125e-2fdc-4b4d-9ad9-e836c1509d92",
       "comment": "",
       "command": "assertNotText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_name\"]",
       "targets": [],
       "value": "Yang Hu Jr."
     }, {
@@ -2744,6 +1855,13 @@
     "id": "d0b3a0e3-5264-419e-91d6-1b6b4275b345",
     "name": "AdminUpdateUserBadTest",
     "commands": [{
+      "id": "fa87cdcc-2154-4335-b990-a5b701f4af80",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "300",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "96efaed4-0128-4d03-9726-ae39e26408b2",
       "comment": "",
       "command": "open",
@@ -2754,7 +1872,7 @@
       "id": "31fc926f-d138-4439-8d7d-f98ddcd805e8",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -2768,14 +1886,14 @@
       "id": "63e9b9b6-f45d-4ba6-8261-bc5c2ae29c69",
       "comment": "",
       "command": "storeText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
       "targets": [],
       "value": "id"
     }, {
       "id": "843a8be2-ea43-4405-a6fa-415b4ec6636a",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${id}\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
       "targets": [
         ["id=delete1", "id"],
         ["css=#delete1", "css:finder"],
@@ -2795,8 +1913,8 @@
     }, {
       "id": "c7c86bb0-791b-48fb-aab5-020ffe9aaf27",
       "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "command": "executeScript",
+      "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
     }, {
@@ -2874,76 +1992,11 @@
       ],
       "value": ""
     }, {
-      "id": "c230b7ae-b157-4aa1-9249-0b6d708be3fb",
-      "comment": "",
-      "command": "click",
-      "target": "id=CreateNewUser",
-      "targets": [
-        ["id=edit1", "id"],
-        ["css=#edit1", "css:finder"],
-        ["xpath=//button[@id='edit1']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button", "xpath:idRelative"],
-        ["xpath=//div[4]/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Edit')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "65ec69c9-a4fc-4925-9c01-c1fa8aa27cdb",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserfirstname",
-      "targets": [
-        ["id=editfirstname", "id"],
-        ["css=#editfirstname", "css:finder"],
-        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "Yang"
-    }, {
-      "id": "e80ac23a-4917-4237-b45b-2f315bd3ebc0",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserlastname",
-      "targets": [
-        ["id=editfirstname", "id"],
-        ["css=#editfirstname", "css:finder"],
-        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "Hu"
-    }, {
-      "id": "23dc381d-7af0-4b1e-96c1-f302f3e23c99",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuseremail",
-      "targets": [
-        ["id=editlastname", "id"],
-        ["css=#editlastname", "css:finder"],
-        ["xpath=//input[@id='editlastname']", "xpath:attributes"],
-        ["xpath=//div[3]/div/input", "xpath:position"]
-      ],
-      "value": "yhu388@gatech.edu"
-    }, {
-      "id": "1aabbc50-31e1-493a-bb24-fdf935cd0166",
-      "comment": "",
-      "command": "click",
-      "target": "id=okbuttoncreate",
-      "targets": [
-        ["css=.modal-action-container", "css:finder"],
-        ["xpath=//div/div/div[4]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
       "id": "0dcf5b46-316d-452f-89ea-ae407607148e",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [
-        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
-        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
+      "targets": [],
       "value": "user_count"
     }, {
       "id": "49e9de7a-f1b1-4c7f-b8a8-3e5462004623",
@@ -2951,40 +2004,33 @@
       "command": "assert",
       "target": "user_count",
       "targets": [],
-      "value": "2"
+      "value": "1"
     }, {
       "id": "8bbde0c7-1bee-4eef-930e-89d2a31d56bf",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_name\"]",
       "targets": [],
       "value": "Yuhong Wang"
     }, {
       "id": "cf17a8f3-8989-4153-8ebf-ac2d64126f20",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_email\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_email\"]",
       "targets": [],
       "value": "ywang3550@gatech.edu"
     }, {
-      "id": "04740865-76a8-4d97-93f9-d5dd6f59f065",
+      "id": "ea56504a-2efc-46a2-b33a-c5eba46af5f2",
       "comment": "",
-      "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
+      "command": "storeText",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
       "targets": [],
-      "value": "Yang Hu"
-    }, {
-      "id": "12e3f38c-1baa-4d27-a844-d42f4bf4c35a",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_email\"]",
-      "targets": [],
-      "value": "yhu388@gatech.edu"
+      "value": "id"
     }, {
       "id": "a36a2240-699a-40dd-a690-1102416ea94f",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"edit1\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"edit${id}\"]",
       "targets": [],
       "value": ""
     }, {
@@ -3013,12 +2059,7 @@
       "comment": "",
       "command": "chooseOkOnNextConfirmation",
       "target": "",
-      "targets": [
-        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
-        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
+      "targets": [],
       "value": "Fields cannot be empty!"
     }, {
       "id": "f6e5220e-8f9b-44e0-b310-e9da9e5a9674",
@@ -3035,38 +2076,26 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "432f172f-d431-49a3-a078-fd897faca613",
+      "id": "2ce43ec0-7282-41ef-bb0c-a6753d4d5b15",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [
-        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
-        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
-      "value": "current_user_count"
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
+      "targets": [],
+      "value": "user_count"
     }, {
       "id": "ad52e525-2070-4cca-a490-3b38dddf7d09",
       "comment": "",
       "command": "assert",
-      "target": "current_user_count",
+      "target": "user_count",
       "targets": [],
-      "value": "${user_count}"
+      "value": "1"
     }, {
       "id": "c36b27cd-9db7-466c-bfbd-d938c84cba93",
       "comment": "",
       "command": "assertText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_name\"]",
       "targets": [],
       "value": "Yuhong Wang"
-    }, {
-      "id": "c5ea9232-1e10-4bd9-8756-2114eba405d3",
-      "comment": "",
-      "command": "assertNotText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_name\"]",
-      "targets": [],
-      "value": "Yang Hu Jr."
     }, {
       "id": "08de29a6-42cb-4ca1-b54f-2061c2e21426",
       "comment": "",
@@ -3079,6 +2108,13 @@
     "id": "93c4c3c3-ca47-45f2-ba3f-7b1f1325e33b",
     "name": "UserLoginBadTest",
     "commands": [{
+      "id": "9c7acfa1-2518-4fe2-b1dd-1985be7f303c",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "400",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "477b6af8-e5fc-4269-bdd9-a886ea963898",
       "comment": "",
       "command": "open",
@@ -3089,7 +2125,7 @@
       "id": "2979f31d-3517-4d62-9aca-f97e772ed439",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -3103,14 +2139,14 @@
       "id": "56754e8d-29fe-4ce8-9de7-e926a9c1e344",
       "comment": "",
       "command": "storeText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
       "targets": [],
       "value": "id"
     }, {
       "id": "6c2997b4-ba75-4b27-8191-cc0d5fce5854",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${id}\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
       "targets": [],
       "value": ""
     }, {
@@ -3123,8 +2159,8 @@
     }, {
       "id": "c676cc7c-09e0-4699-a61f-36b4aa12bf25",
       "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "command": "executeScript",
+      "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
     }, {
@@ -3220,7 +2256,7 @@
         ["xpath=//div[@id='root']/div/div/div[2]/div/div/div[2]/div/div/input", "xpath:idRelative"],
         ["xpath=//div[2]/div/div/div[2]/div/div/input", "xpath:position"]
       ],
-      "value": "randomvalue@email.org"
+      "value": "typo@email.org"
     }, {
       "id": "2eca9837-ff7e-4d6a-aa49-c2acc279753d",
       "comment": "",
@@ -3261,6 +2297,13 @@
     "id": "15edf164-7a12-4217-a578-9aa3023442eb",
     "name": "UserDeleteProjectCancelTest",
     "commands": [{
+      "id": "ea4ea89c-a612-4e18-a13c-ccf26b9860cd",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "66407897-c9d8-43b9-ad09-5003a9c42283",
       "comment": "",
       "command": "open",
@@ -3271,7 +2314,7 @@
       "id": "41d8030c-9223-4ed2-b3fe-b7d25fab60b5",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -3285,14 +2328,14 @@
       "id": "5535eb9d-c581-4945-965a-0353a9518eb0",
       "comment": "",
       "command": "storeText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
       "targets": [],
       "value": "id"
     }, {
       "id": "c48e1ff3-f8c4-42e5-9a02-0613c3e0b82b",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${id}\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
       "targets": [],
       "value": ""
     }, {
@@ -3305,8 +2348,8 @@
     }, {
       "id": "958ae11e-d9f5-4a8c-96d7-08913f99ea3e",
       "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "command": "executeScript",
+      "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
     }, {
@@ -3437,7 +2480,7 @@
       "command": "type",
       "target": "id=newprojname",
       "targets": [],
-      "value": "MyProject"
+      "value": "MyAwesomeProject"
     }, {
       "id": "c7391eee-8d9a-4daa-8cbc-8626696cbfa8",
       "comment": "",
@@ -3449,7 +2492,7 @@
       "id": "220f719e-53e1-498b-93a6-8e6312a1970c",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-253 MuiPaper-elevation2-257 MuiPaper-rounded-254\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -3463,14 +2506,14 @@
       "id": "44469ccb-21d0-4171-8289-a26898464d3d",
       "comment": "",
       "command": "storeText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-253 MuiPaper-elevation2-257 MuiPaper-rounded-254\"]/ul/li/div/div[@id=\"project_id\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"project_id\"]",
       "targets": [],
       "value": "id"
     }, {
       "id": "41242602-0532-483c-9c68-009e3e7caedf",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-253 MuiPaper-elevation2-257 MuiPaper-rounded-254\"]/ul/li/div/div/button[@id=\"delete${id}\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
       "targets": [],
       "value": ""
     }, {
@@ -3484,7 +2527,7 @@
       "id": "c985a61e-18e9-4bca-8d19-31fd6da07393",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-253 MuiPaper-elevation2-257 MuiPaper-rounded-254\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -3503,219 +2546,16 @@
       "value": ""
     }]
   }, {
-    "id": "07d44f3b-ce52-4964-87ab-27cecefde4d7",
-    "name": "UserCreateProjectCancelTest",
-    "commands": [{
-      "id": "44365abb-ec4e-48a3-836d-3e84ba1d985e",
-      "comment": "",
-      "command": "open",
-      "target": "/adminpage",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "01ab69ed-2b36-4ed2-bb41-8d1a4ec287ff",
-      "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [],
-      "value": "count"
-    }, {
-      "id": "5e4a3763-126a-4e66-b9dd-72a6effedcef",
-      "comment": "",
-      "command": "while",
-      "target": "(${count} != 0)",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "a2fdc2a5-9404-450c-b1e3-2a62c1246a4b",
-      "comment": "",
-      "command": "storeText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
-      "targets": [],
-      "value": "id"
-    }, {
-      "id": "d776334c-c357-497c-a837-6f2f0393e06d",
-      "comment": "",
-      "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${id}\"]",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "d6fb0cc9-71cc-427d-9a7a-f740411a5933",
-      "comment": "",
-      "command": "click",
-      "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"okbuttondelete\"]",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "b18f570c-ce08-4415-a8a7-e9a0d39aaf3a",
-      "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [],
-      "value": "count"
-    }, {
-      "id": "042eccdb-f1a8-4bbb-87a7-9e46b8cd124f",
-      "comment": "",
-      "command": "end",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "3eb97bbd-ca06-4fd2-9f0d-d8e56c050bcb",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "id=CreateNewUser",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "a5df21a0-4553-43e7-8f5d-3f0bb70cf30e",
-      "comment": "",
-      "command": "click",
-      "target": "id=CreateNewUser",
-      "targets": [
-        ["id=edit1", "id"],
-        ["css=#edit1", "css:finder"],
-        ["xpath=//button[@id='edit1']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button", "xpath:idRelative"],
-        ["xpath=//div[4]/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Edit')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "4e0d0309-5a18-41ba-a640-c2cf8fed64ac",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserfirstname",
-      "targets": [
-        ["id=newuserfirstname", "id"],
-        ["css=#newuserfirstname", "css:finder"],
-        ["xpath=//input[@id='newuserfirstname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "User"
-    }, {
-      "id": "ba812502-8540-4a57-9c46-11a337657e6e",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuserlastname",
-      "targets": [
-        ["id=newuserlastname", "id"],
-        ["css=#newuserlastname", "css:finder"],
-        ["xpath=//input[@id='newuserlastname']", "xpath:attributes"],
-        ["xpath=//div[3]/div/input", "xpath:position"]
-      ],
-      "value": "Name"
-    }, {
-      "id": "41f7323c-ae38-4e47-bdde-178782cb5003",
-      "comment": "",
-      "command": "type",
-      "target": "id=newuseremail",
-      "targets": [
-        ["id=newuseremail", "id"],
-        ["css=#newuseremail", "css:finder"],
-        ["xpath=//input[@id='newuseremail']", "xpath:attributes"],
-        ["xpath=//div[4]/div/input", "xpath:position"]
-      ],
-      "value": "username@email.org"
-    }, {
-      "id": "51870397-e319-4395-ba40-4fcc1d855ea5",
-      "comment": "",
-      "command": "click",
-      "target": "id=okbuttoncreate",
-      "targets": [
-        ["css=.modal-action-container", "css:finder"],
-        ["xpath=//div/div/div[4]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "cbe53a36-8490-416d-b15f-c9e363d9fe75",
-      "comment": "",
-      "command": "open",
-      "target": "/login",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "77339401-a2c5-4c48-9ea3-22906e745fe2",
-      "comment": "",
-      "command": "type",
-      "target": "id=useremail",
-      "targets": [
-        ["id=adminid", "id"],
-        ["css=#adminid", "css:finder"],
-        ["xpath=//input[@id='adminid']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/div/div[2]/div/div/div[2]/div/div/input", "xpath:idRelative"],
-        ["xpath=//div[2]/div/div/div[2]/div/div/input", "xpath:position"]
-      ],
-      "value": "username@email.org"
-    }, {
-      "id": "df0ed02e-dffa-4bae-99cb-bfa4b39fd8c7",
-      "comment": "",
-      "command": "click",
-      "target": "id=userButton",
-      "targets": [
-        ["id=adminButton", "id"],
-        ["css=#adminButton", "css:finder"],
-        ["xpath=//button[@id='adminButton']", "xpath:attributes"],
-        ["xpath=//div[@id='root']/div/div/div[2]/div/div[2]/button", "xpath:idRelative"],
-        ["xpath=//div[2]/div/div[2]/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Login as Admin')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "6e80c79c-84b2-4401-b88f-8d7cead49ee2",
-      "comment": "",
-      "command": "assertText",
-      "target": "id=titleHeader",
-      "targets": [],
-      "value": "User: User Name"
-    }, {
-      "id": "11a18a95-1820-4b92-8052-736d93f01067",
-      "comment": "",
-      "command": "click",
-      "target": "id=createnewproject",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "8bac4645-2254-4ec9-82a7-edf80fc52283",
-      "comment": "",
-      "command": "type",
-      "target": "id=newprojname",
-      "targets": [],
-      "value": "MyProject"
-    }, {
-      "id": "4ac5e291-9a33-449d-a725-95818046dfe2",
-      "comment": "",
-      "command": "click",
-      "target": "id=cancelbuttoncreate",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "97fb7829-f362-4e54-9aef-6bd14f4db868",
-      "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-253 MuiPaper-elevation2-257 MuiPaper-rounded-254\"]/ul/li",
-      "targets": [],
-      "value": "count"
-    }, {
-      "id": "0faa0c8b-b5cb-4997-8a2a-69f1075485cc",
-      "comment": "",
-      "command": "assert",
-      "target": "count",
-      "targets": [],
-      "value": "0"
-    }, {
-      "id": "d8d92f20-7ba9-45a2-bbe3-cd6631b53a85",
-      "comment": "",
-      "command": "close",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }]
-  }, {
     "id": "cbc21fd9-a471-4d06-9107-4d7f9e4cb209",
     "name": "UserCreateProjectBadTest",
     "commands": [{
+      "id": "04eccf10-d468-40dc-adb9-e178f51363cf",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "fd62674a-3052-4220-8ea8-aa6fb9a7c3ac",
       "comment": "",
       "command": "open",
@@ -3726,7 +2566,7 @@
       "id": "b6a82203-a4f5-4130-986d-ab0fedc7b797",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -3740,14 +2580,14 @@
       "id": "0d9478ec-50aa-440f-95e5-3099ff017adc",
       "comment": "",
       "command": "storeText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
       "targets": [],
       "value": "id"
     }, {
       "id": "4b3040d4-fd2e-455f-a594-f2fffc3dbf2f",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${id}\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
       "targets": [],
       "value": ""
     }, {
@@ -3760,8 +2600,8 @@
     }, {
       "id": "594220e5-e803-435e-9919-d31022f9931d",
       "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "command": "executeScript",
+      "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
     }, {
@@ -3912,18 +2752,13 @@
       "comment": "",
       "command": "chooseOkOnNextConfirmation",
       "target": "",
-      "targets": [
-        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
-        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
+      "targets": [],
       "value": "Project name cannot be empty!"
     }, {
       "id": "409f3ce1-f0c4-43de-9df6-ed5acf7ac012",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-253 MuiPaper-elevation2-257 MuiPaper-rounded-254\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -3943,8 +2778,15 @@
     }]
   }, {
     "id": "211f4823-1763-4d4f-b896-dfe75043a303",
-    "name": "NoUsersTest",
+    "name": "AdminNoUsersTest",
     "commands": [{
+      "id": "b10307af-01a9-4032-b58e-37a06d295794",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "8ba14c67-bcff-42b1-ba12-d6b5f34b99e8",
       "comment": "",
       "command": "open",
@@ -3955,7 +2797,7 @@
       "id": "589694e2-4b10-4249-9c2b-e0ad1d7b16c2",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -3966,10 +2808,17 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "2fe0f8e0-5ff8-417f-b5fa-1b75a28df677",
+      "comment": "",
+      "command": "storeText",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
+      "targets": [],
+      "value": "id"
+    }, {
       "id": "acf59bf9-6092-4f58-ad67-43e29af599e8",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${count}\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
       "targets": [
         ["id=delete1", "id"],
         ["css=#delete1", "css:finder"],
@@ -4004,13 +2853,8 @@
       "id": "1ceb01ea-0ae5-4e87-a438-1a2b5fda11d3",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
-      "targets": [
-        ["css=#okbuttonedit > .MuiButton-label-2", "css:finder"],
-        ["xpath=//button[@id='okbuttonedit']/span", "xpath:idRelative"],
-        ["xpath=//div/div/div[4]/button/span", "xpath:position"],
-        ["xpath=//span[contains(.,'OK')]", "xpath:innerText"]
-      ],
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
+      "targets": [],
       "value": "user_count"
     }, {
       "id": "f8ff9f38-7ba1-4587-96a0-b1fb97ecc268",
@@ -4034,13 +2878,6 @@
       "targets": [],
       "value": "ywang3550@gatech.edu"
     }, {
-      "id": "4b8ce50d-a9bc-4d84-bfa3-ae762888c7d3",
-      "comment": "",
-      "command": "assertElementNotPresent",
-      "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"okbuttondelete\"]",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "8050a926-5b9a-4e8e-8ea7-8d841119c9a7",
       "comment": "",
       "command": "close",
@@ -4050,8 +2887,15 @@
     }]
   }, {
     "id": "594320da-f444-424c-86d2-23f6e8644153",
-    "name": "NoProjectsTest",
+    "name": "UserNoProjectsTest",
     "commands": [{
+      "id": "96c42aaf-c9db-4f9b-8d8a-4cc89dccfff0",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "ac2b284b-da2a-49a5-816f-147b6beca8a6",
       "comment": "",
       "command": "open",
@@ -4062,7 +2906,7 @@
       "id": "1208aff3-aec6-4605-a660-e5e0b72cfde5",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -4076,14 +2920,14 @@
       "id": "901e2c64-9259-4c3b-ab2e-dc195271f643",
       "comment": "",
       "command": "storeText",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div[@id=\"user_id\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
       "targets": [],
       "value": "id"
     }, {
       "id": "40e3015f-1836-444f-be6f-56b5d26ec166",
       "comment": "",
       "command": "click",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li/div/div/button[@id=\"delete${id}\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
       "targets": [],
       "value": ""
     }, {
@@ -4096,8 +2940,8 @@
     }, {
       "id": "bf3e3887-f5f3-4531-b0de-4428c83381ba",
       "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-30 MuiPaper-elevation2-34 MuiPaper-rounded-31\"]/ul/li",
+      "command": "executeScript",
+      "target": "return ${count} - 1",
       "targets": [],
       "value": "count"
     }, {
@@ -4139,7 +2983,7 @@
         ["xpath=//input[@id='newuserfirstname']", "xpath:attributes"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "User"
+      "value": "K"
     }, {
       "id": "f6da258d-3df5-4f31-904e-f41b18e717bc",
       "comment": "",
@@ -4151,7 +2995,7 @@
         ["xpath=//input[@id='newuserlastname']", "xpath:attributes"],
         ["xpath=//div[3]/div/input", "xpath:position"]
       ],
-      "value": "Name"
+      "value": "J"
     }, {
       "id": "319071fb-d864-4a6b-b544-1dd164a3cf5e",
       "comment": "",
@@ -4163,7 +3007,7 @@
         ["xpath=//input[@id='newuseremail']", "xpath:attributes"],
         ["xpath=//div[4]/div/input", "xpath:position"]
       ],
-      "value": "username@email.org"
+      "value": "KJ@email.org"
     }, {
       "id": "17f4246f-0d0a-4071-a761-7d025def3328",
       "comment": "",
@@ -4193,7 +3037,7 @@
         ["xpath=//div[@id='root']/div/div/div[2]/div/div/div[2]/div/div/input", "xpath:idRelative"],
         ["xpath=//div[2]/div/div/div[2]/div/div/input", "xpath:position"]
       ],
-      "value": "username@email.org"
+      "value": "KJ@email.org"
     }, {
       "id": "ddf61bd2-58ba-40ad-aef4-104d99fb2002",
       "comment": "",
@@ -4214,12 +3058,12 @@
       "command": "assertText",
       "target": "id=titleHeader",
       "targets": [],
-      "value": "User: User Name"
+      "value": "User: K J"
     }, {
       "id": "5b4761fe-e03d-430a-8757-303b60d6d5ef",
       "comment": "",
       "command": "storeXpathCount",
-      "target": "xpath=//div[@class=\"MuiPaper-root-253 MuiPaper-elevation2-257 MuiPaper-rounded-254\"]/ul/li",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
       "targets": [],
       "value": "count"
     }, {
@@ -4233,18 +3077,719 @@
       "id": "46869de8-de53-49b7-b488-19074b862c4f",
       "comment": "",
       "command": "assertElementNotPresent",
-      "target": "xpath=//div[@class=\"MuiPaper-root-253 MuiPaper-elevation2-257 MuiPaper-rounded-254\"]/ul/li/div/div[@id=\"project_id\"]",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"project_id\"]",
       "targets": [],
       "value": "id"
     }, {
-      "id": "49a7c850-c441-4c22-b8c3-b87e94cfce2c",
+      "id": "8bcdbb75-a6b9-431f-bb08-8dda05de5fc3",
       "comment": "",
-      "command": "assertElementNotPresent",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "bc84430b-aa2a-41bd-b3a9-43f5cd6bbe2c",
+    "name": "AdminUpdateUserTest",
+    "commands": [{
+      "id": "14f4eef7-32f7-48c5-ab56-489f2ce85a17",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "300",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ab054191-601d-45f3-ba40-92f16658ba22",
+      "comment": "",
+      "command": "open",
+      "target": "/adminpage",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "914b37a0-51e6-43ad-82ac-bac8314e087b",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "aa8628d0-3cc0-40be-b0b1-9430d8608caf",
+      "comment": "",
+      "command": "while",
+      "target": "(${count} != 0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "649a95fd-78c0-4154-a70f-6af6fa675e8b",
+      "comment": "",
+      "command": "storeText",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
+      "targets": [],
+      "value": "id"
+    }, {
+      "id": "abc84999-3d44-453c-a469-9a050da3759c",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
+      "targets": [
+        ["id=delete1", "id"],
+        ["css=#delete1", "css:finder"],
+        ["xpath=//button[@id='delete1']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Delete')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e28d6794-fdc7-4c51-aa1b-4d770b5ad2d1",
+      "comment": "",
+      "command": "click",
       "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"okbuttondelete\"]",
       "targets": [],
       "value": ""
     }, {
-      "id": "8bcdbb75-a6b9-431f-bb08-8dda05de5fc3",
+      "id": "4f32d2fe-684e-4476-9e64-34d69228d49f",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${count} - 1",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "3d63535d-02fc-4046-bdf4-2afda36f665a",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f2ff0d56-7276-49cc-bd76-58f4eb262a6d",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=CreateNewUser",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c966eb58-8c10-4752-9963-6de3e15fe99f",
+      "comment": "",
+      "command": "click",
+      "target": "id=CreateNewUser",
+      "targets": [
+        ["id=edit1", "id"],
+        ["css=#edit1", "css:finder"],
+        ["xpath=//button[@id='edit1']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Edit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6b6abb7a-6adf-4b83-a4d9-01fbed5f6a65",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuserfirstname",
+      "targets": [
+        ["id=editfirstname", "id"],
+        ["css=#editfirstname", "css:finder"],
+        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Yang"
+    }, {
+      "id": "dd7c8c64-8861-46f6-8325-8d766dc6cc19",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuserlastname",
+      "targets": [
+        ["id=editfirstname", "id"],
+        ["css=#editfirstname", "css:finder"],
+        ["xpath=//input[@id='editfirstname']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Hu"
+    }, {
+      "id": "c1838356-0a6a-4677-8315-55f4a8fc017f",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuseremail",
+      "targets": [
+        ["id=editlastname", "id"],
+        ["css=#editlastname", "css:finder"],
+        ["xpath=//input[@id='editlastname']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "yhu388@gatech.edu"
+    }, {
+      "id": "be9ff106-bb04-4275-8fd9-95794bfb60a5",
+      "comment": "",
+      "command": "click",
+      "target": "id=okbuttoncreate",
+      "targets": [
+        ["css=.modal-action-container", "css:finder"],
+        ["xpath=//div/div/div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ea0d2e7-201b-4b9d-81b4-d8bae20f8ab8",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
+      "targets": [],
+      "value": "user_count"
+    }, {
+      "id": "cfee6349-61a0-4f17-b384-d3201fcb6ed0",
+      "comment": "",
+      "command": "assert",
+      "target": "user_count",
+      "targets": [],
+      "value": "1"
+    }, {
+      "id": "39b001a3-440e-4cc9-ac9a-d797a1da7bc9",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_name\"]",
+      "targets": [],
+      "value": "Yang Hu"
+    }, {
+      "id": "e8632afa-3f5e-49bc-b736-03feb7c684c1",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_email\"]",
+      "targets": [],
+      "value": "yhu388@gatech.edu"
+    }, {
+      "id": "0fb39811-dde9-43e0-a0df-afd0e6755bb1",
+      "comment": "",
+      "command": "storeText",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
+      "targets": [],
+      "value": "id"
+    }, {
+      "id": "21db370b-d43f-4c44-9468-86c9772d723a",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"edit${id}\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "441119a0-d8f7-4687-a2b9-013356633929",
+      "comment": "",
+      "command": "type",
+      "target": "id=editfirstname",
+      "targets": [],
+      "value": "Yang"
+    }, {
+      "id": "ae60b6ad-8149-4859-9588-27347fcccecd",
+      "comment": "",
+      "command": "type",
+      "target": "id=editlastname",
+      "targets": [],
+      "value": "Hu Jr."
+    }, {
+      "id": "229eca13-5de8-4254-a53a-c949ae51804c",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"okbuttonedit\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7cc6349d-96b8-4768-a12a-c0d7c46c205e",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
+      "targets": [],
+      "value": "user_count"
+    }, {
+      "id": "1b438791-40eb-49d1-a8db-fa9eb022f40d",
+      "comment": "",
+      "command": "assert",
+      "target": "user_count",
+      "targets": [],
+      "value": "1"
+    }, {
+      "id": "2ad80dea-4864-4d0b-b7cd-5269b9f9df0d",
+      "comment": "",
+      "command": "assertNotText",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_name\"]",
+      "targets": [],
+      "value": "Yang Hu"
+    }, {
+      "id": "e6aac3fe-469c-4031-b172-0e92a0be41cb",
+      "comment": "",
+      "command": "assertText",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_name\"]",
+      "targets": [],
+      "value": "Yang Hu Jr."
+    }, {
+      "id": "83d808e5-e9e8-4a3f-b6a8-99967dbe40ba",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "d43de7fe-01e6-4c21-b970-8dcc43ed9e72",
+    "name": "UserCreateProjectCancelTest",
+    "commands": [{
+      "id": "f21e647e-7c61-4d63-8101-361affeb06ab",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "23b836e1-6c87-4a01-8f5b-bdc28f0aad34",
+      "comment": "",
+      "command": "open",
+      "target": "/adminpage",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dfad5c84-5938-4165-836e-68b5f4c7096f",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "de08c955-b214-4c81-bdaf-11dd2d4989d2",
+      "comment": "",
+      "command": "while",
+      "target": "(${count} != 0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8d6e7815-b1fd-4826-baf7-b89858d3db1b",
+      "comment": "",
+      "command": "storeText",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
+      "targets": [],
+      "value": "id"
+    }, {
+      "id": "b9d1e1e0-a2d0-4541-9ee8-c1f2c9c33051",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9b567de4-5bc9-4d4a-bc18-27b6771e2f1a",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"okbuttondelete\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7c536252-0f9a-4369-b498-0e6be5eeff65",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${count} - 1",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "396cf895-7c98-4dda-8680-1df5287ac102",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1d41e973-d4d9-4efe-a8bb-15ee384d9322",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=CreateNewUser",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "93377653-29ab-4ec9-a6b6-56c131fd72b2",
+      "comment": "",
+      "command": "click",
+      "target": "id=CreateNewUser",
+      "targets": [
+        ["id=edit1", "id"],
+        ["css=#edit1", "css:finder"],
+        ["xpath=//button[@id='edit1']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Edit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b16c437d-6807-4017-a3da-6e89c0ebe811",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuserfirstname",
+      "targets": [
+        ["id=newuserfirstname", "id"],
+        ["css=#newuserfirstname", "css:finder"],
+        ["xpath=//input[@id='newuserfirstname']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Big"
+    }, {
+      "id": "250d6a40-ab3f-4d38-9d0d-49538084cd53",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuserlastname",
+      "targets": [
+        ["id=newuserlastname", "id"],
+        ["css=#newuserlastname", "css:finder"],
+        ["xpath=//input[@id='newuserlastname']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "Head"
+    }, {
+      "id": "0f1dd159-0ebc-4380-a6e2-f8713ed2c3c5",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuseremail",
+      "targets": [
+        ["id=newuseremail", "id"],
+        ["css=#newuseremail", "css:finder"],
+        ["xpath=//input[@id='newuseremail']", "xpath:attributes"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": "bighead@email.org"
+    }, {
+      "id": "3ede80d9-b160-4937-96ba-7532d2d931cb",
+      "comment": "",
+      "command": "click",
+      "target": "id=okbuttoncreate",
+      "targets": [
+        ["css=.modal-action-container", "css:finder"],
+        ["xpath=//div/div/div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c8936cd9-d087-41fd-9384-2bc45da89561",
+      "comment": "",
+      "command": "open",
+      "target": "/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c6e5ffaf-b1e4-4bf5-ac94-7499da3ba7e3",
+      "comment": "",
+      "command": "type",
+      "target": "id=useremail",
+      "targets": [
+        ["id=adminid", "id"],
+        ["css=#adminid", "css:finder"],
+        ["xpath=//input[@id='adminid']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div[2]/div/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "bighead@email.org"
+    }, {
+      "id": "7381ea1c-bc8b-406a-93c7-13487f591df4",
+      "comment": "",
+      "command": "click",
+      "target": "id=userButton",
+      "targets": [
+        ["id=adminButton", "id"],
+        ["css=#adminButton", "css:finder"],
+        ["xpath=//button[@id='adminButton']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div[2]/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login as Admin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "de8dc718-dd3c-446e-819f-61cb5b89f638",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=titleHeader",
+      "targets": [],
+      "value": "User: Big Head"
+    }, {
+      "id": "7e07eeea-a154-4da1-ae81-e42e3b90a4fb",
+      "comment": "",
+      "command": "click",
+      "target": "id=createnewproject",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "579cc1fa-4879-435c-a670-6da230ec6c2e",
+      "comment": "",
+      "command": "type",
+      "target": "id=newprojname",
+      "targets": [],
+      "value": "MyProject"
+    }, {
+      "id": "9bb12305-fd9c-4cfa-8b99-f53108699d5d",
+      "comment": "",
+      "command": "click",
+      "target": "id=cancelbuttoncreate",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9886325d-da3e-4caf-951c-b990d2682e92",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "b0bceb34-19c3-4327-85cd-84520bfb6490",
+      "comment": "",
+      "command": "assert",
+      "target": "count",
+      "targets": [],
+      "value": "0"
+    }, {
+      "id": "ae15e0f0-0cc6-4a87-b3e1-1017dca470d5",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "24038926-dda0-4676-b548-b8e6bd343bcc",
+    "name": "UserDeleteProjectTest",
+    "commands": [{
+      "id": "ddcaf32b-3bc0-4618-a0cf-d4762164272a",
+      "comment": "",
+      "command": "setSpeed",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "418c1737-2f40-434d-a9b0-226c61b3ff1e",
+      "comment": "",
+      "command": "open",
+      "target": "/adminpage",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1ff8f2ff-b445-4837-9eb3-8fcc65b9ff43",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "06612203-8a5e-4ba3-90fb-d094acf1ad4f",
+      "comment": "",
+      "command": "while",
+      "target": "(${count} != 0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9596a5b7-1845-4fb9-a4fd-ee8d92fd70e0",
+      "comment": "",
+      "command": "storeText",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"user_id\"]",
+      "targets": [],
+      "value": "id"
+    }, {
+      "id": "0e8144fe-16d8-43d0-aada-a93c7ec1e21a",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5208209c-dc70-425d-bf06-5d6d659ffdc5",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"okbuttondelete\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e0986ec3-a4a9-40dd-9a34-7a4882b58bfa",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${count} - 1",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "2223e977-7270-4518-bb32-03f4dfd3532d",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cb5b32bb-af10-4618-a5e7-c3c51f811700",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=CreateNewUser",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "038784d7-5907-44e4-b51b-4c87b0b86a99",
+      "comment": "",
+      "command": "click",
+      "target": "id=CreateNewUser",
+      "targets": [
+        ["id=edit1", "id"],
+        ["css=#edit1", "css:finder"],
+        ["xpath=//button[@id='edit1']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div/ul/li/div/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Edit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3453cae8-9cb2-43c0-b255-e7a11f03ed84",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuserfirstname",
+      "targets": [
+        ["id=newuserfirstname", "id"],
+        ["css=#newuserfirstname", "css:finder"],
+        ["xpath=//input[@id='newuserfirstname']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "User"
+    }, {
+      "id": "38c4c7e7-1924-4b92-af72-b4aba210c56e",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuserlastname",
+      "targets": [
+        ["id=newuserlastname", "id"],
+        ["css=#newuserlastname", "css:finder"],
+        ["xpath=//input[@id='newuserlastname']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "Name"
+    }, {
+      "id": "ea733cbf-6cd0-44f4-ade3-c5d2357eee12",
+      "comment": "",
+      "command": "type",
+      "target": "id=newuseremail",
+      "targets": [
+        ["id=newuseremail", "id"],
+        ["css=#newuseremail", "css:finder"],
+        ["xpath=//input[@id='newuseremail']", "xpath:attributes"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": "username@email.org"
+    }, {
+      "id": "dc98409c-09f8-41e5-8511-83236d12029f",
+      "comment": "",
+      "command": "click",
+      "target": "id=okbuttoncreate",
+      "targets": [
+        ["css=.modal-action-container", "css:finder"],
+        ["xpath=//div/div/div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d36dde63-c056-4674-a231-c73815347452",
+      "comment": "",
+      "command": "open",
+      "target": "/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4da018f0-5f07-4a4f-ab60-2a62d8d27576",
+      "comment": "",
+      "command": "type",
+      "target": "id=useremail",
+      "targets": [
+        ["id=adminid", "id"],
+        ["css=#adminid", "css:finder"],
+        ["xpath=//input[@id='adminid']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div[2]/div/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "username@email.org"
+    }, {
+      "id": "f15c7991-3c86-4de5-a680-98d2295f7b8d",
+      "comment": "",
+      "command": "click",
+      "target": "id=userButton",
+      "targets": [
+        ["id=adminButton", "id"],
+        ["css=#adminButton", "css:finder"],
+        ["xpath=//button[@id='adminButton']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/div[2]/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login as Admin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "183b01fc-0572-4784-b80a-d57be850261c",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=titleHeader",
+      "targets": [],
+      "value": "User: User Name"
+    }, {
+      "id": "f1ea3b87-4149-4501-a7b6-19617cb0f9a5",
+      "comment": "",
+      "command": "click",
+      "target": "id=createnewproject",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5ca5dbc0-4f0d-4f65-b5f9-baaa5f39cb6c",
+      "comment": "",
+      "command": "type",
+      "target": "id=newprojname",
+      "targets": [],
+      "value": "MyAwesomeProject"
+    }, {
+      "id": "8532ea8c-8652-40e7-90e9-fbb3f265e15c",
+      "comment": "",
+      "command": "click",
+      "target": "id=okbuttoncreate",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0d14923f-dc8f-4e00-836f-b7884cfb0de4",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "7dcb4431-ac85-4791-93e4-a6ca75ce9bb1",
+      "comment": "",
+      "command": "assert",
+      "target": "count",
+      "targets": [],
+      "value": "1"
+    }, {
+      "id": "e3252fc0-76a9-4d74-9835-0cd94320eede",
+      "comment": "",
+      "command": "storeText",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div[@id=\"project_id\"]",
+      "targets": [],
+      "value": "id"
+    }, {
+      "id": "f4fafae0-76ba-4ce2-a8fd-faa9caa912ba",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li/div/div/button[@id=\"delete${id}\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d7d695df-7d4f-4a65-bf86-415effcf6eda",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"ReactModalPortal\"]/div/div/div/button[@id=\"okbuttondelete\"]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7784fbbb-77e1-4926-9ad5-f7039c20fb8c",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class=\"projects-page\"]/div/ul/li",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "948ebb9b-1a57-41a1-8d56-e908158bd45d",
+      "comment": "",
+      "command": "assert",
+      "target": "count",
+      "targets": [],
+      "value": "0"
+    }, {
+      "id": "bf73222a-0582-4dd9-b8c2-f73f5e3dc35d",
       "comment": "",
       "command": "close",
       "target": "",
@@ -4258,15 +3803,15 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["d811e590-476d-4058-8527-ddb626920657", "0c3f8740-62fc-4631-b2ee-37e641aa7ddb", "413ef963-9943-4492-98b7-ceb64ff95b34", "282028f6-2119-422d-97e4-9bcc3f8ffdad", "18df018d-9200-4303-98bf-bca84ecf546a", "ac53f46b-0031-4f3e-acb9-acdca8608e66", "fe1872c9-eaef-4888-8774-781931b7c2bf", "d0b3a0e3-5264-419e-91d6-1b6b4275b345", "953d87ba-88df-4537-842f-b234c9a6dba7", "211f4823-1763-4d4f-b896-dfe75043a303"]
+    "tests": ["d811e590-476d-4058-8527-ddb626920657", "0c3f8740-62fc-4631-b2ee-37e641aa7ddb", "282028f6-2119-422d-97e4-9bcc3f8ffdad", "18df018d-9200-4303-98bf-bca84ecf546a", "ac53f46b-0031-4f3e-acb9-acdca8608e66", "fe1872c9-eaef-4888-8774-781931b7c2bf", "d0b3a0e3-5264-419e-91d6-1b6b4275b345", "953d87ba-88df-4537-842f-b234c9a6dba7", "211f4823-1763-4d4f-b896-dfe75043a303", "89c03692-09b8-465c-b6fc-b11528da806c", "bc84430b-aa2a-41bd-b3a9-43f5cd6bbe2c"]
   }, {
     "id": "c043cd31-ad0e-47e8-81f1-416dfebc7b19",
     "name": "User Tests Suite",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["a8ea4739-3dfe-4dc0-a857-0f6ed4d89f1a", "c764bd19-698b-4705-80c5-e530333ca0b1", "45b4ecf9-fef1-412c-8290-3f756c009ac4", "93c4c3c3-ca47-45f2-ba3f-7b1f1325e33b", "13700d3a-1439-4be4-8bfc-adb502bf879e", "15edf164-7a12-4217-a578-9aa3023442eb", "07d44f3b-ce52-4964-87ab-27cecefde4d7", "cbc21fd9-a471-4d06-9107-4d7f9e4cb209", "594320da-f444-424c-86d2-23f6e8644153"]
+    "tests": ["a8ea4739-3dfe-4dc0-a857-0f6ed4d89f1a", "c764bd19-698b-4705-80c5-e530333ca0b1", "45b4ecf9-fef1-412c-8290-3f756c009ac4", "93c4c3c3-ca47-45f2-ba3f-7b1f1325e33b", "15edf164-7a12-4217-a578-9aa3023442eb", "cbc21fd9-a471-4d06-9107-4d7f9e4cb209", "594320da-f444-424c-86d2-23f6e8644153", "d43de7fe-01e6-4c21-b970-8dcc43ed9e72", "24038926-dda0-4676-b548-b8e6bd343bcc"]
   }],
-  "urls": ["http://localhost:3000/", "http://localhost:3000/adminpage"],
+  "urls": ["http://localhost:3000/", "http://localhost:3000/adminpage", "http://gazelle.cc.gatech.edu:9301/"],
   "plugins": []
 }
