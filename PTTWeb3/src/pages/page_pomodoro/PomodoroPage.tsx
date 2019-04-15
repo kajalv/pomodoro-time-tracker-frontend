@@ -151,8 +151,9 @@ class PomodoroPage extends React.Component<PomodoroPageProps, PomodoroPageState>
 
   closeModalAndEndSession() {
     // close modal and end session, but do not log partial info
-    if (this.props.location.state && this.props.location.state.userToAssociate && this.props.location.state.startTime && this.isThereAProjectToAssociate() && this.props.location.state.associatedProjectId) {
+    if (this.state.pomodorosCompleted > 0 && this.props.location.state && this.props.location.state.userToAssociate && this.props.location.state.startTime && this.isThereAProjectToAssociate() && this.props.location.state.associatedProjectId) {
       // only if the user and project details are available, log the data
+      // and only if there was something completed i.e. pomodorosCompleted > 0
       CreateNewSession(this.props.location.state.userToAssociate, this.props.location.state.associatedProjectId, this.props.location.state.startTime, this.state.endTimeOfLastPomodoro, this.state.pomodorosCompleted)
       .then(() => {
         this.setState({
