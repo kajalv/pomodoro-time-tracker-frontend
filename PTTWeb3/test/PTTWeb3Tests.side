@@ -4036,7 +4036,7 @@
     }]
   }, {
     "id": "ad5df0a2-a27e-4f36-a779-e7d438d476f3",
-    "name": "PomodoroStartNewNoProject",
+    "name": "PomodoroStartNewNoAssociateProject",
     "commands": [{
       "id": "cb027d1c-f798-4ac9-bf51-8a1ea11adc0d",
       "comment": "",
@@ -4209,6 +4209,13 @@
       ],
       "value": ""
     }, {
+      "id": "eacce90b-9c96-4b83-ad95-5a56c91e7f7e",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "id=startsession",
+      "targets": [],
+      "value": "timeout=10"
+    }, {
       "id": "91129e2e-9946-4f6e-a563-31ebe69c6f96",
       "comment": "",
       "command": "assertElementPresent",
@@ -4257,6 +4264,20 @@
       "target": "id=worklabel",
       "targets": [],
       "value": ""
+    }, {
+      "id": "225b248f-ee13-4501-8dfe-bbcc7e8c567d",
+      "comment": "",
+      "command": "click",
+      "target": "id=stopsession",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "906e9e15-89fb-4cbd-9733-d5c0e3d7464d",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=titleHeader",
+      "targets": [],
+      "value": "User: Big Head"
     }, {
       "id": "c4223930-1d9d-4ada-8091-7950229c6218",
       "comment": "",
@@ -4519,7 +4540,7 @@
     }]
   }, {
     "id": "10cac2cb-4fd1-47c5-abf7-7376722adcaf",
-    "name": "PomodoroStopCancel",
+    "name": "PomodoroCancelCreate",
     "commands": [{
       "id": "50970c83-6f42-47dd-9794-ca44bd140d66",
       "comment": "",
@@ -4694,10 +4715,10 @@
     }, {
       "id": "2ec2db75-ecd6-4b8f-8da5-98a0579402c1",
       "comment": "",
-      "command": "assertElementPresent",
+      "command": "waitForElementPresent",
       "target": "id=createnewproject",
       "targets": [],
-      "value": ""
+      "value": "timeout=10"
     }, {
       "id": "f0ae1864-2ec5-496d-8b88-7ddd8976d9ef",
       "comment": "",
@@ -4937,12 +4958,33 @@
       ],
       "value": ""
     }, {
-      "id": "75466776-5fcb-4050-b5c0-cd8ab2d705a2",
+      "id": "6d35b581-d267-4f4e-8f70-a1ec6b0eb725",
       "comment": "",
-      "command": "assertElementPresent",
-      "target": "id=getreportbutton",
+      "command": "click",
+      "target": "id=createnewproject",
       "targets": [],
       "value": ""
+    }, {
+      "id": "69260efb-8270-4d43-9c97-99815415619f",
+      "comment": "",
+      "command": "type",
+      "target": "id=newprojname",
+      "targets": [],
+      "value": "Project1"
+    }, {
+      "id": "3bdcc0b6-3757-4126-a1a0-877fc99effcb",
+      "comment": "",
+      "command": "click",
+      "target": "id=okbuttoncreate",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b0011d95-3eb2-4f29-b4d1-0cfc924439ea",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "id=getreportbutton",
+      "targets": [],
+      "value": "timeout=10"
     }, {
       "id": "2e8183da-5d51-4dff-b277-499179793fea",
       "comment": "",
@@ -4951,12 +4993,89 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "a14710b9-bb2e-41ef-98c1-32c16d2e6e16",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"Dropdown-root\"]/div/div/span",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dde6c84d-2286-4e49-af6b-56e64c208f9d",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@class=\"Dropdown-root is-open\"]/div[@class=\"Dropdown-menu\"]/div",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d255607f-2929-4a67-93fa-36bb2c3f6481",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=(//div[@class=\"date-picker\"]/div/div/input)[1]",
+      "targets": [],
+      "value": "January 1, 2019"
+    }, {
+      "id": "cec58810-f021-481f-9ef2-cd267bbdc694",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=(//div[@class=\"radio-options\"]/div/input[@value=\"yes\"])[1]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fc8ed43f-139e-4250-b3e7-838ed285f90f",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=(//div[@class=\"radio-options\"]/div/input[@value=\"yes\"])[2]",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "6850ffb6-b0de-4a1a-8122-15337969470b",
       "comment": "",
       "command": "click",
-      "target": "id=cancelbuttonreport",
+      "target": "id=okbuttonreport",
       "targets": [],
       "value": ""
+    }, {
+      "id": "995b00ea-fdee-44bc-ad8f-d2e03bc476eb",
+      "comment": "",
+      "command": "pause",
+      "target": "500",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "56d5077c-97e8-4039-8d15-88ec30541cc3",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=optionpomolabel",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "59b12033-bfb8-4ec0-921e-972cc8b39cf1",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=optionhourslabel",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9e3225de-fe2a-4346-ad9a-127d67c0d53d",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=backbutton",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2d634f04-a957-4a6a-a674-a71c147fd582",
+      "comment": "",
+      "command": "click",
+      "target": "id=backbutton",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "746264b2-86e7-4346-aa1e-82e81001dfbc",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=titleHeader",
+      "targets": [],
+      "value": "User: Big Head"
     }, {
       "id": "e3a6983b-eff1-4c5f-be57-54df06f02f24",
       "comment": "",
@@ -5233,6 +5352,41 @@
     }, {
       "id": "df6e1a90-107f-4a27-bdb6-4d204bc8af0a",
       "comment": "",
+      "command": "click",
+      "target": "id=stopsession",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9ac8d0e0-6049-40fa-b2a3-958c54bbb174",
+      "comment": "",
+      "command": "click",
+      "target": "id=cancelpartialbutton",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dfdb17d6-34ff-4a79-9a68-904d232d1652",
+      "comment": "",
+      "command": "click",
+      "target": "id=stopsession",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "97b56fda-6a21-4706-b648-cf99c379c617",
+      "comment": "",
+      "command": "click",
+      "target": "id=endsessionbutton",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e2eb13a4-849c-429c-b88d-8e34f7a55e5d",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=titleHeader",
+      "targets": [],
+      "value": "User: Big Head"
+    }, {
+      "id": "56d482f1-6fde-4eb7-a89f-26c061264ed7",
+      "comment": "",
       "command": "close",
       "target": "",
       "targets": [],
@@ -5259,7 +5413,14 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["7c77bd54-f000-4f72-af16-4a2fbfe23064", "ad5df0a2-a27e-4f36-a779-e7d438d476f3", "10cac2cb-4fd1-47c5-abf7-7376722adcaf", "e8d42b19-eca0-4e55-b62d-7cfb0a7b24c2", "2bb2b38f-6c18-41dd-a1ad-8a1855062c6a"]
+    "tests": ["ad5df0a2-a27e-4f36-a779-e7d438d476f3", "2bb2b38f-6c18-41dd-a1ad-8a1855062c6a", "10cac2cb-4fd1-47c5-abf7-7376722adcaf"]
+  }, {
+    "id": "45f9d029-4349-49a4-b51a-0fb8635fce20",
+    "name": "Report Tests Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["7c77bd54-f000-4f72-af16-4a2fbfe23064"]
   }],
   "urls": ["http://localhost:3000/", "http://localhost:3000/adminpage", "http://gazelle.cc.gatech.edu:9301/"],
   "plugins": []
